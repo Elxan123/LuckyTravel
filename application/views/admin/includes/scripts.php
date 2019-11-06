@@ -13,6 +13,7 @@
 <script src="<?php echo base_url("public/admin/")?>js/jquery.dataTables.js"></script>
 <script src="<?php echo base_url("public/admin/")?>js/sweetalert.min.js"></script>
 <script src="<?php echo base_url("public/admin/")?>js/dataTables.bootstrap4.min.js"></script>
+<script src="<?php echo base_url("public/admin/")?>js/dropzone.js"></script>
 <script src="<?php echo base_url("public/admin/")?>js/custom.js"></script>
 
 
