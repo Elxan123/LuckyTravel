@@ -26,13 +26,13 @@ class MY_Controller extends CI_Controller{
         foreach ($config["inputs_array"] as $key => $value){
 
 //          inputlarin arrayinin icinde gelen deyerin ilk 9 herfi "not_input" dursa demeli o input deyil manual deyer olaraq qebul edilir
-            $additional_id  = substr($value, 0, 9);
+            $additional_id  = substr($value, 0, 11);
             $additional_editor  = substr($value, 0,8);
             $additional_file  = substr($value, 0,6);
 
 //          eger inputun ilk 9 herfi "not_input" dursa onu postnan cagirmir sadece default deyer kimi goturur
             if ($additional_id == "(not_input)" && strlen($value) > 11){
-                $post_data = substr($value, 9);
+                $post_data = substr($value, 11);
             }
             elseif ($additional_editor == "(editor)" && strlen($value) > 8){
                 $editor = substr($value, 8);
@@ -69,8 +69,6 @@ class MY_Controller extends CI_Controller{
             $data[$key] = $post_data;
 
         }
-
-
 
 
 //      eyer cond 1 dise succes linke success alerti ile birlikde redirect edir
@@ -238,6 +236,15 @@ class MY_Controller extends CI_Controller{
 
         }else{
 
+            $row = $this->Core->get_where_row($config["where"], $config["table_name"]);
+
+
+
+            foreach ($config["table_file_field_names"] as $file){
+                if (!empty($row[$file]) && $row[$file] != "default.png" && $row[$file] != "doc.png")
+                    unlink($config["upload_path"] . $row[$file]);
+            }
+
             $result = $this->Core->delete($config["where"], $config["table_name"]);
 
             if ($result == 1){
@@ -322,13 +329,13 @@ class MY_Controller extends CI_Controller{
 
 //======================================== Dinamik Ajax Sekil upload(galereya) functionlari ===================================================
 
-    //core v1.0
-    public function insert_db_ajax_img($upload_date_field_name, $upload_path, $input_name, $field_name ,$table_name){
+    //core v2.0 hele tamalanmiyib!!
+    public function dropzone($config2){
 
         //      sekiller dropzonedan upload edilir
-        $config['upload_path'] = $upload_path;
+        $config['upload_path'] = $config2["upload_path"];
         $config['allowed_types'] = 'jpg|jpeg|png|gif';
-        $config['file_name'] = $_FILES[$input_name]['name'];
+        $config['file_name'] = $_FILES[$config2["input_name"]]['name'];
 
         $this->load->library('upload',$config);
         $this->upload->initialize($config);
@@ -337,8 +344,8 @@ class MY_Controller extends CI_Controller{
 
         //      upload edilecek sekil database e yuklenir
         $data  = array(
-            $field_name                => ($cond) ? $this->upload->data('file_name') : "default.png",
-            $upload_date_field_name    => date("Y/m/d"),
+            $config2["field_name"] => ($cond) ? $this->upload->data('file_name') : "default.png",
+            "tour_id" => $config2["id"],
         );
 
 
@@ -349,11 +356,11 @@ class MY_Controller extends CI_Controller{
             $this->session->set_flashdata("alert", "Şəkil Yüklənmədi!");
         }
 
-        $this->Model_for_core->core_add($data, $table_name);
+        $this->Core->add($data, $config2["table_name"]);
 
 
     }
-    //core v1.0
+    //core v2.0 hele tamalanmiyib!!
 
 //**************************************** Dinamik Ajax Sekil upload(galereya) functionlari ****************************************************
 
@@ -464,7 +471,7 @@ class MY_Controller extends CI_Controller{
         foreach ($data as $element => $val) {
 
             foreach ($config["additional_links"] as $name => $link){
-                $val[] = '<a data-href="'. $link .'" href="'. $link .'" class="btn btn-sm btn-primary c_other_link">'. $name .'</a>';
+                $val[] = '<a data-href="'. base_url($link) .'" href="'. base_url($link) .'" class="btn btn-sm btn-primary c_other_link">'. $name .'</a>';
                 $data[$element] = $val;
             }
 
@@ -506,13 +513,15 @@ class MY_Controller extends CI_Controller{
     //  core v2.0
 
 
-    //core v1.0
-    public function data_table_array($id,$id_array, $valid_columns, $additional_links, $table_name, $upload_path, $get_data_for_update_modal_link, $row_delete_link)
+    //core v2.0
+    public function data_table_array($config)
     {
 
-        if (empty($id_array))
+
+
+        if (empty($config["id_array"]))
         {
-            $id_array[] = -1;
+            $config["id_array"] = -1;
         }
 
         $draw = intval($this->input->post("draw"));
@@ -525,6 +534,7 @@ class MY_Controller extends CI_Controller{
         $dir = "";
 
 
+        $config["valid_columns"] = $this->Core->list_fields($config["table_name"]);
 
         if(!empty($order))
         {
@@ -541,29 +551,28 @@ class MY_Controller extends CI_Controller{
         }
 
 
-        if(!isset($valid_columns[$col]))
+        if(!isset($config["valid_columns"][$col]))
         {
             $order = null;
         }
         else
         {
             if ($col >= 1){
-                $order = $valid_columns[$col - 1];
+                $order = $config["valid_columns"][$col - 1];
             }else{
-                $order = $valid_columns[$col];
+                $order = $config["valid_columns"][$col];
             }
 
         }
         if($order !=null)
         {
-            $this->db->where_in($id, $id_array);
             $this->db->order_by($order, $dir);
         }
 
         if(!empty($search))
         {
             $x=0;
-            foreach($valid_columns as $sterm)
+            foreach($config["valid_columns"] as $sterm)
             {
                 if($x==0)
                 {
@@ -577,21 +586,27 @@ class MY_Controller extends CI_Controller{
             }
         }
         $this->db->limit($length,$start);
-        $employees = $this->db->get($table_name);
+        $employees = $this->db->where_in($config["id"], $config["id_array"])->get($config["table_name"]);
+
+
         $data = array();
 
 //        menim duzeltdiyim kodlar
         foreach ($employees->result_array() as $key => $item) {
             $item = array_values($item);
-            array_unshift($item , '<label><input type="checkbox" class="c_checkbox" id="'. $item[0] .'"/><span></span></label>');
+            array_unshift($item , '<input class="form-check-input c_checkbox" type="checkbox" id="'. $item[0] .'">
+            <label for="'. $item[0] .'" class="form-check-label mr-2 label-table c_label_thead"></label>');
+
             $count = 0;
             foreach ($item as $k=>$v){
                 if (substr($v, -4) == ".jpg" || substr($v, -4) == ".png" || substr($v, -5) == ".jpeg"){
-                    $item[$k] = '<img class="materialboxed" width="100px" height ="100px" style="display: initial; object-fit:contain; height:100px!important; width:100px!important" src="' . base_url($upload_path) . $v .'" alt="Sekil">';
+                    $item[$k] = '<a href="' . base_url($config["upload_path"]) . $v .'" data-size="1600x1067">
+                                  <img class="img-fluid" width="100px" height ="100px" style="display: initial; object-fit:contain; height:100px!important; width:100px!important" src="' . base_url($config["upload_path"]) . $v .'" alt="Sekil" >
+                                </a>';
+                }elseif (substr($v, -4) == ".doc" || substr($v, -4) == ".pdf" || substr($v, -4) == ".txt" || substr($v, -5) == ".docx"){
+                    $item[$k] = '<a href="'. base_url($config["upload_path"]) . $v .'" download><img class="materialboxed" width="89px" height ="44px" style="display: initial; object-fit:contain;" src="' . base_url($config["upload_path"]) . "doc.png" .'" alt="Sekil"></a>';
                 }else{
-                    if (strlen($v) > 15  && $count != 0){
-                        $v = substr($v, 0, 15) . "...";
-                    }
+
                     if ($count != 1){
                         $item[$k] = '<span class="c_update_link" >' . $v . '</span>';
                     }else{
@@ -607,19 +622,25 @@ class MY_Controller extends CI_Controller{
 
         foreach ($data as $element => $val) {
 
-            foreach ($additional_links as $name => $link){
-                $val[] = '<a data-href="'. $link .'" href="'. $link .'" class="btn btn-primary c_other_link">'. $name .'</a>';
+            foreach ($config["additional_links"] as $name => $link){
+                $val[] = '<a data-href="'. base_url($link) .'" href="'. base_url($link) .'" class="btn btn-sm btn-primary c_other_link">'. $name .'</a>';
                 $data[$element] = $val;
             }
 
-            $val[] = '<a class="btn btn-primary mr-1 c_row_update " data-updatelink = "' . $get_data_for_update_modal_link . '" onclick="document.querySelector(\'.dialog\').classList.add(\'open\')" ><i class="fas fa-wrench" style="font-size: 15px"></i></a> <a  data-deletelinkold = "' . $row_delete_link . '" data-deletelink = "' . $row_delete_link . '" class="red lighten-1 btn btn-danger mr-1 c_row_delete"><i style="font-size: 15px;" class="fas fa-trash"></i></a>';
+            $val[] = '<a data-toggle="modal" data-target="#centralModalFluidSuccessDemo"  class="btn btn-primary mr-1 btn-sm c_row_update " data-updatelink = "' . $config["link_for_update_modal"] . '" >
+                        <i class="fas fa-wrench" style="font-size: 15px"></i>
+                      </a>
+                      <a  data-deletelinkold = "' . $config["delete_link"] . '" data-deletelink = "' . $config["delete_link"] . '" class="red lighten-1 btn btn-sm btn-danger mr-1 c_row_delete">
+                        <i style="font-size: 15px;" class="fas fa-trash"></i>
+                      </a>';
             $data[$element] = $val;
 
         }
 //        menim duzeltdiyim kodlar
 
 
-        $total_employees = $this->data_table_2_array($id, $id_array , $table_name);
+
+        $total_employees = $this->data_table_2_array($config["id"], $config["id_array"], $config["table_name"]);
         $output = array(
             "draw" => $draw,
             "recordsTotal" => $total_employees,
@@ -629,10 +650,11 @@ class MY_Controller extends CI_Controller{
 
         echo json_encode($output);
         exit();
-    }
-    //core v1.0
 
-    //core v1.0
+    }
+    //core v2.0
+
+    //core v2.0
     public function data_table_2_array($id, $id_array, $table_name)
     {
         $query = $this->db->where_in($id, $id_array)->select("COUNT(*) as num")->get($table_name);
@@ -640,7 +662,7 @@ class MY_Controller extends CI_Controller{
         if(isset($result)) return $result->num;
         return 0;
     }
-    //core v1.0
+    //core v2.0
 
 
 //**************************************** Dinamik Data table kodlari ****************************************************
