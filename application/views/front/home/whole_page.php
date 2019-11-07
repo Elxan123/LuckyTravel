@@ -180,93 +180,44 @@
         </div>
         <div class="find-form no-padding col-xs-12 col-md-6">
             <div>
-                <h4 class="ff_subtitle">your journey with us</h4>
-                <h2 class="ff_title">find perfect trip</h2>
-                <div class="ff_text">Curabitur nunc erat, consequat in erat ut, congue bibendum nulla suspendisse</div>
+                <h4 class="ff_subtitle"><?php echo $this->lang->line("elaqe"); ?></h4>
+                <div class="ff_text"></div>
+                <form method="post" action="<?php echo base_url("az/message_send")?>" >
                 <div class="form-block clearfix">
-                    <div class="form-label color-white">Your Destination</div>
+                    <div class="form-label color-white">Your Full Name</div>
                     <div class="input-style-1">
-                        <img src="<?php echo base_url("public/front/") ?>img/loc_icon_small.png" alt="">
-                        <input type="text" placeholder="Enter a destination or hotel name">
+                        <input type="text" placeholder="Enter your full name"  name="user" required>
                     </div>
                 </div>
+
                 <div class="row">
                     <div class="col-xs-12 col-sm-6">
                         <div class="form-block clearfix">
-                            <div class="form-label color-white">Check In</div>
+                            <div class="form-label color-white">Mail</div>
                             <div class="input-style-1">
-                                <img src="<?php echo base_url("public/front/") ?>img/calendar_icon.png" alt="">
-                                <input type="text" placeholder="Mm/Dd/Yy" class="datepicker">
+                                <input type="email" placeholder="Enter your mail" name="mail">
                             </div>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6">
                         <div class="form-block clearfix">
-                            <div class="form-label color-white">Check Out</div>
+                            <div class="form-label color-white">Number</div>
                             <div class="input-style-1">
-                                <img src="<?php echo base_url("public/front/") ?>img/calendar_icon.png" alt="">
-                                <input type="text" placeholder="Mm/Dd/Yy" class="datepicker">
+                                <input type="text" placeholder="Enter your number" name="number" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12">
+                        <div class="form-block clearfix">
+                            <div class="form-label color-white">Message</div>
+                            <div class="input-style-1">
+                                <input type="text" placeholder="Enter message" name="msg" required>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-xs-12 col-sm-4">
-                        <div class="form-block clearfix">
-                            <div class="form-label color-white">Kids</div>
-                            <div class="drop-wrap drop-wrap-s-3">
-                                <div class="drop">
-                                    <b>01 kids</b>
-                                    <a href="#" class="drop-list"><i class="fa fa-angle-down"></i></a>
-                                    <span>
-										    <a href="#">01 kids</a>
-											<a href="#">02 kids</a>
-											<a href="#">03 kids</a>
-											<a href="#">04 kids</a>
-											<a href="#">05 kids</a>
-										</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-4">
-                        <div class="form-block clearfix">
-                            <div class="form-label color-white">Adults</div>
-                            <div class="drop-wrap drop-wrap-s-3">
-                                <div class="drop">
-                                    <b>01 adult</b>
-                                    <a href="#" class="drop-list"><i class="fa fa-angle-down"></i></a>
-                                    <span>
-										    <a href="#">01 adult</a>
-											<a href="#">02 adult</a>
-											<a href="#">03 adult</a>
-											<a href="#">04 adult</a>
-											<a href="#">05 adult</a>
-										</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-4">
-                        <div class="form-block clearfix">
-                            <div class="form-label color-white">Check Out</div>
-                            <div class="drop-wrap drop-wrap-s-3">
-                                <div class="drop">
-                                    <b>01 room</b>
-                                    <a href="#" class="drop-list"><i class="fa fa-angle-down"></i></a>
-                                    <span>
-										    <a href="#">01 room</a>
-											<a href="#">02 room</a>
-											<a href="#">03 room</a>
-											<a href="#">04 room</a>
-											<a href="#">05 room</a>
-										</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <input type="submit" class="c-button bg-white" value="search now">
+                <input type="submit" class="c-button bg-white" value="Send message">
+                </form>
             </div>
         </div>
     </div>

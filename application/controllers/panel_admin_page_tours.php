@@ -129,7 +129,7 @@ class panel_admin_page_tours extends MY_Controller{
     {
 
         $config["additional_links"] = array(
-            "<i class=\"fas fa-images\"></i>" => "panel_admin_page_tours/gallery/"
+            "<i class=\"fas fa-images\"></i>" => "panel_admin_page_tours/gallery/",
         );
         $config["table_name"] = $this->table_name;
         $config["upload_path"] = $this->upload_path;
