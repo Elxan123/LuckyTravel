@@ -3,40 +3,193 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="nav">
-                    <a href="index.html" class="logo">
-                        <img src="<?php echo base_url("public/front/") ?>img/theme-1/logo_dark.png" alt="lets travel">
+                    <a href="<?php
+
+                    if ($this->session->userdata("dil") == "az"){
+                        echo base_url('az/home');
+                    }
+                    elseif ($this->session->userdata("dil") == "en"){
+                        echo base_url('en/home');
+                    }
+                    elseif ($this->session->userdata("dil") == "ru"){
+                        echo base_url('ru/home');
+                    }
+
+                    ?>" class="logo">
+                        <img src="<?php echo base_url("public/front/") ?>img/theme-1/loqo_png.png" alt="lucky travel" style="width: 78px; height: 66px;" >
                     </a>
                     <div class="nav-menu-icon">
                         <a href="#"><i></i></a>
                     </div>
                     <nav class="menu">
                         <ul>
-                            <li class="type-1 active"><a href="#">home<span class="fa fa-angle-down"></span></a>
+
+                            <!--Home Page-->
+                            <li  <?php if ($this->uri->segment(2)=="home") { ?>class="type-1 active" <?php } ?> >
+                                <a href="<?php
+
+                                if ($this->session->userdata("dil") == "az"){
+                                    echo base_url('az/home');
+                                }
+                                elseif ($this->session->userdata("dil") == "en"){
+                                    echo base_url('en/home');
+                                }
+                                elseif ($this->session->userdata("dil") == "ru"){
+                                    echo base_url('ru/home');
+                                }
+
+                                ?>">
+                                    <?php echo $this->lang->line("ana_sehife"); ?><span class="fa fa-angle-down"></span>
+                                </a>
+                            </li>
+                            <!--Home Page-->
+
+
+
+
+                            <!--About-->
+                            <li  <?php if ($this->uri->segment(2)=="about") { ?>class="type-1 active" <?php } ?>>  <a href="<?php
+
+                                if ($this->session->userdata("dil") == "az"){
+                                    echo base_url('az/about');
+                                }
+                                elseif ($this->session->userdata("dil") == "en"){
+                                    echo base_url('en/about');
+                                }
+                                elseif ($this->session->userdata("dil") == "ru"){
+                                    echo base_url('ru/about');
+                                }
+
+                                ?>"><?php echo $this->lang->line("haqqimizda"); ?><span class="fa fa-angle-down"></span>
+                                </a>
+                            </li>
+                            <!--About-->
+
+
+
+
+                            <!--Services-->
+                            <li <?php if ($this->uri->segment(2)=="services") { ?>class="type-1 active" <?php } ?>><a href="<?php
+
+                                if ($this->session->userdata("dil") == "az"){
+                                    echo base_url('az/services');
+                                }
+                                elseif ($this->session->userdata("dil") == "en"){
+                                    echo base_url('en/services');
+                                }
+                                elseif ($this->session->userdata("dil") == "ru"){
+                                    echo base_url('ru/services');
+                                }
+
+                                ?>"><?php echo $this->lang->line("servisler"); ?><span class="fa fa-angle-down"></span>
+                                </a>
+                            </li>
+                            <!--Services-->
+
+
+                            <!--Tours-->
+                            <li <?php if ($this->uri->segment(2)=="tours") { ?>class="type-1 active" <?php } ?>><a href="<?php
+
+                                if ($this->session->userdata("dil") == "az"){
+                                    echo base_url('az/tours');
+                                }
+                                elseif ($this->session->userdata("dil") == "en"){
+                                    echo base_url('en/tours');
+                                }
+                                elseif ($this->session->userdata("dil") == "ru"){
+                                    echo base_url('ru/tours');
+                                }
+
+                                ?>"><?php echo $this->lang->line("turlar"); ?><span class="fa fa-angle-down"></span></a>
 
                             </li>
+                            <!--Tours-->
 
-                            <li class="type-1"><a href="#">Hotels<span class="fa fa-angle-down"></span></a>
 
+<!--
+                            <li <?php /*if ($this->uri->segment(2)=="partners") { */?>class="type-1 active" <?php /*} */?>><a href="#"><?php /*echo $this->lang->line("emekdaslarimiz"); */?><span class="fa fa-angle-down"></span></a>
+
+                            </li>-->
+
+
+
+
+                            <!--Contact-->
+                            <li <?php if ($this->uri->segment(2)=="contact") { ?>class="type-1 active" <?php } ?> >
+                                <a href="<?php
+
+                                if ($this->session->userdata("dil") == "az"){
+                                    echo base_url('az/contact');
+                                }
+                                elseif ($this->session->userdata("dil") == "en"){
+                                    echo base_url('en/contact');
+                                }
+                                elseif ($this->session->userdata("dil") == "ru"){
+                                    echo base_url('ru/contact');
+                                }
+
+                                ?>">
+                                    <?php echo $this->lang->line("elaqe"); ?>
+                                </a>
                             </li>
+                            <!--Contact-->
 
-                            <li class="type-1"><a href="#">Flights<span class="fa fa-angle-down"></span></a>
 
+                            <!--Language-->
+                            <li class="type-1"><a href="#"><?php echo $this->lang->line("dil"); ?>   <span class="fa fa-angle-down"></span></a>
+                                <ul class="dropmenu" style="text-align: center" >
+                                    <li>
+                                        <a href="<?php
+
+                                        $segment2 = $this->uri->segment(2);
+                                        $segment3 = $this->uri->segment(3);
+                                        $segment4 = $this->uri->segment(4);
+
+                                        if (!empty($this->uri->segment(2)) && !empty($this->uri->segment(3)) && !empty($this->uri->segment(4))){
+                                            echo base_url("az/" . $segment2   . "/" .  $segment3  . "/" . $segment4);
+                                        }elseif(!empty($this->uri->segment(2)) && !empty($this->uri->segment(3))){
+                                            echo base_url("az/" . $segment2   . "/" .  $segment3);
+                                        }elseif(!empty($this->uri->segment(2))){
+                                            echo base_url("az/" . $segment2);
+                                        }else{
+                                            echo base_url("az/home");
+                                        }
+
+                                        ?>">Az</a>
+                                    </li>
+                                    <li>
+                                        <a href="<?php
+
+                                        if (!empty($this->uri->segment(2)) && !empty($this->uri->segment(3)) && !empty($this->uri->segment(4))){
+                                            echo base_url("en/" . $segment2   . "/" .  $segment3   . "/" . $segment4);
+                                        }elseif(!empty($this->uri->segment(2)) && !empty($this->uri->segment(3))){
+                                            echo base_url("en/" . $segment2   . "/" .  $segment3);
+                                        }elseif(!empty($this->uri->segment(2))){
+                                            echo base_url("en/" . $segment2);
+                                        }else{
+                                            echo base_url("en/home");
+                                        }
+
+                                        ?>">En</a>
+                                    </li>
+                                    <li>
+                                        <a href="<?php
+
+                                        if (!empty($this->uri->segment(2)) && !empty($this->uri->segment(3)) && !empty($this->uri->segment(4))){
+                                            echo base_url("ru/" . $segment2   . "/" .  $segment3   . "/" . $segment4);
+                                        }elseif(!empty($this->uri->segment(2)) && !empty($this->uri->segment(3))){
+                                            echo base_url("ru/" . $segment2   . "/" .  $segment3);
+                                        }elseif(!empty($this->uri->segment(2))){
+                                            echo base_url("ru/" . $segment2);
+                                        }else{
+                                            echo base_url("ru/home");
+                                        }
+
+                                        ?>">Ru</a>
+                                    </li>
+                                </ul>
                             </li>
-
-                            <li class="type-1"><a href="#">About<span class="fa fa-angle-down"></span></a>
-
-                            </li>
-
-
-                            <li class="type-1"><a href="#">Partners<span class="fa fa-angle-down"></span></a>
-
-                            </li>
-
-                            <li class="type-1"><a href="#">Services<span class="fa fa-angle-down"></span></a>
-
-                            </li>
-                            <li class="type-1"><a href="#">Contact<span class="fa fa-angle-down"></span></a>
-                            </li>
+                            <!--Language-->
                         </ul>
                     </nav>
                 </div>
