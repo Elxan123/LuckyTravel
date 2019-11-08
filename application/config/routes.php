@@ -49,6 +49,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'panel_admin_page_tours';
+$route['default_controller'] = 'HomeWebPageCoding';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+
+
+
+
+
+//===============================================Front Hissesi========================================================================
+
+//----------------------------------------------------Ana sehife---------------------------------------
+$route['(:any)/home'] =  'HomeWebPageCoding/index';
+
+
+//----------------------------------------------------Haqqimizda---------------------------------------
+$route['(:any)/about'] =  'AboutWebPageCoding/index';
+
+
+//----------------------------------------------------Kontakt---------------------------------------
+$route['(:any)/contact'] =  'ContactWebPageCoding/index';
+$route['(:any)/message_send'] =  'ContactWebPageCoding/send_message';
+
+
+//----------------------------------------------------Kontakt---------------------------------------
+$route['(:any)/services'] =  'ServicesWebPageCoding/index';
+
+
+//----------------------------------------------------Turlar---------------------------------------
+$route['(:any)/tours'] =  'ToursWebPageCoding/index';
+$route['(:any)/tour'] =  'ToursWebPageCoding/single';

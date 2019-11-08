@@ -1,5 +1,5 @@
 <?php
- class HomeWebPageCoding extends CI_Controller{
+ class ServicesWebPageCoding extends CI_Controller{
      private $parent_folder = "";
      private $sub_folder = "";
 
@@ -8,7 +8,7 @@
          parent::__construct();
 
          $this->parent_folder = "front";
-         $this->sub_folder = "home";
+         $this->sub_folder = "services";
 
 
         $dil = $this->uri->segment(1);
