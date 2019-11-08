@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class panel_admin_page_offers extends MY_Controller{
+class Panel_admin_page_offers extends MY_Controller{
 
     private $view_folder = "";
     private $table_name= "";
@@ -86,25 +86,25 @@ class panel_admin_page_offers extends MY_Controller{
 //==============================================================================================
 
 //      tabledeki melumatlarin update olunduqu link
-        $this->update_link                    = base_url("panel_admin_page_offers/update/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
+        $this->update_link                    = base_url("Panel_admin_page_offers/update/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
 
 //      tabledeki melumatlarin add olunduqu link
-        $this->add_link                       = base_url("panel_admin_page_offers/add/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
+        $this->add_link                       = base_url("Panel_admin_page_offers/add/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
 
 //      tabledeki melumatlarin delete olunduqu link
-        $this->delete_link                    = base_url("panel_admin_page_offers/delete/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
+        $this->delete_link                    = base_url("Panel_admin_page_offers/delete/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
 
 //      ajaxnan melumatlarin modalin icine getirilmesi
-        $this->link_for_update_modal          = base_url("panel_admin_page_offers/get_data_for_update/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
+        $this->link_for_update_modal          = base_url("Panel_admin_page_offers/get_data_for_update/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
 
 //      proseslerden her hansi biri ugurla basa catdiqda hansi linke atsin
-        $this->success_link                   = base_url("panel_admin_page_offers/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
+        $this->success_link                   = base_url("Panel_admin_page_offers/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
 
 //      proseslerden her hansi biri ugurla basa catmadiqda hansi linke atsin
-        $this->error_link                     = base_url("panel_admin_page_offers/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
+        $this->error_link                     = base_url("Panel_admin_page_offers/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
 
 //      data tablenin icine melumatlarin ajaxnan getirilmesi ucun lazim olan link
-        $this->get_data_link                  = base_url("panel_admin_page_offers/get_data");
+        $this->get_data_link                  = base_url("Panel_admin_page_offers/get_data");
     }
 
     public function index()

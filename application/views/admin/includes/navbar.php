@@ -52,7 +52,7 @@
 
                     <!-- Turlar -->
                     <li>
-                        <a href="<?php echo base_url("panel_admin_page_tours")?>" class="collapsible-header waves-effect">
+                        <a href="<?php echo base_url("Panel_admin_page_tours")?>" class="collapsible-header waves-effect">
                             <i class="fas fa-suitcase-rolling" style="font-size: 18px"></i>
                             Turlar
                         </a>
@@ -60,7 +60,7 @@
 
                     <!-- Haqqımızda -->
                     <li>
-                        <a href="<?php echo base_url("panel_admin_page_about")?>" class="collapsible-header waves-effect">
+                        <a href="<?php echo base_url("Panel_admin_page_about")?>" class="collapsible-header waves-effect">
                             <i class="fas fa-book-open"></i>
                             Haqqımızda
                         </a>
@@ -69,7 +69,7 @@
 
                     <!-- Xidmətlət -->
                     <li>
-                        <a href="<?php echo base_url("panel_admin_page_services")?>" class="collapsible-header waves-effect">
+                        <a href="<?php echo base_url("Panel_admin_page_services")?>" class="collapsible-header waves-effect">
                             <i class="fas fa-concierge-bell"></i>
                             Xidmətlər
                         </a>
@@ -78,7 +78,7 @@
 
                     <!-- Təkliflər -->
                     <li>
-                        <a href="<?php echo base_url("panel_admin_page_offers")?>" class="collapsible-header waves-effect">
+                        <a href="<?php echo base_url("Panel_admin_page_offers")?>" class="collapsible-header waves-effect">
                             <i class="fas fa-info-circle"></i>
                             Təkliflər
                         </a>
@@ -86,7 +86,7 @@
 
                     <!-- Partnyorlar -->
                     <li>
-                        <a href="<?php echo base_url("panel_admin_page_partners")?>" class="collapsible-header waves-effect">
+                        <a href="<?php echo base_url("Panel_admin_page_partners")?>" class="collapsible-header waves-effect">
                             <i class="fas fa-users"></i>
                             Partnyorlar
                         </a>
@@ -94,7 +94,7 @@
 
                     <!-- Mesajlar -->
                     <li>
-                        <a href="<?php echo base_url("panel_admin_page_messages")?>" class="collapsible-header waves-effect">
+                        <a href="<?php echo base_url("Panel_admin_page_messages")?>" class="collapsible-header waves-effect">
                             <i class="far fa-comment"></i>
                             Mesajlar
                         </a>
@@ -102,7 +102,7 @@
 
                     <!-- Əlaqə -->
                     <li>
-                        <a href="<?php echo base_url("panel_admin_page_contact")?>" class="collapsible-header waves-effect">
+                        <a href="<?php echo base_url("Panel_admin_page_contact")?>" class="collapsible-header waves-effect">
                             <i class="fas fa-phone"></i>
                             Əlaqə
                         </a>

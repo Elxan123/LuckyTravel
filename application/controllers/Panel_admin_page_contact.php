@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class panel_admin_page_about extends MY_Controller{
+class Panel_admin_page_contact extends MY_Controller{
 
     private $view_folder = "";
     private $table_name= "";
@@ -24,10 +24,10 @@ class panel_admin_page_about extends MY_Controller{
         parent::__construct();
 
 //      adminin icindeki papkanin adi
-        $this->view_folder = "about";
+        $this->view_folder = "contact";
 
 //      tablemizin adi
-        $this->table_name = "about";
+        $this->table_name = "contact";
 
 //      sekilleri ve fayllari yukleyeceyimiz yer meselen: base_url("uploads/teachers/")
         $this->upload_path = "";
@@ -42,25 +42,40 @@ class panel_admin_page_about extends MY_Controller{
 
         $this->label_name_and_input_name = array(
 
-            "Haqqımizda Az" => "(group2)desc_az",
-            "Haqqımizda En" => "(group2)desc_en",
-            "Haqqımizda Ru" => "(group2)desc_ru",
+            "Telefon" => "phone",
+            "Adres" => "address",
+            "E-poçt" => "email",
+            "Facebook" => "facebook",
+            "Instagram" => "instagram",
+            "Youtube" => "youtube",
+            "Twitter" => "twitter",
+            "Whatsapp" => "whatsapp",
 
         );
 
         $this->input_name_type = array(
 
-            "desc_az" => "editor",
-            "desc_en" => "editor",
-            "desc_ru" => "editor",
+            "phone" => "text",
+            "address" => "text",
+            "email" => "email",
+            "facebook" => "text",
+            "instagram" => "text",
+            "youtube" => "text",
+            "twitter" => "text",
+            "whatsapp" => "text",
 
         );
 
         $this->add_update_input_array = array(
 
-            "desc_az" => "(editor)desc_az",
-            "desc_en" => "(editor)desc_en",
-            "desc_ru" => "(editor)desc_ru",
+            "phone" => "phone",
+            "address" => "address",
+            "email" => "email",
+            "facebook" => "facebook",
+            "instagram" => "instagram",
+            "youtube" => "youtube",
+            "twitter" => "twitter",
+            "whatsapp" => "whatsapp",
 
         );
 
@@ -68,19 +83,19 @@ class panel_admin_page_about extends MY_Controller{
 //==============================================================================================
 
 //      tabledeki melumatlarin update olunduqu link
-        $this->update_link                    = base_url("panel_admin_page_about/update/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
+        $this->update_link                    = base_url("Panel_admin_page_contact/update/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
 
 //      ajaxnan melumatlarin modalin icine getirilmesi
-        $this->link_for_update_modal          = base_url("panel_admin_page_about/get_data_for_update/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
+        $this->link_for_update_modal          = base_url("Panel_admin_page_contact/get_data_for_update/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
 
 //      proseslerden her hansi biri ugurla basa catdiqda hansi linke atsin
-        $this->success_link                   = base_url("panel_admin_page_about/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
+        $this->success_link                   = base_url("Panel_admin_page_contact/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
 
 //      proseslerden her hansi biri ugurla basa catmadiqda hansi linke atsin
-        $this->error_link                     = base_url("panel_admin_page_about/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
+        $this->error_link                     = base_url("Panel_admin_page_contact/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
 
 //      data tablenin icine melumatlarin ajaxnan getirilmesi ucun lazim olan link
-        $this->get_data_link                  = base_url("panel_admin_page_about/get_data");
+        $this->get_data_link                  = base_url("Panel_admin_page_contact/get_data");
     }
 
     public function index()

@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class panel_admin_page_partners extends MY_Controller{
+class Panel_admin_page_messages extends MY_Controller{
 
     private $view_folder = "";
     private $table_name= "";
@@ -24,80 +24,41 @@ class panel_admin_page_partners extends MY_Controller{
         parent::__construct();
 
 //      adminin icindeki papkanin adi
-        $this->view_folder = "partners";
+        $this->view_folder = "messages";
 
 //      tablemizin adi
-        $this->table_name = "partners";
+        $this->table_name = "messages";
 
 //      sekilleri ve fayllari yukleyeceyimiz yer meselen: base_url("uploads/teachers/")
-        $this->upload_path = "uploads/partners/";
+        $this->upload_path = "";
 
 //      eger sekil veya file varsa tablenin hansi fieldinnen adini goturub papkadan silsin
-        $this->table_file_field_names = array(
-            "img",
-        );
+        $this->table_file_field_names = array();
 
 //==============================================================================================
 
 //      tablemizin fieldlerinin array icinde siralanmasi BU DEYISILMIR!
         $this->field_names = $this->Core->list_fields($this->table_name);
 
-        $this->label_name_and_input_name = array(
-            "Partnerin Adı Az" => "(group1)name_az(required)",
-            "Partnerin Adı En" => "(group1)name_en(required)",
-            "Partnerin Adı Ru" => "(group1)name_ru(required)",
+        $this->label_name_and_input_name = array();
 
-            "Partnerin linki" => "link",
-            "Partnerin Şəkli" => "img",
+        $this->input_name_type = array();
 
-        );
-
-        $this->input_name_type = array(
-            "name_az" => "text",
-            "name_en" => "text",
-            "name_ru" => "text",
-
-            "img" => "file",
-
-            "link" => "text",
-        );
-
-        $this->add_update_input_array = array(
-            "name_az" => "name_az",
-            "name_en" => "name_en",
-            "name_ru" => "name_ru",
-
-            "img" => "(file)img",
-
-            "link" => "link",
-
-        );
-
-
-
+        $this->table_file_field_names = array();
 
 //==============================================================================================
 
-//      tabledeki melumatlarin update olunduqu link
-        $this->update_link                    = base_url("panel_admin_page_partners/update/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
-
-//      tabledeki melumatlarin add olunduqu link
-        $this->add_link                       = base_url("panel_admin_page_partners/add/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
-
 //      tabledeki melumatlarin delete olunduqu link
-        $this->delete_link                    = base_url("panel_admin_page_partners/delete/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
-
-//      ajaxnan melumatlarin modalin icine getirilmesi
-        $this->link_for_update_modal          = base_url("panel_admin_page_partners/get_data_for_update/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
+        $this->delete_link                    = base_url("Panel_admin_page_messages/delete/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
 
 //      proseslerden her hansi biri ugurla basa catdiqda hansi linke atsin
-        $this->success_link                   = base_url("panel_admin_page_partners/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
+        $this->success_link                   = base_url("Panel_admin_page_messages/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
 
 //      proseslerden her hansi biri ugurla basa catmadiqda hansi linke atsin
-        $this->error_link                     = base_url("panel_admin_page_partners/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
+        $this->error_link                     = base_url("Panel_admin_page_messages/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
 
 //      data tablenin icine melumatlarin ajaxnan getirilmesi ucun lazim olan link
-        $this->get_data_link                  = base_url("panel_admin_page_partners/get_data");
+        $this->get_data_link                  = base_url("Panel_admin_page_messages/get_data");
     }
 
     public function index()

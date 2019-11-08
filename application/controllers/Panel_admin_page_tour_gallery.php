@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class panel_admin_page_tour_gallery extends MY_Controller{
+class Panel_admin_page_tour_gallery extends MY_Controller{
 
     private $view_folder = "";
     private $table_name= "";
@@ -49,10 +49,10 @@ class panel_admin_page_tour_gallery extends MY_Controller{
 //==============================================================================================
 
 //      tabledeki melumatlarin delete olunduqu link
-        $this->delete_link                    = base_url("panel_admin_page_tour_gallery/delete/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
+        $this->delete_link                    = base_url("Panel_admin_page_tour_gallery/delete/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
 
 //      data tablenin icine melumatlarin ajaxnan getirilmesi ucun lazim olan link
-        $this->get_data_link                  = base_url("panel_admin_page_tour_gallery/get_data");
+        $this->get_data_link                  = base_url("Panel_admin_page_tour_gallery/get_data");
     }
 
     public function index($id)
