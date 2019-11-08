@@ -1,8 +1,7 @@
-$(document).ready(function(e){
 
-    //data tablenin islemesi ucun lazim olan scriptler qetiyyen toxunma eger kodlamadan soyumaq isdemirsense
-    var base_url = $('#datatable').data("url");
-    var table = $('#datatable').DataTable({
+//data tablenin islemesi ucun lazim olan scriptler qetiyyen toxunma eger kodlamadan soyumaq isdemirsense
+var base_url = $('#datatable').data("url");
+var table = $('#datatable').DataTable({
         "pageLength" : 10,
         "processing": true,
         "serverSide": true,
@@ -221,18 +220,12 @@ $(document).ready(function(e){
         }
     });
 
-
-
-    //bu class lara tooltip(title) verilir
-    $('.select-wrapper').attr('data-tooltip', 'Məlumat göstər').tooltip();
-    $('.c_delete_all').attr('data-tooltip', 'Seçilən məlumatları sil').tooltip();
-    $('.с_сreate').attr('data-tooltip', 'Yeni məlumat yarat').tooltip();
-
-
-
-
+//dropzone nun dinamik sekilleri yuklemesi
+var myDropzone = new Dropzone("#dropzone");
+myDropzone.on("complete", function(file) {
+    $data_url_of_dropzone = $('#dropzone').data("url");
+    table.ajax.reload();
 });
-
 
 
 

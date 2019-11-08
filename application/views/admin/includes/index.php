@@ -5,7 +5,11 @@
 
 
     <!--    yenileme ve insert ucun modal -->
-<?php echo $create_modal?>
+<?php
+    if (!empty($create_modal)) {
+        echo $create_modal;
+    }
+?>
     <!--    yenileme ve insert ucun modal -->
 
     <!-- Main layout -->
@@ -29,11 +33,12 @@
     </main>
     <!-- Main layout -->
 
-<?php $this->load->view("admin/includes/footer") ?>
 
 <?php $this->load->view("admin/includes/scripts") ?>
 
-    <!--melumat alerti-->
+
+
+<!--melumat alerti-->
 <?php if($this->session->flashdata("success")){ ?>
     <script>
         iziToast.success({
@@ -44,9 +49,6 @@
         });
     </script>
 <?php }?>
-
-
-    <!--melumat alerti-->
 <?php if($this->session->flashdata("alert")){ ?>
     <script>
         iziToast.warning({
