@@ -10083,10 +10083,10 @@ table.table a.btn.btn-discord {
   position: absolute;
   left: 10px;
   font-size: 1.5rem; }
-  @media (min-width: 1440px) {
+  @media (min-width: 2440px) {
     .double-nav .button-collapse {
       display: none; } }
-  @media (max-width: 1440px) {
+  @media (max-width: 2440px) {
     .double-nav .button-collapse {
       display: block;
       position: relative;
@@ -10140,7 +10140,7 @@ table.table a.btn.btn-discord {
   .col-md-4 .sticky {
     width: 18.75rem; } }
 
-@media only screen and (min-width: 1440px) {
+@media only screen and (min-width: 2440px) {
   .col-md-4 .sticky {
     width: 21.875rem; } }
 
@@ -12098,7 +12098,7 @@ span[data-jarallax-element] {
     .side-nav.fixed.right-aligned {
       right: 0;
       left: auto; }
-  @media only screen and (max-width: 1440px) {
+  @media only screen and (max-width: 2440px) {
     .side-nav.fixed {
       -webkit-transform: translateX(-105%);
               transform: translateX(-105%); }
@@ -17786,7 +17786,7 @@ button.md-toast-close-button {
 .fixed-sn main {
   padding-top: 5.5rem; }
 
-@media (max-width: 1440px) {
+@media (max-width: 2440px) {
   .fixed-sn .double-nav,
   .fixed-sn main,
   .fixed-sn footer {

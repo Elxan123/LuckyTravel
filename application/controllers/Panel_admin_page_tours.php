@@ -206,5 +206,4 @@ class Panel_admin_page_tours extends MY_Controller{
     }
 
 
-
 }

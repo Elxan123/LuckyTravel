@@ -6,14 +6,32 @@
 <!-- Bootstrap core JavaScript -->
 <script type="text/javascript" src="<?php echo base_url("public/admin/mdbootstrap/")?>js/bootstrap.js"></script>
 <!-- MDB core JavaScript -->
-<script type="text/javascript" src="<?php echo base_url("public/admin/mdbootstrap/")?>js/mdb.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url("public/admin/mdbootstrap/")?>js/mdb.js"></script>
 
 <script src="<?php echo base_url("public/admin/")?>js/iziToast.min.js"></script>
 <!--<script src="--><?php //echo base_url("public/admin/")?><!--js/jquery.dataTables.js"></script>-->
-<script src="<?php echo base_url("public/admin/")?>js/jquery.dataTables.js"></script>
+
+
+
 <script src="<?php echo base_url("public/admin/")?>js/sweetalert.min.js"></script>
-<script src="<?php echo base_url("public/admin/")?>js/dataTables.bootstrap4.min.js"></script>
 <script src="<?php echo base_url("public/admin/")?>js/dropzone.js"></script>
+
+
+
+<script src="<?php echo base_url("public/admin/")?>js/jquery.dataTables.min.js"></script>
+<script src="<?php echo base_url("public/admin/")?>js/dataTables.bootstrap4.min.js"></script>
+<script src="<?php echo base_url("public/admin/")?>js/buttons.flash.min.js"></script>
+<script src="<?php echo base_url("public/admin/")?>js/buttons.print.min.js"></script>
+<script src="<?php echo base_url("public/admin/")?>js/dataTables.buttons.min.js"></script>
+<script src="<?php echo base_url("public/admin/")?>js/pdfmake.min.js"></script>
+<script src="<?php echo base_url("public/admin/")?>js/vfs_fonts.js"></script>
+<script src="<?php echo base_url("public/admin/")?>js/jszip.min.js"></script>
+
+<script src="<?php echo base_url("public/admin/")?>js/buttons.html5.min.js"></script>
+
+
+
+
 <script src="<?php echo base_url("public/admin/")?>js/custom.js"></script>
 
 

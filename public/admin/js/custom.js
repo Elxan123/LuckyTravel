@@ -1,7 +1,15 @@
+$(document).ready(function () {
+    $("#slide-out").css("transform", "translateX(-105%)")
+});
+
 
 //data tablenin islemesi ucun lazim olan scriptler qetiyyen toxunma eger kodlamadan soyumaq isdemirsense
 var base_url = $('#datatable').data("url");
 var table = $('#datatable').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            'excel', 'csv', 'copy', 'print', 'pdf'
+        ],
         "pageLength" : 10,
         "processing": true,
         "serverSide": true,
@@ -16,7 +24,7 @@ var table = $('#datatable').DataTable({
                 "previous": '<li class="waves-effect"><i class="fas fa-angle-left" style="font-size: 18px"></i></li>',
                 "next": '<li class="waves-effect"><i class="fas fa-angle-right" style="font-size: 18px"></i></li>'
             },
-            "search": "",
+            "search": "Axtarış: ",
             "processing": "Gözləyin...",
             "loadingRecords": "Yüklənir...",
             "infoEmpty": "Məlumat daxil edilməmişdir",
@@ -32,6 +40,9 @@ var table = $('#datatable').DataTable({
         },
         "fnDrawCallback": function( oSettings ) {
 
+
+            $('.dt-button').addClass('btn btn-primary btn-md ml-0 mb-3 waves-effect waves-light');
+            $('.dt-button').removeClass('dt-button');
 
             $(".file-path-wrapper").on("click", function () {
                 $(this).prev().children().click();

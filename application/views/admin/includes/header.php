@@ -11,12 +11,17 @@
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="<?php echo base_url("public/admin/mdbootstrap/")?>css/bootstrap.min.css">
     <!-- Material Design Bootstrap -->
-    <link rel="stylesheet" href="<?php echo base_url("public/admin/mdbootstrap/")?>css/mdb.min.css">
+    <link rel="stylesheet" href="<?php echo base_url("public/admin/mdbootstrap/")?>css/mdb.css">
 
     <link rel="stylesheet" href="<?php echo base_url("public/admin/")?>css/iziToast.min.css">
 <!--    <link rel="stylesheet" href="--><?php //echo base_url("public/admin/")?><!--css/dataTables.bootstrap4.min.css">-->
 <!--    <link rel="stylesheet" href="--><?php //echo base_url("public/admin/")?><!--css/jquery.dataTables.css">-->
     <link rel="stylesheet" href="<?php echo base_url("public/admin/")?>css/dropzone.css">
+
+    <link rel="stylesheet" href="<?php echo base_url("public/admin/")?>css/buttons.dataTables.min.css">
+
+
+
     <link rel="stylesheet" href="<?php echo base_url("public/admin/")?>css/custom.css">
 
     <!--    text editorun isdemesi ucun lazi olan kodlar bunlar yuxarida qalmalidir-->

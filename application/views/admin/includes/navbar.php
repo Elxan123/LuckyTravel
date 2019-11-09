@@ -3,7 +3,7 @@
 <header>
 
     <!-- Sidebar navigation -->
-    <div id="slide-out" class="side-nav sn-bg-4 fixed">
+    <div id="slide-out" class="side-nav sn-bg-4 fixed" style="transform: translateX(-100%)">
         <ul class="custom-scrollbar">
 
             <!-- Logo -->

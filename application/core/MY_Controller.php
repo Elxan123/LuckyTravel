@@ -50,6 +50,22 @@ class MY_Controller extends CI_Controller{
                 $is_upload = $this->upload->do_upload(substr($value, 6));
                 if ($is_upload){
                     $post_data = $this->upload->data('file_name');
+
+                    if (substr($post_data, -3) == "jpg" && substr($post_data, -3) == "png" && substr($post_data, -4) == "jpeg" && substr($post_data, -3) == "gif"){
+                        $config_img['image_library'] = 'gd2';
+                        $config_img['source_image'] = $config["upload_path"] . $post_data;
+                        $config_img['create_thumb'] = false;
+                        $config_img['maintain_ratio'] = false;
+                        $config_img['width']     = 800;
+                        $config_img['height']   = 600;
+                        $config_img['new_image'] = $config["upload_path"] . $post_data;
+
+                        $this->load->library('image_lib', $config_img);
+                        $this->image_lib->resize();
+                    }
+
+
+
                 }else{
                     $post_data = "default.png";
                 }
@@ -137,8 +153,22 @@ class MY_Controller extends CI_Controller{
                 if ($is_upload){
                     $post_data = $this->upload->data('file_name');
 
+                    if (substr($post_data, -3) == "jpg" || substr($post_data, -3) == "png" || substr($post_data, -4) == "jpeg" || substr($post_data, -3) == "gif"){
+                        $config_img['image_library'] = 'gd2';
+                        $config_img['source_image'] = $config["upload_path"] . $post_data;
+                        $config_img['create_thumb'] = false;
+                        $config_img['maintain_ratio'] = false;
+                        $config_img['width']     = 800;
+                        $config_img['height']   = 600;
+                        $config_img['new_image'] = $config["upload_path"] . $post_data;
+
+                        $this->load->library('image_lib', $config_img);
+                        $this->image_lib->resize();
+                    }
+
                     if (!empty($row[$key]) && $row[$key] != "default.png" && $row[$key] != "doc.png")
                     unlink($config["upload_path"] . $row[$key]);
+
                 }else{
                     $post_data = $row[$key];
                 }
