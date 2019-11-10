@@ -295,6 +295,49 @@ class MY_Controller extends CI_Controller{
 
 
 
+
+
+//======================================== Dinamik Delete functionlari ===================================================
+
+    //  core v2.0
+    public function import_csv($config){
+
+
+        if(!empty($_FILES['csv_file']['name']))
+        {
+            $file_data = fopen($_FILES['csv_file']['tmp_name'], 'r');
+            fgetcsv($file_data);
+            $count =0;
+            while($row = fgetcsv($file_data))
+            {
+
+                for ($i=1; $i < count($config["field_names"]); $i++){
+
+                    $arr[$config["field_names"][$i]] = $row[$i-1];
+                }
+
+                $data[$count] = $arr;
+
+                $this->Core->add($data[$count], $config["table_name"]);
+
+                $count++;
+            }
+
+
+        }
+
+
+    }
+    //  core v2.0
+
+//**************************************** Dinamik Delete functionlari ****************************************************
+
+
+
+
+
+
+
 //======================================== Dinamik Ajax update functionlari ===================================================
 
     //core v1.0

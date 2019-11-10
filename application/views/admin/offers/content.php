@@ -37,13 +37,6 @@
 
 <section>
 
-    <!--Yeni melmat yaratmaq ucun-->
-    <button type="button" class="c_row_create btn btn-primary mb-3 waves-effect waves-light" data-toggle="modal" data-target="#c_modal_create">
-        <i class="fas fa-plus"></i>
-    </button>
-    <!--Yeni melmat yaratmaq ucun-->
-
-
     <div class="card card-cascade narrower z-depth-0 pb-4">
 
         <!--tablenin basliqi-->
@@ -71,8 +64,8 @@
         </div>
         <!--tablenin basliqi-->
 
-
         <div class="px-4">
+
             <!-- Tablenin ozu -->
             <div class="table-responsive">
                 <!--Table-->

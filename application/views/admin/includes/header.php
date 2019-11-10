@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Material Design Bootstrap</title>
+    <title>Lucky Travel Agency</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <!-- Bootstrap core CSS -->
@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="<?php echo base_url("public/admin/")?>css/dropzone.css">
 
     <link rel="stylesheet" href="<?php echo base_url("public/admin/")?>css/buttons.dataTables.min.css">
+    <link rel="stylesheet" href="<?php echo base_url("public/admin/")?>css/editor.dataTables.min.css">
+    <link rel="stylesheet" href="<?php echo base_url("public/admin/")?>css/select.dataTables.min.css">
 
 
 
