@@ -1,8 +1,5 @@
 //sidenavin yernin deyisilmesi
-$(document).ready(function () {
-
-    $("#slide-out").css("transform", "translateX(-105%)")
-});
+$("#slide-out").css("transform", "translateX(-105%)")
 
 
 // csv filein import edilmesi
@@ -41,7 +38,44 @@ var table = $('#datatable').DataTable({
             ['1 sətir', '3 sətir', '5 sətir', '10 sətir', '25 sətir', '50 sətir', '100 sətir']
         ],
         buttons: [
-            'pageLength', 'excel', 'csv', 'copy', 'print', 'pdf',
+            'pageLength',
+
+            {
+                extend: 'print',
+                exportOptions: {
+                    columns: "thead th:not(.c_neglect)"
+                }
+            },
+
+            {
+                extend: 'pdf',
+                exportOptions: {
+                    columns: "thead th:not(.c_neglect)"
+                }
+            },
+
+            {
+                extend: 'copy',
+                exportOptions: {
+                    columns: "thead th:not(.c_neglect)"
+                }
+            },
+
+
+            {
+                extend: 'excel',
+                exportOptions: {
+                    columns: "thead th:not(.c_neglect)"
+                }
+            },
+
+            {
+                extend: 'csv',
+                exportOptions: {
+                    columns: "thead th:not(.c_neglect)"
+                }
+            },
+
             {
                 text: 'CSV Faylı Yüklə',
                 action: function () {
@@ -79,6 +113,8 @@ var table = $('#datatable').DataTable({
         },
         "initComplete": function(settings, json) {
 
+            $("#slide-out").css("transform", "translateX(-105%)")
+
 
             $("#datatable_filter").append("\n" +
                 "            <button type=\"button\" class=\"mt-0 ml-3 c_row_create btn btn-sm btn-primary mb-3 waves-effect waves-light\" data-toggle=\"modal\" data-target=\"#c_modal_create\" style=\"float: right!important; \">\n" +
@@ -94,6 +130,9 @@ var table = $('#datatable').DataTable({
 
         },
         "fnDrawCallback": function( oSettings ) {
+
+            $("#slide-out").css("transform", "translateX(-105%)")
+
 
             $('.dt-button').addClass('btn btn-primary btn-md ml-0 mb-3 waves-effect waves-light');
             $('.dt-button').removeClass('dt-button');
@@ -292,6 +331,7 @@ var table = $('#datatable').DataTable({
 //dropzone nun dinamik sekilleri yuklemesi
 var myDropzone = new Dropzone("#dropzone");
 myDropzone.on("complete", function(file) {
+    $("#slide-out").css("transform", "translateX(-105%)")
     $data_url_of_dropzone = $('#dropzone').data("url");
     table.ajax.reload();
 });

@@ -51,7 +51,7 @@ class MY_Controller extends CI_Controller{
                 if ($is_upload){
                     $post_data = $this->upload->data('file_name');
 
-                    if (substr($post_data, -3) == "jpg" && substr($post_data, -3) == "png" && substr($post_data, -4) == "jpeg" && substr($post_data, -3) == "gif"){
+                    if (substr($post_data, -3) == "jpg" || substr($post_data, -3) == "png" || substr($post_data, -4) == "jpeg" || substr($post_data, -3) == "gif"){
                         $config_img['image_library'] = 'gd2';
                         $config_img['source_image'] = $config["upload_path"] . $post_data;
                         $config_img['create_thumb'] = false;
@@ -443,7 +443,7 @@ class MY_Controller extends CI_Controller{
 //======================================== Dinamik Data table kodlari ===================================================
 
 
-    //  core v2.0
+    //core v2.0
     public function data_table($config)
     {
 
@@ -572,10 +572,10 @@ class MY_Controller extends CI_Controller{
         echo json_encode($output);
         exit();
     }
-    //  core v2.0
+    //core v2.0
 
 
-    //  core v2.0
+    //core v2.0
     public function data_table_2($table_name)
     {
         $query = $this->db->select("COUNT(*) as num")->get($table_name);
@@ -583,7 +583,7 @@ class MY_Controller extends CI_Controller{
         if(isset($result)) return $result->num;
         return 0;
     }
-    //  core v2.0
+    //core v2.0
 
 
     //core v2.0
