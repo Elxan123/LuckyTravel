@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class Panel_admin_page_tours extends MY_Controller{
+class Panel_admin_page_main_slide extends MY_Controller{
 
     private $view_folder = "";
     private $table_name= "";
@@ -17,6 +17,7 @@ class Panel_admin_page_tours extends MY_Controller{
     private $field_names ="";
     private $import_link ="";
     private $add_update_input_array  ="";
+    private $table_file_field_names  ="";
 
 
     public function __construct()
@@ -24,104 +25,97 @@ class Panel_admin_page_tours extends MY_Controller{
         parent::__construct();
 
 //      adminin icindeki papkanin adi
-        $this->view_folder = "tours";
+        $this->view_folder = "main_slide";
 
 //      tablemizin adi
-        $this->table_name = "tours";
+        $this->table_name = "main_slide";
 
 //      sekilleri ve fayllari yukleyeceyimiz yer meselen: base_url("uploads/teachers/")
-        $this->upload_path = "uploads/tours/";
+        $this->upload_path = "uploads/main_slide/";
+
+//      eger sekil veya file varsa tablenin hansi fieldinnen adini goturub papkadan silsin
+        $this->table_file_field_names = array(
+            "img",
+        );
+
+//==============================================================================================
 
 //      tablemizin fieldlerinin array icinde siralanmasi BU DEYISILMIR!
         $this->field_names = $this->Core->list_fields($this->table_name);
 
         $this->label_name_and_input_name = array(
-            "Turun Adı Az" => "(group1)name_az(required)",
-            "Turun Adı En" => "(group1)name_en(required)",
-            "Turun Adı Ru" => "(group1)name_ru(required)",
+            "Birinci Başlıqın Adı Az" => "(group1)title1_az(required)",
+            "Birinci Başlıqın Adı En" => "(group1)title1_en(required)",
+            "Birinci Başlıqın Adı Ru" => "(group1)title1_ru(required)",
 
-            "Tur Haqqında Az" => "(group2)desc_az",
-            "Tur Haqqında En" => "(group2)desc_en",
-            "Tur Haqqında Ru" => "(group2)desc_ru",
+            "İkinci Başlıqın Adı Az" => "(group2)title2_az(required)",
+            "İkinci Başlıqın Adı En" => "(group2)title2_en(required)",
+            "İkinci Başlıqın Adı Ru" => "(group2)title2_ru(required)",
 
-            "Turun Kodu" => "tour_code",
+            "Slaydın linki" => "link",
 
-
-            "Turun Tarixi" => "date",
-
-            "Turun Qiyməti" => "tour_price",
-
-            "Turun Yerləşdirilmə Tarixi" => "upload_date",
-
-            "Turun Şəkli" => "img",
+            "Servisin Şəkli" => "img",
 
         );
 
         $this->input_name_type = array(
-            "name_az" => "text",
-            "name_en" => "text",
-            "name_ru" => "text",
+            "title1_az" => "text",
+            "title1_en" => "text",
+            "title1_ru" => "text",
 
-            "desc_az" => "editor",
-            "desc_en" => "editor",
-            "desc_ru" => "editor",
+            "title2_az" => "text",
+            "title2_en" => "text",
+            "title2_ru" => "text",
 
-            "tour_code" => "text",
+            "link" => "text",
 
             "img" => "file",
-
-            "date" => "date",
-
-            "upload_date" => "date",
-
-            "tour_price" => "text",
         );
 
         $this->add_update_input_array = array(
-            "name_az" => "name_az",
-            "name_en" => "name_en",
-            "name_ru" => "name_ru",
+            "title1_az" => "title1_az",
+            "title1_en" => "title1_en",
+            "title1_ru" => "title1_ru",
 
-            "desc_az" => "(editor)desc_az",
-            "desc_en" => "(editor)desc_en",
-            "desc_ru" => "(editor)desc_ru",
+            "title2_az" => "title2_az",
+            "title2_en" => "title2_en",
+            "title2_ru" => "title2_ru",
 
-            "tour_code" => "tour_code",
-
+            "link" => "link",
 
             "img" => "(file)img",
 
-            "date" => "date",
-
-            "upload_date" => "upload_date",
-
-            "tour_price" => "tour_price",
         );
 
 
+
+
+//==============================================================================================
+
+
 //      tableye melumatlarin import edilmesi
-        $this->import_link                    = base_url("Panel_admin_page_tours/import/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
+        $this->import_link                    = base_url("Panel_admin_page_main_slide/import/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
 
 //      tabledeki melumatlarin update olunduqu link
-        $this->update_link                    = base_url("Panel_admin_page_tours/update/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
+        $this->update_link                    = base_url("Panel_admin_page_main_slide/update/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
 
 //      tabledeki melumatlarin add olunduqu link
-        $this->add_link                       = base_url("Panel_admin_page_tours/add/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
+        $this->add_link                       = base_url("Panel_admin_page_main_slide/add/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
 
 //      tabledeki melumatlarin delete olunduqu link
-        $this->delete_link                    = base_url("Panel_admin_page_tours/delete/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
+        $this->delete_link                    = base_url("Panel_admin_page_main_slide/delete/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
 
 //      ajaxnan melumatlarin modalin icine getirilmesi
-        $this->link_for_update_modal          = base_url("Panel_admin_page_tours/get_data_for_update/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
+        $this->link_for_update_modal          = base_url("Panel_admin_page_main_slide/get_data_for_update/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
 
 //      proseslerden her hansi biri ugurla basa catdiqda hansi linke atsin
-        $this->success_link                   = base_url("Panel_admin_page_tours/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
+        $this->success_link                   = base_url("Panel_admin_page_main_slide/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
 
 //      proseslerden her hansi biri ugurla basa catmadiqda hansi linke atsin
-        $this->error_link                     = base_url("Panel_admin_page_tours/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
+        $this->error_link                     = base_url("Panel_admin_page_main_slide/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
 
 //      data tablenin icine melumatlarin ajaxnan getirilmesi ucun lazim olan link
-        $this->get_data_link                  = base_url("Panel_admin_page_tours/get_data");
+        $this->get_data_link                  = base_url("Panel_admin_page_main_slide/get_data");
     }
 
     public function index()
@@ -139,16 +133,13 @@ class Panel_admin_page_tours extends MY_Controller{
         $data["field_names"] = $this->field_names;
         $data["view_folder"] = $this->view_folder;
         $data["import_link"] = $this->import_link;
-
         $this->load->view('admin/includes/index', $data);
     }
 
     public function get_data()
     {
 
-        $config["additional_links"] = array(
-            "<i class=\"fas fa-images\"></i>" => "panel_admin_page_tour_gallery/index/"
-        );
+        $config["additional_links"] = array();
         $config["table_name"] = $this->table_name;
         $config["upload_path"] = $this->upload_path;
         $config["delete_link"] = $this->delete_link;
@@ -210,9 +201,7 @@ class Panel_admin_page_tours extends MY_Controller{
         $config["where"] = array(
             "id"=> $id,
         );
-        $config["table_file_field_names"] = array(
-            "img",
-        );
+        $config["table_file_field_names"] = $this->table_file_field_names;
         $config["success_link"] = $this->success_link;
         $config["error_link"] = $this->error_link;
         $config["upload_path"] = $this->upload_path;
@@ -229,6 +218,8 @@ class Panel_admin_page_tours extends MY_Controller{
         $config["field_names"] = $this->field_names;
         $this->import_csv($config);
     }
+
+
 
 
 }

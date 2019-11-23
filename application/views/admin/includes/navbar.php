@@ -58,11 +58,29 @@
                         </a>
                  </li>
 
+
+                    <!-- Slayd -->
+                    <li>
+                        <a href="<?php echo base_url("Panel_admin_page_logo")?>" class="collapsible-header waves-effect">
+                            <i class="fas fa-concierge-bell"></i>
+                            Loqonun idarə olunması
+                        </a>
+                    </li>
+
+
                     <!-- Haqqımızda -->
                     <li>
                         <a href="<?php echo base_url("Panel_admin_page_about")?>" class="collapsible-header waves-effect">
                             <i class="fas fa-book-open"></i>
                             Haqqımızda
+                        </a>
+                    </li>
+
+                    <!-- Slayd -->
+                    <li>
+                        <a href="<?php echo base_url("Panel_admin_page_main_slide")?>" class="collapsible-header waves-effect">
+                            <i class="fas fa-concierge-bell"></i>
+                            Əsas Slayd
                         </a>
                     </li>
 

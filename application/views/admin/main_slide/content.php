@@ -9,23 +9,6 @@
         display: none!important;
     }
 
-    th:nth-child(5){
-        display: none!important;
-    }
-
-    td:nth-child(5){
-        display: none!important;
-    }
-
-    th:nth-child(4){
-        display: none!important;
-    }
-
-    td:nth-child(4){
-        display: none!important;
-    }
-
-
     th:nth-child(6){
         display: none!important;
     }
@@ -92,7 +75,7 @@
                     <thead>
                     <tr>
 
-                        <th class="c_switch_th c_neglect" data-orderable="false" style="width: 20px!important; padding: 5px!important;">
+                        <th class="c_switch_th" data-orderable="false" style="width: 20px!important; padding: 5px!important;">
 
                             <!--<label for="checkbox" class="form-check-label mr-2 label-table c_label_thead"><input type="checkbox" class="c_check_all form-check-input"/><span id="c_span_whole"></span></label>-->
                             <a class="red lighten-1 btn btn-danger mr-1 c_delete_all" style="padding: 6px!important;"><i style="font-size: 13px;" class="fas fa-trash"></i></a>
@@ -103,24 +86,11 @@
                         </th>
 
 
-                        <th data-orderable="true" class="c_th_max_width"><a>id<i class="fas fa-sort ml-1"></i></a></th>
-                        <th data-orderable="true" class="c_th_max_width"><a>Turun Adı<i class="fas fa-sort ml-1"></i></a></th>
-                        <th data-orderable="true" class="c_th_max_width"><a>name_en<i class="fas fa-sort ml-1"></i></a></th>
-                        <th data-orderable="true" class="c_th_max_width"><a>name_ru<i class="fas fa-sort ml-1"></i></a></th>
-                        <th data-orderable="true" class="c_th_max_width"><a>desc_az<i class="fas fa-sort ml-1"></i></a></th>
-                        <th data-orderable="true" class="c_th_max_width"><a>desc_en<i class="fas fa-sort ml-1"></i></a></th>
-                        <th data-orderable="true" class="c_th_max_width"><a>desc_ru<i class="fas fa-sort ml-1"></i></a></th>
-                        <th data-orderable="true" class="c_th_max_width"><a>Turun Şəkli<i class="fas fa-sort ml-1"></i></a></th>
-                        <th data-orderable="true" class="c_th_max_width"><a>Turun Tarixi<i class="fas fa-sort ml-1"></i></a></th>
-                        <th data-orderable="true" class="c_th_max_width"><a>Turun Yerləşdirilmə Tarixi<i class="fas fa-sort ml-1"></i></a></th>
-                        <th data-orderable="true" class="c_th_max_width"><a>Turun Qiyməti<i class="fas fa-sort ml-1"></i></a></th>
-                        <th data-orderable="true" class="c_th_max_width"><a>Turun Kodu<i class="fas fa-sort ml-1"></i></a></th>
+                        <?php foreach ($field_names as $item) {?>
+                            <th data-orderable="true" class="c_th_max_width"><a><?php echo $item?><i class="fas fa-sort ml-1"></i></a></th>
+                        <?php }?>
 
-                        <th data-orderable="true" class="c_th_max_width"><a>Turun Baxış Sayı<i class="fas fa-sort ml-1"></i></a></th>
-
-
-                        <th data-orderable="false" class="c_operations c_neglect" style="width: 53px!important;"><a>Turun Qalereyası</a></th>
-                        <th data-orderable="false" class="c_operations c_neglect" style="width: 53px!important;"><a>Əməliyatlar</a></th>
+                        <th data-orderable="false" class="c_operations" style="width: 53px!important;"><a>Operations</a></th>
 
 
                     </tr>
