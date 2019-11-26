@@ -44,10 +44,14 @@ class Panel_admin_page_tours extends MY_Controller{
             "Tur Haqqında En" => "(group2)desc_en",
             "Tur Haqqında Ru" => "(group2)desc_ru",
 
-            "Turun vaxdı" => "date",
-            "Turun saatı" => "time",
+            "Turun Kodu" => "tour_code",
+
+
+            "Turun Tarixi" => "date",
 
             "Turun Qiyməti" => "tour_price",
+
+            "Turun Yerləşdirilmə Tarixi" => "upload_date",
 
             "Turun Şəkli" => "img",
 
@@ -62,10 +66,13 @@ class Panel_admin_page_tours extends MY_Controller{
             "desc_en" => "editor",
             "desc_ru" => "editor",
 
+            "tour_code" => "text",
+
             "img" => "file",
 
             "date" => "date",
-            "time" => "time",
+
+            "upload_date" => "date",
 
             "tour_price" => "text",
         );
@@ -79,10 +86,14 @@ class Panel_admin_page_tours extends MY_Controller{
             "desc_en" => "(editor)desc_en",
             "desc_ru" => "(editor)desc_ru",
 
+            "tour_code" => "tour_code",
+
+
             "img" => "(file)img",
 
             "date" => "date",
-            "time" => "time",
+
+            "upload_date" => "upload_date",
 
             "tour_price" => "tour_price",
         );

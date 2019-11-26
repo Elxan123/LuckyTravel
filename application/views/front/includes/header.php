@@ -1,3 +1,12 @@
+<!--
+
+    Developers:
+        Lələyev Cavid   : cavidleleyev@gmail.com
+        Qədirov Mutalib : mutalib0101@gmail.com
+        Aslanov Elxan   : aslanovelxan@gmail.com
+
+-->
+
 <!DOCTYPE html>
 <html>
 
@@ -13,6 +22,7 @@
     <link href="<?php echo base_url("public/front/") ?>css/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="<?php echo base_url("public/front/") ?>css/font-awesome.min.css">
     <link href="<?php echo base_url("public/front/") ?>css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="<?php echo base_url("public/front/") ?>css/custom.css" rel="stylesheet" type="text/css"/>
     <title>Let's Travel</title>
 </head>
 

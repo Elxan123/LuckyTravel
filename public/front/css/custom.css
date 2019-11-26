@@ -1,0 +1,16 @@
+.detail-header{
+    margin-bottom: 20px!important;
+}
+.detail-price{
+    padding-top: 0!important;
+}
+
+.ui-slider-handle{
+    z-index: 0!important;
+}
+
+.cp_content{
+    display: flex!important;
+    margin: 0 auto!important;
+    text-align: center!important;
+}

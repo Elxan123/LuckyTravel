@@ -9,49 +9,133 @@
         return $this->db->order_by("id", "ASC")->get($table_name)->result_array();
     }
 
+
+
     //  get data desc
     public function get_desc($table_name)
     {
         return $this->db->order_by("id", "DESC")->get($table_name)->result_array();
     }
 
+
+
+    //  get data asc limit
+    public function get_asc_limit($table_name, $limit)
+    {
+        return $this->db->order_by("id", "ASC")->limit($limit)->get($table_name)->result_array();
+    }
+
+
+
+
+    //  get data desc limit
+    public function get_desc_limit($table_name, $limit)
+    {
+        return $this->db->order_by("id", "DESC")->limit($limit)->get($table_name)->result_array();
+    }
+
+
+
+
+    //  get data pagination limit asc
+    public function get_pagination_asc($limit, $count, $table_name)
+    {
+        return $this->db->order_by("id", "ASC")->limit($limit, $count)->get($table_name)->result_array();
+    }
+
+
+
+
+    //  get data pagination limit desc
+    public function get_pagination_desc($limit, $count, $table_name)
+    {
+        return $this->db->order_by("id", "DESC")->limit($limit, $count)->get($table_name)->result_array();
+    }
+
+
+
+
+    //  get data with row array
     public function get_where_row($where, $table_name)
     {
         return $this->db->where($where)->get($table_name)->row_array();
     }
 
+
+
+
+    //  get data with where and result array with asc
     public function get_where_result_asc($where, $table_name)
     {
         return $this->db->where($where)->order_by("id", "ASC")->get($table_name)->result_array();
     }
 
+
+
+
+    //  get data with where and result array with desc
     public function get_where_result_desc($where,$table_name)
     {
         return $this->db->where($where)->order_by("id", "DESC")->get($table_name)->result_array();
     }
 
+
+
+
+    //  insert db with data
     public function add($data, $table_name)
      {
          $this->db->insert($table_name,$data);
      }
 
+
+
+
+    //  update db with data
     public function update($where, $table_name ,$data)
     {
         $this->db->where($where)->update($table_name ,$data);
     }
 
+
+
+
+    //  delete db with data
     public function delete($where, $table_name)
     {
         return $this->db->where($where)->delete($table_name);
     }
 
+
+
+
+    // get column names of table
     public function list_fields($table_name)
     {
         return $this->db->list_fields($table_name);
     }
 
 
+
+
+    // count all table rows
+    public function get_counts($table_name)
+    {
+        return $this->db->count_all($table_name);
+    }
+
 //==============================================Core ucun lazim olan functionlar========================================
+
+
+//==============================================BU sayt ucun lazim olan elave funksiyalar========================================
+
+    public function get_popular_tours($table_name)
+    {
+        return $this->db->order_by("click_times", "DESC")->limit(4)->get($table_name)->result_array();
+    }
+
+//==============================================BU sayt ucun lazim olan elave funksiyalar========================================
+
 
 
 
