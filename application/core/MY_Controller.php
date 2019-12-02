@@ -29,6 +29,7 @@ class MY_Controller extends CI_Controller{
             $additional_id  = substr($value, 0, 11);
             $additional_editor  = substr($value, 0,8);
             $additional_file  = substr($value, 0,6);
+            $additional_required  = substr($value, 0,10);
 
 //          eger inputun ilk 9 herfi "not_input" dursa onu postnan cagirmir sadece default deyer kimi goturur
             if ($additional_id == "(not_input)" && strlen($value) > 11){
@@ -50,6 +51,22 @@ class MY_Controller extends CI_Controller{
                 $is_upload = $this->upload->do_upload(substr($value, 6));
                 if ($is_upload){
                     $post_data = $this->upload->data('file_name');
+
+                    if (substr($post_data, -3) == "jpg" || substr($post_data, -3) == "png" || substr($post_data, -4) == "jpeg" || substr($post_data, -3) == "gif"){
+                        $config_img['image_library'] = 'gd2';
+                        $config_img['source_image'] = $config["upload_path"] . $post_data;
+                        $config_img['create_thumb'] = false;
+                        $config_img['maintain_ratio'] = false;
+                        $config_img['width']     = 800;
+                        $config_img['height']   = 600;
+                        $config_img['new_image'] = $config["upload_path"] . $post_data;
+
+                        $this->load->library('image_lib', $config_img);
+                        $this->image_lib->resize();
+                    }
+
+
+
                 }else{
                     $post_data = "default.png";
                 }
@@ -61,7 +78,7 @@ class MY_Controller extends CI_Controller{
 
 
 //          eger post data bosdursa cond 0 olsun
-            if (empty($post_data)){
+            if (empty($post_data) && $additional_required == "(required)"){
                 $cond = 0;
             }
 
@@ -115,6 +132,7 @@ class MY_Controller extends CI_Controller{
             $additional_id  = substr($value, 0, 9);
             $additional_editor  = substr($value, 0,8);
             $additional_file  = substr($value, 0,6);
+            $additional_required  = substr($value, 0,10);
 
 //          eger inputun ilk 9 herfi "not_input" dursa onu postnan cagirmir sadece default deyer kimi goturur
             if ($additional_id == "not_input" && strlen($value) > 9){
@@ -137,8 +155,22 @@ class MY_Controller extends CI_Controller{
                 if ($is_upload){
                     $post_data = $this->upload->data('file_name');
 
+                    if (substr($post_data, -3) == "jpg" || substr($post_data, -3) == "png" || substr($post_data, -4) == "jpeg" || substr($post_data, -3) == "gif"){
+                        $config_img['image_library'] = 'gd2';
+                        $config_img['source_image'] = $config["upload_path"] . $post_data;
+                        $config_img['create_thumb'] = false;
+                        $config_img['maintain_ratio'] = false;
+                        $config_img['width']     = 800;
+                        $config_img['height']   = 600;
+                        $config_img['new_image'] = $config["upload_path"] . $post_data;
+
+                        $this->load->library('image_lib', $config_img);
+                        $this->image_lib->resize();
+                    }
+
                     if (!empty($row[$key]) && $row[$key] != "default.png" && $row[$key] != "doc.png")
                     unlink($config["upload_path"] . $row[$key]);
+
                 }else{
                     $post_data = $row[$key];
                 }
@@ -150,7 +182,7 @@ class MY_Controller extends CI_Controller{
 
 
 //          eger post data bosdursa cond 0 olsun
-            if (empty($post_data)){
+            if (empty($post_data)  && $additional_required == "(required)"){
                 $cond = 0;
             }
 
@@ -265,6 +297,49 @@ class MY_Controller extends CI_Controller{
 
 
 
+
+
+//======================================== Dinamik Delete functionlari ===================================================
+
+    //  core v2.0
+    public function import_csv($config){
+
+
+        if(!empty($_FILES['csv_file']['name']))
+        {
+            $file_data = fopen($_FILES['csv_file']['tmp_name'], 'r');
+            fgetcsv($file_data);
+            $count =0;
+            while($row = fgetcsv($file_data))
+            {
+
+                for ($i=1; $i < count($config["field_names"]); $i++){
+
+                    $arr[$config["field_names"][$i]] = $row[$i-1];
+                }
+
+                $data[$count] = $arr;
+
+                $this->Core->add($data[$count], $config["table_name"]);
+
+                $count++;
+            }
+
+
+        }
+
+
+    }
+    //  core v2.0
+
+//**************************************** Dinamik Delete functionlari ****************************************************
+
+
+
+
+
+
+
 //======================================== Dinamik Ajax update functionlari ===================================================
 
     //core v1.0
@@ -370,7 +445,7 @@ class MY_Controller extends CI_Controller{
 //======================================== Dinamik Data table kodlari ===================================================
 
 
-    //  core v2.0
+    //core v2.0
     public function data_table($config)
     {
 
@@ -499,10 +574,10 @@ class MY_Controller extends CI_Controller{
         echo json_encode($output);
         exit();
     }
-    //  core v2.0
+    //core v2.0
 
 
-    //  core v2.0
+    //core v2.0
     public function data_table_2($table_name)
     {
         $query = $this->db->select("COUNT(*) as num")->get($table_name);
@@ -510,7 +585,7 @@ class MY_Controller extends CI_Controller{
         if(isset($result)) return $result->num;
         return 0;
     }
-    //  core v2.0
+    //core v2.0
 
 
     //core v2.0
@@ -985,16 +1060,16 @@ class MY_Controller extends CI_Controller{
 
 
 
+        $count = 0;
         foreach ($config["select_name_and_table_name"]as $key => $value) {
             $splitted_string_array = explode(".",$value);
             $splitted_string_array2 = explode(".",$key);
 
-            $table_data = $this->Model_for_core->core_get($splitted_string_array[0]);
-            $table_data_row = $this->Model_for_core->core_get_where_row(array("id" => $data[$splitted_string_array2[0]]),$splitted_string_array[0]);
+            $table_data = $this->Core->get_desc($splitted_string_array[0]);
+            $table_data_row = $this->Core->get_where_row(array("id" => $data[$splitted_string_array2[0]]),$splitted_string_array[0]);
 
-
-            $html .= '<label for="">'. $splitted_string_array2[1] .'</label><select name="'. $splitted_string_array2[0] .'" class="c_form_control">';
-
+            $html .= '<label for="">'. $splitted_string_array2[1] .'</label>
+                        <select name="'. $splitted_string_array2[0] .'" class="mdb-select'. $count .' md-form">';
 
             $html .= '<option value="'. $table_data_row["id"] .'">'. $table_data_row["name_az"] .'</option>';
 
@@ -1004,9 +1079,10 @@ class MY_Controller extends CI_Controller{
                     $html .= '<option value="'. $item["id"] .'">'. $item[$splitted_string_array[1]] .'</option>';
                 }
             }
-            $html .= '</select><br><br>';
 
+            $html .= '</select> <script>$(\'.mdb-select'. $count .'\').materialSelect();</script>';
 
+            $count++;
         }
 
         $html5 = '<br><button type="submit" class="btn btn-primary" style="float: right">Yenilə <i class="fas fa-pencil-alt"></i></button>';
@@ -1015,6 +1091,7 @@ class MY_Controller extends CI_Controller{
 
     }
 //  core v2.0
+
 
 //  core v2.0
     public function create_view($config)
@@ -1408,9 +1485,11 @@ class MY_Controller extends CI_Controller{
             $splitted_string_array2 = explode(".",$key);
 
 
-            $table_data = $this->Model_for_core->core_get($splitted_string_array[0]);
+            $table_data = $this->Core->get_desc($splitted_string_array[0]);
 
-            $html .= '<label for="">'. $splitted_string_array2[1] .'</label><select name="'. $splitted_string_array2[0] .'" class="c_form_control">';
+
+            $html .= '<label for="">'. $splitted_string_array2[1] .'</label>
+                        <select name="'. $splitted_string_array2[0] .'" class="mdb-select md-form">';
 
 
             foreach ($table_data as $item){
@@ -1422,7 +1501,8 @@ class MY_Controller extends CI_Controller{
         }
 
 
-       $html .= '<div class="modal-footer">
+
+        $html .= '<div class="modal-footer">
                           <button type="submit" class="btn btn-primary">Yarat<i class="ml-1 fas fa-plus"></i></button>
                       </div>';
        $html .=  '</form>

@@ -15,6 +15,7 @@ class Panel_admin_page_tours extends MY_Controller{
     private $get_data_link = "";
     private $input_name_type ="";
     private $field_names ="";
+    private $import_link ="";
     private $add_update_input_array  ="";
 
 
@@ -43,16 +44,21 @@ class Panel_admin_page_tours extends MY_Controller{
             "Tur Haqqında En" => "(group2)desc_en",
             "Tur Haqqında Ru" => "(group2)desc_ru",
 
-            "Turun vaxdı" => "date",
-            "Turun saatı" => "time",
+            "Turun Kodu" => "tour_code",
+
+
+            "Turun Tarixi" => "date",
 
             "Turun Qiyməti" => "tour_price",
+
+            "Turun Yerləşdirilmə Tarixi" => "upload_date",
 
             "Turun Şəkli" => "img",
 
         );
 
         $this->input_name_type = array(
+
             "name_az" => "text",
             "name_en" => "text",
             "name_ru" => "text",
@@ -61,30 +67,46 @@ class Panel_admin_page_tours extends MY_Controller{
             "desc_en" => "editor",
             "desc_ru" => "editor",
 
+            "tour_code" => "text",
+
             "img" => "file",
 
             "date" => "date",
-            "time" => "time",
 
-            "tour_price" => "text",
+            "upload_date" => "date",
+
+            "tour_price" => "number",
         );
 
         $this->add_update_input_array = array(
-            "name_az" => "name_az",
-            "name_en" => "name_en",
-            "name_ru" => "name_ru",
+
+            "services_id" => "services_id",
+            "offers_id" => "offers_id",
+
+
+            "name_az" => "(required)name_az",
+            "name_en" => "(required)name_en",
+            "name_ru" => "(required)name_ru",
 
             "desc_az" => "(editor)desc_az",
             "desc_en" => "(editor)desc_en",
             "desc_ru" => "(editor)desc_ru",
 
+            "tour_code" => "tour_code",
+
+
             "img" => "(file)img",
 
             "date" => "date",
-            "time" => "time",
+
+            "upload_date" => "upload_date",
 
             "tour_price" => "tour_price",
         );
+
+
+//      tableye melumatlarin import edilmesi
+        $this->import_link                    = base_url("Panel_admin_page_tours/import/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
 
 //      tabledeki melumatlarin update olunduqu link
         $this->update_link                    = base_url("Panel_admin_page_tours/update/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
@@ -113,7 +135,10 @@ class Panel_admin_page_tours extends MY_Controller{
 
         $config["label_name_and_input_name"] = $this->label_name_and_input_name;
         $config["input_name_type"] = $this->input_name_type;
-        $config["select_name_and_table_name"] = array();
+        $config["select_name_and_table_name"] = array(
+            "services_id.Servisin Adı" => "services.name_az",
+            "offers_id.Təklifin Adı" => "offers.name_az",
+        );
         $config["update_link"] = $this->update_link;
         $config["add_link"]    = $this->add_link;
         $data["create_modal"] = $this->create_view($config);
@@ -122,6 +147,8 @@ class Panel_admin_page_tours extends MY_Controller{
         $data["get_data_link"] = $this->get_data_link;
         $data["field_names"] = $this->field_names;
         $data["view_folder"] = $this->view_folder;
+        $data["import_link"] = $this->import_link;
+
         $this->load->view('admin/includes/index', $data);
     }
 
@@ -163,7 +190,10 @@ class Panel_admin_page_tours extends MY_Controller{
         $config["table_name"] = $this->table_name;
         $config["label_name_and_input_name"] = $this->label_name_and_input_name;
         $config["input_name_type"] = $this->input_name_type;
-        $config["select_name_and_table_name"] = array();
+        $config["select_name_and_table_name"] = array(
+            "services_id.Servisin Adı" => "services.name_az",
+            "offers_id.Təklifin Adı" => "offers.name_az",
+        );
 
         echo $this->update_view($config);
 
@@ -205,6 +235,12 @@ class Panel_admin_page_tours extends MY_Controller{
 
     }
 
+    public function import()
+    {
+        $config["table_name"] = $this->table_name;
+        $config["field_names"] = $this->field_names;
+        $this->import_csv($config);
+    }
 
 
 }

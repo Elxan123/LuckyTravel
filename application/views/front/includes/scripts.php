@@ -11,6 +11,7 @@
 <script src="https://maps.googleapis.com/maps/api/js?sensor=false&amp;language=en"></script>
 <script src="<?php echo base_url("public/front/") ?>js/map.js"></script>
 <script src="<?php echo base_url("public/front/") ?>js/all.js"></script>
+<script src="<?php echo base_url("public/front/") ?>js/custom.js"></script>
 
 
 

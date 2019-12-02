@@ -20,6 +20,17 @@
             <section class="mb-5">
                 <!-- Card -->
                 <div class="card card-cascade narrower">
+
+
+<!--                    csv fayli yuklememk ucun lazim olan form-->
+                    <form data-url="<?php echo  (isset($import_link))? $import_link : ""?>" id="upload_csv" method="post" enctype="multipart/form-data" style="visibility: hidden;">
+                            <input   type="file" name="csv_file" id="csv_file" accept=".csv" style="margin-top:15px;" />
+                    </form>
+
+
+
+
+                    
                     <!-- Section: Table -->
                     <?php $this->load->view("admin/$view_folder/content") ?>
                     <!--Section: Table-->

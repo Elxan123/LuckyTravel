@@ -15,6 +15,7 @@ class Panel_admin_page_services extends MY_Controller{
     private $get_data_link = "";
     private $input_name_type ="";
     private $field_names ="";
+    private $import_link ="";
     private $add_update_input_array  ="";
     private $table_file_field_names  ="";
 
@@ -85,6 +86,10 @@ class Panel_admin_page_services extends MY_Controller{
 
 //==============================================================================================
 
+
+//      tableye melumatlarin import edilmesi
+        $this->import_link                    = base_url("Panel_admin_page_services/import/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
+
 //      tabledeki melumatlarin update olunduqu link
         $this->update_link                    = base_url("Panel_admin_page_services/update/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
 
@@ -121,6 +126,7 @@ class Panel_admin_page_services extends MY_Controller{
         $data["get_data_link"] = $this->get_data_link;
         $data["field_names"] = $this->field_names;
         $data["view_folder"] = $this->view_folder;
+        $data["import_link"] = $this->import_link;
         $this->load->view('admin/includes/index', $data);
     }
 
@@ -199,6 +205,14 @@ class Panel_admin_page_services extends MY_Controller{
 
 
     }
+
+    public function import()
+    {
+        $config["table_name"] = $this->table_name;
+        $config["field_names"] = $this->field_names;
+        $this->import_csv($config);
+    }
+
 
 
 

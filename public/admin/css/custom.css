@@ -132,3 +132,25 @@ th{
     width: 94.6%;
     margin-bottom: 20px;
 }
+
+
+@media only screen and (max-width: 600px) {
+    .view-cascade {
+        display: none!important;
+    }
+}
+
+
+
+#datatable_filter{
+    padding-top: 11px;
+}
+
+.md-form.md-outline {
+    margin-top: 45px;
+}
+
+
+.select-wrapper{
+    margin-top: 0!important;
+}

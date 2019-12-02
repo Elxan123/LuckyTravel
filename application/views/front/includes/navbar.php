@@ -16,7 +16,7 @@
                     }
 
                     ?>" class="logo">
-                        <img src="<?php echo base_url("public/front/") ?>img/theme-1/loqo_png.png" alt="lucky travel" style="width: 78px; height: 66px;" >
+                        <img src="<?php echo base_url("public/front/") ?>img/theme-1/loqo_png.png" alt="lucky travel" style="object-fit:contain;width: 78px; height: 66px;" >
                     </a>
                     <div class="nav-menu-icon">
                         <a href="#"><i></i></a>
