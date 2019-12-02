@@ -42,6 +42,7 @@ $lang["write_tour_name"] = "Turun adını daxil edin";
 $lang["write_tour_date"] = "Tarixi Seçin";
 $lang["go_search"] = "Axtar";
 $lang["price_range"] = "Qİymət aralığı";
+$lang["empty"] = "Məlumat Tapılmadı";
 //ola biler deye her ehtimal yaziram
 
 //===========menim hissem (cavid)

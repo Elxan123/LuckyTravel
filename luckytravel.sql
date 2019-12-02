@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 23 Kas 2019, 16:21:37
+-- Üretim Zamanı: 02 Ara 2019, 14:55:39
 -- Sunucu sürümü: 10.4.8-MariaDB
 -- PHP Sürümü: 7.3.11
 
@@ -140,6 +140,13 @@ CREATE TABLE `offers` (
   `img` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Tablo döküm verisi `offers`
+--
+
+INSERT INTO `offers` (`id`, `name_az`, `name_en`, `name_ru`, `desc_az`, `desc_en`, `desc_ru`, `img`) VALUES
+(1, 'asdasd', 'sdas', 'asdas', '<p>asas</p>\r\n', '<p>asdas</p>\r\n', '<p>asdsa</p>\r\n', 'sydicate.jpg');
+
 -- --------------------------------------------------------
 
 --
@@ -172,6 +179,13 @@ CREATE TABLE `services` (
   `img` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Tablo döküm verisi `services`
+--
+
+INSERT INTO `services` (`id`, `name_az`, `name_en`, `name_ru`, `desc_az`, `desc_en`, `desc_ru`, `img`) VALUES
+(1, 'asd', 'asd', 'asdas', '<p>asdasas</p>\r\n', '<p>asd</p>\r\n', '<p>asd</p>\r\n', 'macbook_pro_apple_laptop_headphones_table_98893_2560x1440.jpg');
+
 -- --------------------------------------------------------
 
 --
@@ -180,6 +194,8 @@ CREATE TABLE `services` (
 
 CREATE TABLE `tours` (
   `id` int(11) NOT NULL,
+  `services_id` int(11) NOT NULL,
+  `offers_id` int(11) NOT NULL,
   `name_az` varchar(255) NOT NULL,
   `name_en` varchar(255) NOT NULL,
   `name_ru` varchar(255) NOT NULL,
@@ -189,7 +205,7 @@ CREATE TABLE `tours` (
   `img` varchar(255) NOT NULL,
   `date` date NOT NULL,
   `upload_date` date NOT NULL,
-  `tour_price` varchar(255) NOT NULL,
+  `tour_price` int(11) NOT NULL,
   `tour_code` varchar(255) NOT NULL,
   `click_times` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -198,8 +214,9 @@ CREATE TABLE `tours` (
 -- Tablo döküm verisi `tours`
 --
 
-INSERT INTO `tours` (`id`, `name_az`, `name_en`, `name_ru`, `desc_az`, `desc_en`, `desc_ru`, `img`, `date`, `upload_date`, `tour_price`, `tour_code`, `click_times`) VALUES
-(34, 'asd', 'asd', 'sd', '<p>asd</p>\r\n', '<p>asd</p>\r\n', '<p>asd</p>\r\n', 'minecraft_planet_cube_cubes_world_2228_1920x1080.jpg', '2019-11-13', '2019-11-20', '22', 'dasd', 0);
+INSERT INTO `tours` (`id`, `services_id`, `offers_id`, `name_az`, `name_en`, `name_ru`, `desc_az`, `desc_en`, `desc_ru`, `img`, `date`, `upload_date`, `tour_price`, `tour_code`, `click_times`) VALUES
+(59, 1, 0, 'asdsa', 'sdsa', 'asdas', '<p>asdsa</p>\r\n', '<p>asdsa</p>\r\n', '<p>asda</p>\r\n', 'minecraft_planet_cube_cubes_world_2228_1920x1080.jpg', '2019-11-14', '2019-11-15', 123, '123', 0),
+(60, 1, 2, 'asd', 'asda', 'asdasd', '<p>asdasd</p>\r\n', '<p>asdas</p>\r\n', '<p>asdas</p>\r\n', 'sydicate.jpg', '2222-02-22', '2019-11-09', 22, '123', 0);
 
 -- --------------------------------------------------------
 
@@ -269,7 +286,8 @@ ALTER TABLE `services`
 -- Tablo için indeksler `tours`
 --
 ALTER TABLE `tours`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `services_id` (`services_id`,`offers_id`);
 
 --
 -- Tablo için indeksler `tour_gallery`
@@ -316,7 +334,7 @@ ALTER TABLE `messages`
 -- Tablo için AUTO_INCREMENT değeri `offers`
 --
 ALTER TABLE `offers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `partners`
@@ -328,13 +346,13 @@ ALTER TABLE `partners`
 -- Tablo için AUTO_INCREMENT değeri `services`
 --
 ALTER TABLE `services`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `tours`
 --
 ALTER TABLE `tours`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `tour_gallery`

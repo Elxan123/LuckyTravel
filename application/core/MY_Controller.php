@@ -1058,16 +1058,16 @@ class MY_Controller extends CI_Controller{
 
 
 
+        $count = 0;
         foreach ($config["select_name_and_table_name"]as $key => $value) {
             $splitted_string_array = explode(".",$value);
             $splitted_string_array2 = explode(".",$key);
 
-            $table_data = $this->Model_for_core->core_get($splitted_string_array[0]);
-            $table_data_row = $this->Model_for_core->core_get_where_row(array("id" => $data[$splitted_string_array2[0]]),$splitted_string_array[0]);
+            $table_data = $this->Core->get_desc($splitted_string_array[0]);
+            $table_data_row = $this->Core->get_where_row(array("id" => $data[$splitted_string_array2[0]]),$splitted_string_array[0]);
 
-
-            $html .= '<label for="">'. $splitted_string_array2[1] .'</label><select name="'. $splitted_string_array2[0] .'" class="c_form_control">';
-
+            $html .= '<label for="">'. $splitted_string_array2[1] .'</label>
+                        <select name="'. $splitted_string_array2[0] .'" class="mdb-select'. $count .' md-form">';
 
             $html .= '<option value="'. $table_data_row["id"] .'">'. $table_data_row["name_az"] .'</option>';
 
@@ -1077,9 +1077,10 @@ class MY_Controller extends CI_Controller{
                     $html .= '<option value="'. $item["id"] .'">'. $item[$splitted_string_array[1]] .'</option>';
                 }
             }
-            $html .= '</select><br><br>';
 
+            $html .= '</select> <script>$(\'.mdb-select'. $count .'\').materialSelect();</script>';
 
+            $count++;
         }
 
         $html5 = '<br><button type="submit" class="btn btn-primary" style="float: right">Yenilə <i class="fas fa-pencil-alt"></i></button>';
@@ -1088,6 +1089,7 @@ class MY_Controller extends CI_Controller{
 
     }
 //  core v2.0
+
 
 //  core v2.0
     public function create_view($config)
@@ -1481,9 +1483,11 @@ class MY_Controller extends CI_Controller{
             $splitted_string_array2 = explode(".",$key);
 
 
-            $table_data = $this->Model_for_core->core_get($splitted_string_array[0]);
+            $table_data = $this->Core->get_desc($splitted_string_array[0]);
 
-            $html .= '<label for="">'. $splitted_string_array2[1] .'</label><select name="'. $splitted_string_array2[0] .'" class="c_form_control">';
+
+            $html .= '<label for="">'. $splitted_string_array2[1] .'</label>
+                        <select name="'. $splitted_string_array2[0] .'" class="mdb-select md-form">';
 
 
             foreach ($table_data as $item){
@@ -1495,7 +1499,8 @@ class MY_Controller extends CI_Controller{
         }
 
 
-       $html .= '<div class="modal-footer">
+
+        $html .= '<div class="modal-footer">
                           <button type="submit" class="btn btn-primary">Yarat<i class="ml-1 fas fa-plus"></i></button>
                       </div>';
        $html .=  '</form>

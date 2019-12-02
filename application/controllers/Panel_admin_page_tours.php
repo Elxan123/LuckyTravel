@@ -58,6 +58,7 @@ class Panel_admin_page_tours extends MY_Controller{
         );
 
         $this->input_name_type = array(
+
             "name_az" => "text",
             "name_en" => "text",
             "name_ru" => "text",
@@ -74,10 +75,15 @@ class Panel_admin_page_tours extends MY_Controller{
 
             "upload_date" => "date",
 
-            "tour_price" => "text",
+            "tour_price" => "number",
         );
 
         $this->add_update_input_array = array(
+
+            "services_id" => "services_id",
+            "offers_id" => "offers_id",
+
+
             "name_az" => "name_az",
             "name_en" => "name_en",
             "name_ru" => "name_ru",
@@ -129,7 +135,10 @@ class Panel_admin_page_tours extends MY_Controller{
 
         $config["label_name_and_input_name"] = $this->label_name_and_input_name;
         $config["input_name_type"] = $this->input_name_type;
-        $config["select_name_and_table_name"] = array();
+        $config["select_name_and_table_name"] = array(
+            "services_id.Servisin Adı" => "services.name_az",
+            "offers_id.Təklifin Adı" => "offers.name_az",
+        );
         $config["update_link"] = $this->update_link;
         $config["add_link"]    = $this->add_link;
         $data["create_modal"] = $this->create_view($config);
@@ -181,7 +190,10 @@ class Panel_admin_page_tours extends MY_Controller{
         $config["table_name"] = $this->table_name;
         $config["label_name_and_input_name"] = $this->label_name_and_input_name;
         $config["input_name_type"] = $this->input_name_type;
-        $config["select_name_and_table_name"] = array();
+        $config["select_name_and_table_name"] = array(
+            "services_id.Servisin Adı" => "services.name_az",
+            "offers_id.Təklifin Adı" => "offers.name_az",
+        );
 
         echo $this->update_view($config);
 

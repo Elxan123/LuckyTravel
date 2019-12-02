@@ -9,13 +9,15 @@
         display: none!important;
     }
 
-    th:nth-child(5){
+    th:nth-child(3){
         display: none!important;
     }
 
-    td:nth-child(5){
+    td:nth-child(3){
         display: none!important;
     }
+
+
 
     th:nth-child(4){
         display: none!important;
@@ -34,9 +36,13 @@
         display: none!important;
     }
 
+
+
+
     th:nth-child(7){
         display: none!important;
     }
+
     td:nth-child(7){
         display: none!important;
     }
@@ -45,6 +51,13 @@
         display: none!important;
     }
     td:nth-child(8){
+        display: none!important;
+    }
+
+    th:nth-child(9){
+        display: none!important;
+    }
+    td:nth-child(9){
         display: none!important;
     }
 
@@ -104,6 +117,8 @@
 
 
                         <th data-orderable="true" class="c_th_max_width"><a>id<i class="fas fa-sort ml-1"></i></a></th>
+                        <th data-orderable="true" class="c_th_max_width"><a>Servisin id-si<i class="fas fa-sort ml-1"></i></a></th>
+                        <th data-orderable="true" class="c_th_max_width"><a>Teklifin id-si<i class="fas fa-sort ml-1"></i></a></th>
                         <th data-orderable="true" class="c_th_max_width"><a>Turun Adı<i class="fas fa-sort ml-1"></i></a></th>
                         <th data-orderable="true" class="c_th_max_width"><a>name_en<i class="fas fa-sort ml-1"></i></a></th>
                         <th data-orderable="true" class="c_th_max_width"><a>name_ru<i class="fas fa-sort ml-1"></i></a></th>
