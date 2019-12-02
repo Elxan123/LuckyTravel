@@ -29,6 +29,7 @@ class MY_Controller extends CI_Controller{
             $additional_id  = substr($value, 0, 11);
             $additional_editor  = substr($value, 0,8);
             $additional_file  = substr($value, 0,6);
+            $additional_required  = substr($value, 0,10);
 
 //          eger inputun ilk 9 herfi "not_input" dursa onu postnan cagirmir sadece default deyer kimi goturur
             if ($additional_id == "(not_input)" && strlen($value) > 11){
@@ -77,7 +78,7 @@ class MY_Controller extends CI_Controller{
 
 
 //          eger post data bosdursa cond 0 olsun
-            if (empty($post_data)){
+            if (empty($post_data) && $additional_required == "(required)"){
                 $cond = 0;
             }
 
@@ -131,6 +132,7 @@ class MY_Controller extends CI_Controller{
             $additional_id  = substr($value, 0, 9);
             $additional_editor  = substr($value, 0,8);
             $additional_file  = substr($value, 0,6);
+            $additional_required  = substr($value, 0,10);
 
 //          eger inputun ilk 9 herfi "not_input" dursa onu postnan cagirmir sadece default deyer kimi goturur
             if ($additional_id == "not_input" && strlen($value) > 9){
@@ -180,7 +182,7 @@ class MY_Controller extends CI_Controller{
 
 
 //          eger post data bosdursa cond 0 olsun
-            if (empty($post_data)){
+            if (empty($post_data)  && $additional_required == "(required)"){
                 $cond = 0;
             }
 

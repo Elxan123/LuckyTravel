@@ -84,9 +84,9 @@ class Panel_admin_page_tours extends MY_Controller{
             "offers_id" => "offers_id",
 
 
-            "name_az" => "name_az",
-            "name_en" => "name_en",
-            "name_ru" => "name_ru",
+            "name_az" => "(required)name_az",
+            "name_en" => "(required)name_en",
+            "name_ru" => "(required)name_ru",
 
             "desc_az" => "(editor)desc_az",
             "desc_en" => "(editor)desc_en",
