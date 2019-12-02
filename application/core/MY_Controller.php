@@ -31,9 +31,14 @@ class MY_Controller extends CI_Controller{
             $additional_file  = substr($value, 0,6);
             $additional_required  = substr($value, 0,10);
 
+
 //          eger inputun ilk 9 herfi "not_input" dursa onu postnan cagirmir sadece default deyer kimi goturur
             if ($additional_id == "(not_input)" && strlen($value) > 11){
                 $post_data = substr($value, 11);
+            }
+            elseif ($additional_required == "(required)" && strlen($value) >= 10){
+                $important = substr($value, 10);
+                $post_data = $this->input->post($important);
             }
             elseif ($additional_editor == "(editor)" && strlen($value) > 8){
                 $editor = substr($value, 8);
@@ -78,7 +83,7 @@ class MY_Controller extends CI_Controller{
 
 
 //          eger post data bosdursa cond 0 olsun
-            if (empty($post_data) && $additional_required == "(required)"){
+            if (empty($post_data) && $additional_required == "(required)" && strlen($value) >= 10){
                 $cond = 0;
             }
 
@@ -86,6 +91,7 @@ class MY_Controller extends CI_Controller{
             $data[$key] = $post_data;
 
         }
+
 
 
 //      eyer cond 1 dise succes linke success alerti ile birlikde redirect edir
@@ -138,6 +144,10 @@ class MY_Controller extends CI_Controller{
             if ($additional_id == "not_input" && strlen($value) > 9){
                 $post_data = substr($value, 9);
             }
+            elseif ($additional_required == "(required)" && strlen($value) >= 10){
+                $important = substr($value, 10);
+                $post_data = $this->input->post($important);
+            }
             elseif ($additional_editor == "(editor)" && strlen($value) > 8){
                 $editor = substr($value, 8);
                 $editor .= "_editor";
@@ -182,7 +192,7 @@ class MY_Controller extends CI_Controller{
 
 
 //          eger post data bosdursa cond 0 olsun
-            if (empty($post_data)  && $additional_required == "(required)"){
+            if (empty($post_data) && $additional_required == "(required)" && strlen($value) >= 10){
                 $cond = 0;
             }
 
