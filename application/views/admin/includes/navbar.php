@@ -59,6 +59,15 @@
                  </li>
 
 
+                    <!-- Partnyorlar -->
+                    <li>
+                        <a href="<?php echo base_url("Panel_admin_page_tour_includes")?>" class="collapsible-header waves-effect">
+                            <i class="fas fa-image"></i>
+                            Turlara daxildir bölməsi
+                        </a>
+                    </li>
+
+
                     <!-- Slayd -->
                     <li>
                         <a href="<?php echo base_url("Panel_admin_page_logo")?>" class="collapsible-header waves-effect">
@@ -79,8 +88,16 @@
                     <!-- Slayd -->
                     <li>
                         <a href="<?php echo base_url("Panel_admin_page_main_slide")?>" class="collapsible-header waves-effect">
-                            <i class="fas fa-concierge-bell"></i>
+                            <i class="far fa-clone"></i>
                             Əsas Slayd
+                        </a>
+                    </li>
+
+                    <!-- Slayd -->
+                    <li>
+                        <a href="<?php echo base_url("Panel_admin_page_additional_slide")?>" class="collapsible-header waves-effect">
+                            <i class="far fa-clone"></i>
+                            İkinci Slayd
                         </a>
                     </li>
 
@@ -90,6 +107,15 @@
                         <a href="<?php echo base_url("Panel_admin_page_services")?>" class="collapsible-header waves-effect">
                             <i class="fas fa-concierge-bell"></i>
                             Xidmətlər
+                        </a>
+                    </li>
+
+
+                    <!-- Xidmətlət -->
+                    <li>
+                        <a href="<?php echo base_url("Panel_admin_page_blog")?>" class="collapsible-header waves-effect">
+                            <i class="fas fa-id-card"></i>
+                            Blog
                         </a>
                     </li>
 
@@ -126,6 +152,19 @@
                         </a>
                     </li>
 
+
+                    <?php if ($this->session->userdata("user_role") != 0){ ?>
+
+                        <!-- Users -->
+                        <li>
+                            <a href="<?php echo base_url("Panel_admin_page_users")?>" class="collapsible-header waves-effect">
+                                <i class="fas fa-users"></i>
+                                İstifadəçilər
+                            </a>
+                        </li>
+
+                    <?php }?>
+
                 </ul>
             </li>
             <!-- Side navigation links -->
@@ -159,7 +198,7 @@
                         <i class="fas fa-user"></i> <span class="clearfix d-none d-sm-inline-block">Profil</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                        <a class="dropdown-item" href="#">Çıxış</a>
+                        <a class="dropdown-item" href="<?php echo base_url("Panel_admin_page_secure_login_page/logout")?>">Çıxış</a>
                     </div>
                 </li>
 

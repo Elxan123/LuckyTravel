@@ -9,11 +9,11 @@
         display: none!important;
     }
 
-    th:nth-child(5){
+    th:nth-child(3){
         display: none!important;
     }
 
-    td:nth-child(5){
+    td:nth-child(3){
         display: none!important;
     }
 
@@ -22,6 +22,14 @@
     }
 
     td:nth-child(4){
+        display: none!important;
+    }
+
+    th:nth-child(10){
+        display: none!important;
+    }
+
+    td:nth-child(10){
         display: none!important;
     }
 
@@ -34,9 +42,13 @@
         display: none!important;
     }
 
+
+
+
     th:nth-child(7){
         display: none!important;
     }
+
     td:nth-child(7){
         display: none!important;
     }
@@ -45,6 +57,48 @@
         display: none!important;
     }
     td:nth-child(8){
+        display: none!important;
+    }
+
+    th:nth-child(9){
+        display: none!important;
+    }
+    td:nth-child(9){
+        display: none!important;
+    }
+
+    th:nth-child(12){
+        display: none!important;
+    }
+    td:nth-child(12){
+        display: none!important;
+    }
+
+    th:nth-child(13){
+        display: none!important;
+    }
+    td:nth-child(13){
+        display: none!important;
+    }
+
+    th:nth-child(19){
+        display: none!important;
+    }
+    td:nth-child(19){
+        display: none!important;
+    }
+
+    th:nth-child(20){
+        display: none!important;
+    }
+    td:nth-child(20){
+        display: none!important;
+    }
+
+    th:nth-child(21){
+        display: none!important;
+    }
+    td:nth-child(21){
         display: none!important;
     }
 
@@ -67,7 +121,7 @@
                         class="fas fa-columns mt-0"></i></button>
             </div>
 
-            <a class="white-text mx-3">Table name</a>
+            <a class="white-text mx-3">Turlar</a>
 
             <div style="visibility: hidden;">
                 <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2"><i
@@ -104,6 +158,8 @@
 
 
                         <th data-orderable="true" class="c_th_max_width"><a>id<i class="fas fa-sort ml-1"></i></a></th>
+                        <th data-orderable="true" class="c_th_max_width"><a>Servisin id-si<i class="fas fa-sort ml-1"></i></a></th>
+                        <th data-orderable="true" class="c_th_max_width"><a>Teklifin id-si<i class="fas fa-sort ml-1"></i></a></th>
                         <th data-orderable="true" class="c_th_max_width"><a>Turun Adı<i class="fas fa-sort ml-1"></i></a></th>
                         <th data-orderable="true" class="c_th_max_width"><a>name_en<i class="fas fa-sort ml-1"></i></a></th>
                         <th data-orderable="true" class="c_th_max_width"><a>name_ru<i class="fas fa-sort ml-1"></i></a></th>
@@ -111,15 +167,22 @@
                         <th data-orderable="true" class="c_th_max_width"><a>desc_en<i class="fas fa-sort ml-1"></i></a></th>
                         <th data-orderable="true" class="c_th_max_width"><a>desc_ru<i class="fas fa-sort ml-1"></i></a></th>
                         <th data-orderable="true" class="c_th_max_width"><a>Turun Şəkli<i class="fas fa-sort ml-1"></i></a></th>
-                        <th data-orderable="true" class="c_th_max_width"><a>Turun Tarixi<i class="fas fa-sort ml-1"></i></a></th>
-                        <th data-orderable="true" class="c_th_max_width"><a>Turun Yerləşdirilmə Tarixi<i class="fas fa-sort ml-1"></i></a></th>
+                        <th data-orderable="true" class="c_th_max_width"><a>Turun Başlama Tarixi<i class="fas fa-sort ml-1"></i></a></th>
+                        <th data-orderable="true" class="c_th_max_width"><a>Turun Bitmə Tarixi<i class="fas fa-sort ml-1"></i></a></th>
                         <th data-orderable="true" class="c_th_max_width"><a>Turun Qiyməti<i class="fas fa-sort ml-1"></i></a></th>
                         <th data-orderable="true" class="c_th_max_width"><a>Turun Kodu<i class="fas fa-sort ml-1"></i></a></th>
 
                         <th data-orderable="true" class="c_th_max_width"><a>Turun Baxış Sayı<i class="fas fa-sort ml-1"></i></a></th>
+                        <th data-orderable="true" class="c_th_max_width"><a>Turun həmin günkü hava haqqında məlumatı<i class="fas fa-sort ml-1"></i></a></th>
+                        <th data-orderable="true" class="c_th_max_width"><a>Temperaturu (Selsi ilə)<i class="fas fa-sort ml-1"></i></a></th>
+                        <th data-orderable="true" class="c_th_max_width"><a>Link<i class="fas fa-sort ml-1"></i></a></th>
+
+                        <th data-orderable="true" class="c_th_max_width"><a>Long<i class="fas fa-sort ml-1"></i></a></th>
+                        <th data-orderable="true" class="c_th_max_width"><a>Lat<i class="fas fa-sort ml-1"></i></a></th>
 
 
                         <th data-orderable="false" class="c_operations c_neglect" style="width: 53px!important;"><a>Turun Qalereyası</a></th>
+                        <th data-orderable="false" class="c_operations c_neglect" style="width: 53px!important;"><a>Tura Daxildir</a></th>
                         <th data-orderable="false" class="c_operations c_neglect" style="width: 53px!important;"><a>Əməliyatlar</a></th>
 
 

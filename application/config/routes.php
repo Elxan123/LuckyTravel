@@ -81,3 +81,9 @@ $route['(:any)/services'] =  'ServicesWebPageCoding/index';
 $route['(:any)/tours'] =  'ToursWebPageCoding/index';
 $route['(:any)/tours/(.*)'] =  'ToursWebPageCoding/index/$1';
 $route['(:any)/tour/(.*)'] =  'ToursWebPageCoding/single/$1/$2';
+
+$route['(:any)/load_data(.*)'] =  'ToursWebPageCoding/load_data/$1';
+$route['(:any)/load_data/(.*)'] =  'ToursWebPageCoding/load_data/$1/$2';
+
+
+

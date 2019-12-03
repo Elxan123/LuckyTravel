@@ -86,6 +86,8 @@
     public function add($data, $table_name)
      {
          $this->db->insert($table_name,$data);
+         $id = $this->db->insert_id();
+         return $id;
      }
 
 
@@ -132,6 +134,65 @@
     public function get_popular_tours($table_name)
     {
         return $this->db->order_by("click_times", "DESC")->limit(4)->get($table_name)->result_array();
+    }
+
+    //  get data pagination limit asc
+    public function get_price_pagination_asc($limit, $count, $table_name)
+    {
+        return $this->db->order_by("tour_price", "ASC")->limit($limit, $count)->get($table_name)->result_array();
+    }
+
+    //  get data pagination limit desc
+    public function get_price_pagination_desc($limit, $count, $table_name)
+    {
+        return $this->db->order_by("tour_price", "DESC")->limit($limit, $count)->get($table_name)->result_array();
+    }
+
+    //  get data pagination limit asc
+    public function get_popularity_pagination_asc($limit, $count, $table_name)
+    {
+        return $this->db->order_by("click_times", "ASC")->limit($limit, $count)->get($table_name)->result_array();
+    }
+
+    //  get data pagination limit desc
+    public function get_popularity_pagination_desc($limit, $count, $table_name)
+    {
+        return $this->db->order_by("click_times", "DESC")->limit($limit, $count)->get($table_name)->result_array();
+    }
+
+    //  get data pagination limit desc
+    public function get_price_range_pagination($where, $limit, $count, $table_name)
+    {
+        return $this->db->where("tour_price >=" , $where[0])->where("tour_price <=" , $where[1])->order_by("tour_price", "ASC")->limit($limit, $count)->get($table_name)->result_array();
+    }
+
+    //  get data pagination limit desc
+    public function get_search_pagination($search_value, $limit, $count, $table_name)
+    {
+        $lang = $this->session->userdata("dil");
+
+        $this->db->like("name_$lang", $search_value);
+        $this->db->or_like("desc_$lang", $search_value);
+        return $this->db->limit($limit, $count)->get($table_name)->result_array();
+    }
+
+    //  get data pagination limit desc
+    public function get_date_pagination($date_value, $limit, $count, $table_name)
+    {
+        $lang = $this->session->userdata("dil");
+
+        $this->db->where("date", $date_value);
+        return $this->db->limit($limit, $count)->get($table_name)->result_array();
+    }
+
+    public function get_search_pagination_date($date_value ,$search_value, $limit, $count, $table_name)
+    {
+        $lang = $this->session->userdata("dil");
+
+        $this->db->where("date", $date_value);
+        $this->db->like("name_$lang", $search_value);
+        $this->db->or_like("desc_$lang", $search_value);
+        return $this->db->limit($limit, $count)->get($table_name)->result_array();
     }
 
 //==============================================BU sayt ucun lazim olan elave funksiyalar========================================

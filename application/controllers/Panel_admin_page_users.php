@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class Panel_admin_page_contact extends MY_Controller{
+class Panel_admin_page_users extends MY_Controller{
 
     private $view_folder = "";
     private $table_name= "";
@@ -15,6 +15,7 @@ class Panel_admin_page_contact extends MY_Controller{
     private $get_data_link = "";
     private $input_name_type ="";
     private $field_names ="";
+    private $import_link ="";
     private $add_update_input_array  ="";
     private $table_file_field_names  ="";
 
@@ -24,26 +25,16 @@ class Panel_admin_page_contact extends MY_Controller{
         parent::__construct();
 
 //      adminin icindeki papkanin adi
-        $this->view_folder = "contact";
+        $this->view_folder = "users";
 
 //      tablemizin adi
-        $this->table_name = "contact";
+        $this->table_name = "users";
 
 //      sekilleri ve fayllari yukleyeceyimiz yer meselen: base_url("uploads/teachers/")
-        $this->upload_path = "uploads/contact/";
+        $this->upload_path = "";
 
 //      eger sekil veya file varsa tablenin hansi fieldinnen adini goturub papkadan silsin
-        $this->table_file_field_names = array(
-            "phone_img",
-            "address_img",
-            "email_img",
-            "linkedln_img",
-            "facebook_img",
-            "instagram_img",
-            "youtube_img",
-            "twitter_img",
-            "whatsapp_img",
-        );
+        $this->table_file_field_names = array();
 
 //==============================================================================================
 
@@ -52,103 +43,51 @@ class Panel_admin_page_contact extends MY_Controller{
 
         $this->label_name_and_input_name = array(
 
-            "Telefon" => "phone",
-            "Telefon Iconu" => "phone_img",
-
-            "Adres" => "address",
-            "Adres Iconu" => "address_img",
-
-            "E-poçt" => "email",
-            "E-poçt Iconu" => "email_img",
-
-            "Linkedln" => "linkedln",
-            "Linkedln Iconu" => "linkedln_img",
-
-            "Facebook" => "facebook",
-            "Facebook Iconu" => "facebook_img",
-
-            "Instagram" => "instagram",
-            "Instagram Iconu" => "instagram_img",
-
-            "Youtube" => "youtube",
-            "Youtube Iconu" => "youtube_img",
-
-            "Twitter" => "twitter",
-            "Twitter Iconu" => "twitter_img",
-
-            "Whatsapp" => "whatsapp",
-            "Whatsapp Iconu" => "whatsapp_img",
-
-
-
+            "İstifadəçi adı" => "username(required)",
+            "Şifrə" => "password(required)",
 
         );
 
         $this->input_name_type = array(
 
-            "phone" => "text",
-            "address" => "text",
-            "email" => "email",
-            "linkedln" => "text",
-            "facebook" => "text",
-            "instagram" => "text",
-            "youtube" => "text",
-            "twitter" => "text",
-            "whatsapp" => "text",
-
-            "phone_img" => "file",
-            "address_img" => "file",
-            "email_img" => "file",
-            "linkedln_img" => "file",
-            "facebook_img" => "file",
-            "instagram_img" => "file",
-            "youtube_img" => "file",
-            "twitter_img" => "file",
-            "whatsapp_img" => "file",
+            "username" => "text",
+            "password" => "password",
 
         );
 
         $this->add_update_input_array = array(
-
-            "phone" => "phone",
-            "address" => "address",
-            "email" => "email",
-            "linkedln" => "linkedln",
-            "facebook" => "facebook",
-            "instagram" => "instagram",
-            "youtube" => "youtube",
-            "twitter" => "twitter",
-            "whatsapp" => "whatsapp",
-
-            "phone_img" => "(file)phone_img",
-            "address_img" => "(file)address_img",
-            "email_img" => "(file)email_img",
-            "linkedln_img" => "(file)linkedln_img",
-            "facebook_img" => "(file)facebook_img",
-            "instagram_img" => "(file)instagram_img",
-            "youtube_img" => "(file)youtube_img",
-            "twitter_img" => "(file)twitter_img",
-            "whatsapp_img" => "(file)whatsapp_img",
-
+            "username" => "username",
+            "password" => "password(md5)",
         );
+
+
 
 
 //==============================================================================================
 
+//      tableye melumatlarin import edilmesi
+        $this->import_link                    = base_url("Panel_admin_page_users/import/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
+
 //      tabledeki melumatlarin update olunduqu link
-        $this->update_link                    = base_url("Panel_admin_page_contact/update/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
+        $this->update_link                    = base_url("Panel_admin_page_users/update/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
+
+//      tabledeki melumatlarin add olunduqu link
+        $this->add_link                       = base_url("Panel_admin_page_users/add/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
+
+//      tabledeki melumatlarin delete olunduqu link
+        $this->delete_link                    = base_url("Panel_admin_page_users/delete/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
 
 //      ajaxnan melumatlarin modalin icine getirilmesi
-        $this->link_for_update_modal          = base_url("Panel_admin_page_contact/get_data_for_update/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
+        $this->link_for_update_modal          = base_url("Panel_admin_page_users/get_data_for_update/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
 
 //      proseslerden her hansi biri ugurla basa catdiqda hansi linke atsin
-        $this->success_link                   = base_url("Panel_admin_page_contact/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
+        $this->success_link                   = base_url("Panel_admin_page_users/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
 
 //      proseslerden her hansi biri ugurla basa catmadiqda hansi linke atsin
-        $this->error_link                     = base_url("Panel_admin_page_contact/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
+        $this->error_link                     = base_url("Panel_admin_page_users/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
 
 //      data tablenin icine melumatlarin ajaxnan getirilmesi ucun lazim olan link
-        $this->get_data_link                  = base_url("Panel_admin_page_contact/get_data");
+        $this->get_data_link                  = base_url("Panel_admin_page_users/get_data");
     }
 
     public function index()
@@ -165,6 +104,8 @@ class Panel_admin_page_contact extends MY_Controller{
         $data["get_data_link"] = $this->get_data_link;
         $data["field_names"] = $this->field_names;
         $data["view_folder"] = $this->view_folder;
+        $data["import_link"] = $this->import_link;
+
         $this->load->view('admin/includes/index', $data);
     }
 
@@ -178,6 +119,19 @@ class Panel_admin_page_contact extends MY_Controller{
         $config["link_for_update_modal"] = $this->link_for_update_modal;
 
         $this->data_table($config);
+
+    }
+
+    public function add()
+    {
+
+        $config["inputs_array"] = $this->add_update_input_array;
+        $config["success_link"] = $this->success_link;
+        $config["error_link"] =  $this->error_link;
+        $config["table_name"] = $this->table_name;
+        $config["upload_path"] = $this->upload_path;
+
+        $this->insert_db($config);
 
     }
 
@@ -214,7 +168,29 @@ class Panel_admin_page_contact extends MY_Controller{
 
     }
 
+    public function delete($id)
+    {
 
+        $config["where"] = array(
+            "id"=> $id,
+        );
+        $config["table_file_field_names"] = $this->table_file_field_names;
+        $config["success_link"] = $this->success_link;
+        $config["error_link"] = $this->error_link;
+        $config["upload_path"] = $this->upload_path;
+        $config["table_name"] = $this->table_name;
+
+        $this->delete_db($config);
+
+
+    }
+
+    public function import()
+    {
+        $config["table_name"] = $this->table_name;
+        $config["field_names"] = $this->field_names;
+        $this->import_csv($config);
+    }
 
 
 }

@@ -18,10 +18,109 @@
         display: none!important;
     }
 
+
+
+    th:nth-child(3){
+        display: none!important;
+    }
+
+    td:nth-child(3){
+        display: none!important;
+    }
+
+    th:nth-child(4){
+        display: none!important;
+    }
+
+    td:nth-child(4){
+        display: none!important;
+    }
+
+
+    th:nth-child(5){
+        display: none!important;
+    }
+
+    td:nth-child(5){
+        display: none!important;
+    }
+
+    th:nth-child(6){
+        display: none!important;
+    }
+
+    td:nth-child(6){
+        display: none!important;
+    }
+
+
+
+    th:nth-child(7){
+        display: none!important;
+    }
+
+    td:nth-child(7){
+        display: none!important;
+    }
+
+    th:nth-child(8){
+        display: none!important;
+    }
+
+    td:nth-child(8){
+        display: none!important;
+    }
+
+
+    th:nth-child(9){
+        display: none!important;
+    }
+
+    td:nth-child(9){
+        display: none!important;
+    }
+
+    th:nth-child(10){
+        display: none!important;
+    }
+
+    td:nth-child(10){
+        display: none!important;
+    }
+
+
+    th:nth-child(11){
+        display: none!important;
+    }
+
+    td:nth-child(11){
+        display: none!important;
+    }
+
+
+    th:nth-child(12){
+        display: none!important;
+    }
+
+    td:nth-child(12){
+        display: none!important;
+    }
+
     .c_row_delete{
         display: none;
     }
 
+    .c_row_create{
+        display: none;
+    }
+
+    .dt-buttons{
+        display: none;
+    }
+
+    #datatable_filter{
+        display: none;
+    }
 
 
 </style>
@@ -43,7 +142,7 @@
                         class="fas fa-columns mt-0"></i></button>
             </div>
 
-            <a class="white-text mx-3">Table name</a>
+            <a class="white-text mx-3">Əlaqə Bölməsi</a>
 
             <div style="visibility: hidden;">
                 <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2"><i
@@ -79,11 +178,30 @@
 
                         </th>
 
-                        <?php foreach ($field_names as $item) {?>
-                            <th data-orderable="true" class="c_th_max_width"><a><?php echo $item?><i class="fas fa-sort ml-1"></i></a></th>
-                        <?php }?>
 
-                        <th data-orderable="false" class="c_operations" style="width: 53px!important;"><a>Operations</a></th>
+                        <th data-orderable="false" class="c_th_max_width"><a>id<i class="fas fa-sort ml-1"></i></a></th>
+                        <th data-orderable="false" class="c_th_max_width"><a>Telefon nömrəsi</a></th>
+                        <th data-orderable="false" class="c_th_max_width"><a>Address</a></th>
+                        <th data-orderable="false" class="c_th_max_width"><a>Email</a></th>
+                        <th data-orderable="false" class="c_th_max_width"><a>Facebook</a></th>
+                        <th data-orderable="false" class="c_th_max_width"><a>İnstagram</a></th>
+                        <th data-orderable="false" class="c_th_max_width"><a>YouTube</a></th>
+                        <th data-orderable="false" class="c_th_max_width"><a>Twitter</a></th>
+                        <th data-orderable="false" class="c_th_max_width"><a>Whatsapp</a></th>
+                        <th data-orderable="false" class="c_th_max_width"><a>Linkedln</a></th>
+
+                        <th data-orderable="false" class="c_th_max_width"><a>Telefon nömrəsi Şəkli</a></th>
+                        <th data-orderable="false" class="c_th_max_width"><a>Address Şəkli</a></th>
+                        <th data-orderable="false" class="c_th_max_width"><a>Email Şəkli</a></th>
+                        <th data-orderable="false" class="c_th_max_width"><a>Facebook Şəkli</a></th>
+                        <th data-orderable="false" class="c_th_max_width"><a>İnstagram Şəkli</a></th>
+                        <th data-orderable="false" class="c_th_max_width"><a>YouTube Şəkli</a></th>
+                        <th data-orderable="false" class="c_th_max_width"><a>Twitter Şəkli</a></th>
+                        <th data-orderable="false" class="c_th_max_width"><a>Whatsapp Şəkli</a></th>
+                        <th data-orderable="false" class="c_th_max_width"><a>Linkedln Şəkli</a></th>
+
+
+                        <th data-orderable="false" class="c_operations" style="width: 53px!important;"><a>Əməliyyatlar</a></th>
 
                     </tr>
                     </thead>
