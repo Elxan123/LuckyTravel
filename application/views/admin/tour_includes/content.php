@@ -1,37 +1,12 @@
 
 <!--tabledeki fieldleri gizletmek ucun olan style bunu external css in icinde yazma yoxsa diger seyfelerdeki tablelerde korlanar-->
 <style>
-
-    th:nth-child(1){
-        display: none!important;
-    }
-
-    td:nth-child(1){
-        display: none!important;
-    }
-
     th:nth-child(2){
         display: none!important;
     }
 
     td:nth-child(2){
         display: none!important;
-    }
-
-    .c_row_delete{
-        display: none;
-    }
-
-    .c_row_create{
-        display: none;
-    }
-
-    .dt-buttons{
-        display: none;
-    }
-
-    #datatable_filter{
-        display: none;
     }
 
 
@@ -42,11 +17,11 @@
 
 <section>
 
-
     <div class="card card-cascade narrower z-depth-0 pb-4">
 
         <!--tablenin basliqi-->
-        <div class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
+        <div
+            class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
 
             <div style="visibility: hidden;">
                 <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2"><i
@@ -55,7 +30,7 @@
                         class="fas fa-columns mt-0"></i></button>
             </div>
 
-            <a class="white-text mx-3">Haqqımızda bölməsi</a>
+            <a class="white-text mx-3">Table name</a>
 
             <div style="visibility: hidden;">
                 <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2"><i
@@ -80,7 +55,6 @@
                     <thead>
                     <tr>
 
-
                         <th class="c_switch_th" data-orderable="false" style="width: 20px!important; padding: 5px!important;">
 
                             <!--<label for="checkbox" class="form-check-label mr-2 label-table c_label_thead"><input type="checkbox" class="c_check_all form-check-input"/><span id="c_span_whole"></span></label>-->
@@ -91,12 +65,13 @@
 
                         </th>
 
-                            <th data-orderable="false" class="c_th_max_width"><a>id</a></th>
-                            <th data-orderable="false" class="c_th_max_width"><a>Haqqımızda AZ</a></th>
-                            <th data-orderable="false" class="c_th_max_width"><a>Haqqımızda En</a></th>
-                            <th data-orderable="false" class="c_th_max_width"><a>Haqqımızda Ru</a></th>
 
-                        <th data-orderable="false" class="c_operations" style="width: 53px!important;"><a>Əməliyyatlar</a></th>
+                        <?php foreach ($field_names as $item) {?>
+                            <th data-orderable="true" class="c_th_max_width"><a><?php echo $item?><i class="fas fa-sort ml-1"></i></a></th>
+                        <?php }?>
+
+                        <th data-orderable="false" class="c_operations" style="width: 53px!important;"><a>Operations</a></th>
+
 
                     </tr>
                     </thead>

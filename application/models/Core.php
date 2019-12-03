@@ -86,6 +86,8 @@
     public function add($data, $table_name)
      {
          $this->db->insert($table_name,$data);
+         $id = $this->db->insert_id();
+         return $id;
      }
 
 

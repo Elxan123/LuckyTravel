@@ -49,7 +49,7 @@
 
 
 
-<!--melumat alerti-->
+    <!--melumat alerti-->
 <?php if($this->session->flashdata("success")){ ?>
     <script>
         iziToast.success({
@@ -60,6 +60,9 @@
         });
     </script>
 <?php }?>
+
+
+    <!--melumat alerti-->
 <?php if($this->session->flashdata("alert")){ ?>
     <script>
         iziToast.warning({
