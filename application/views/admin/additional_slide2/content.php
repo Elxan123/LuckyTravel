@@ -9,15 +9,41 @@
         display: none!important;
     }
 
-   .c_row_update{
-       display: none;
-   }
+    th:nth-child(6){
+        display: none!important;
+    }
+
+    td:nth-child(6){
+        display: none!important;
+    }
+
+    th:nth-child(7){
+        display: none!important;
+    }
+    td:nth-child(7){
+        display: none!important;
+    }
+
+    th:nth-child(8){
+        display: none!important;
+    }
+    td:nth-child(8){
+        display: none!important;
+    }
+
+
+
+    .dt-buttons{
+        display: none;
+    }
+
 
 </style>
 <!--tabledeki fieldleri gizletmek ucun olan style bunu external css in icinde yazma yoxsa diger seyfelerdeki tablelerde korlanar-->
 
 
 <section>
+
     <div class="card card-cascade narrower z-depth-0 pb-4">
 
         <!--tablenin basliqi-->
@@ -31,7 +57,7 @@
                         class="fas fa-columns mt-0"></i></button>
             </div>
 
-            <a class="white-text mx-3">Mesajlar</a>
+            <a class="white-text mx-3">Əlavə Slayd 2</a>
 
             <div style="visibility: hidden;">
                 <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2"><i
@@ -68,9 +94,15 @@
 
 
                         <th data-orderable="true" class="c_th_max_width"><a>id<i class="fas fa-sort ml-1"></i></a></th>
-                        <th data-orderable="true" class="c_th_max_width"><a>Ad<i class="fas fa-sort ml-1"></i></a></th>
-                        <th data-orderable="true" class="c_th_max_width"><a>Soyad<i class="fas fa-sort ml-1"></i></a></th>
-                        <th data-orderable="true" class="c_th_max_width"><a>Əlavə Məlumat<i class="fas fa-sort ml-1"></i></a></th>
+                        <th data-orderable="true" class="c_th_max_width"><a>Ana Başlıq Az<i class="fas fa-sort ml-1"></i></a></th>
+                        <th data-orderable="true" class="c_th_max_width"><a>Ana Başlıq En<i class="fas fa-sort ml-1"></i></a></th>
+                        <th data-orderable="true" class="c_th_max_width"><a>Ana Başlıq Ru<i class="fas fa-sort ml-1"></i></a></th>
+                        <th data-orderable="true" class="c_th_max_width"><a>İkinci Başlıq Az<i class="fas fa-sort ml-1"></i></a></th>
+                        <th data-orderable="true" class="c_th_max_width"><a>İkinci Başlıq En<i class="fas fa-sort ml-1"></i></a></th>
+                        <th data-orderable="true" class="c_th_max_width"><a>İkinci Başlıq Ru<i class="fas fa-sort ml-1"></i></a></th>
+                        <th data-orderable="true" class="c_th_max_width"><a>Link<i class="fas fa-sort ml-1"></i></a></th>
+                        <th data-orderable="true" class="c_th_max_width"><a>Slaydın Şəkli<i class="fas fa-sort ml-1"></i></a></th>
+
 
 
                         <th data-orderable="false" class="c_operations" style="width: 53px!important;"><a>Əməliyyatlar</a></th>
@@ -91,6 +123,11 @@
             <!-- Tablenin ozu -->
         </div>
     </div>
+
+
+
+
+
 </section>
 
 

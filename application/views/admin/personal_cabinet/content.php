@@ -9,9 +9,14 @@
         display: none!important;
     }
 
-   .c_row_update{
-       display: none;
-   }
+    th:nth-child(4){
+        display: none!important;
+    }
+
+    td:nth-child(4){
+        display: none!important;
+    }
+
 
 </style>
 <!--tabledeki fieldleri gizletmek ucun olan style bunu external css in icinde yazma yoxsa diger seyfelerdeki tablelerde korlanar-->
@@ -68,9 +73,15 @@
 
 
                         <th data-orderable="true" class="c_th_max_width"><a>id<i class="fas fa-sort ml-1"></i></a></th>
+                        <th data-orderable="true" class="c_th_max_width"><a>Istifadəçi Adı<i class="fas fa-sort ml-1"></i></a></th>
+                        <th data-orderable="true" class="c_th_max_width"><a>Şifrə<i class="fas fa-sort ml-1"></i></a></th>
                         <th data-orderable="true" class="c_th_max_width"><a>Ad<i class="fas fa-sort ml-1"></i></a></th>
                         <th data-orderable="true" class="c_th_max_width"><a>Soyad<i class="fas fa-sort ml-1"></i></a></th>
-                        <th data-orderable="true" class="c_th_max_width"><a>Əlavə Məlumat<i class="fas fa-sort ml-1"></i></a></th>
+                        <th data-orderable="true" class="c_th_max_width"><a>Email<i class="fas fa-sort ml-1"></i></a></th>
+                        <th data-orderable="true" class="c_th_max_width"><a>Telefon<i class="fas fa-sort ml-1"></i></a></th>
+                        <th data-orderable="true" class="c_th_max_width"><a>Şəkil<i class="fas fa-sort ml-1"></i></a></th>
+                        <th data-orderable="true" class="c_th_max_width"><a>Doğum Tarixi<i class="fas fa-sort ml-1"></i></a></th>
+                        <th data-orderable="true" class="c_th_max_width"><a>Status<i class="fas fa-sort ml-1"></i></a></th>
 
 
                         <th data-orderable="false" class="c_operations" style="width: 53px!important;"><a>Əməliyyatlar</a></th>

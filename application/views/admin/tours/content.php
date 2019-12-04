@@ -102,6 +102,11 @@
         display: none!important;
     }
 
+
+    .dt-buttons{
+        display: none;
+    }
+
 </style>
 <!--tabledeki fieldleri gizletmek ucun olan style bunu external css in icinde yazma yoxsa diger seyfelerdeki tablelerde korlanar-->
 

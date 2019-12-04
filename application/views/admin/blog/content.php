@@ -9,17 +9,18 @@
         display: none!important;
     }
 
-    th:nth-child(6){
+    th:nth-child(3){
         display: none!important;
     }
 
-    td:nth-child(6){
+    td:nth-child(3){
         display: none!important;
     }
 
     th:nth-child(7){
         display: none!important;
     }
+
     td:nth-child(7){
         display: none!important;
     }
@@ -29,6 +30,17 @@
     }
     td:nth-child(8){
         display: none!important;
+    }
+
+    th:nth-child(9){
+        display: none!important;
+    }
+    td:nth-child(9){
+        display: none!important;
+    }
+
+    .dt-buttons{
+        display: none;
     }
 
 </style>
@@ -86,11 +98,18 @@
                         </th>
 
 
-                        <?php foreach ($field_names as $item) {?>
-                            <th data-orderable="true" class="c_th_max_width"><a><?php echo $item?><i class="fas fa-sort ml-1"></i></a></th>
-                        <?php }?>
+                        <th data-orderable="true" class="c_th_max_width"><a>id<i class="fas fa-sort ml-1"></i></a></th>
+                        <th data-orderable="true" class="c_th_max_width"><a>Kateqoriya id<i class="fas fa-sort ml-1"></i></a></th>
+                        <th data-orderable="true" class="c_th_max_width"><a>Bloqun Adı Az<i class="fas fa-sort ml-1"></i></a></th>
+                        <th data-orderable="true" class="c_th_max_width"><a>Bloqun Adı En<i class="fas fa-sort ml-1"></i></a></th>
+                        <th data-orderable="true" class="c_th_max_width"><a>Bloqun Adı Ru<i class="fas fa-sort ml-1"></i></a></th>
+                        <th data-orderable="true" class="c_th_max_width"><a>Bloqun Haqqında Az<i class="fas fa-sort ml-1"></i></a></th>
+                        <th data-orderable="true" class="c_th_max_width"><a>Bloqun Haqqında En<i class="fas fa-sort ml-1"></i></a></th>
+                        <th data-orderable="true" class="c_th_max_width"><a>Bloqun Haqqında Ru<i class="fas fa-sort ml-1"></i></a></th>
+                        <th data-orderable="true" class="c_th_max_width"><a>Şəkil<i class="fas fa-sort ml-1"></i></a></th>
 
-                        <th data-orderable="false" class="c_operations" style="width: 53px!important;"><a>Operations</a></th>
+
+                        <th data-orderable="false" class="c_operations" style="width: 53px!important;"><a>Əməliyyatlar</a></th>
 
 
                     </tr>

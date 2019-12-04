@@ -86,11 +86,11 @@
 
                         </th>
 
-                        <?php foreach ($field_names as $item) {?>
-                            <th style="width: 80%!important;" data-orderable="true" class="c_th_max_width"><a><?php echo $item?><i class="fas fa-sort ml-1"></i></a></th>
-                        <?php }?>
+                        <th style="width: 80%!important;" data-orderable="true" class="c_th_max_width"><a>id<i class="fas fa-sort ml-1"></i></a></th>
+                        <th style="width: 80%!important;" data-orderable="true" class="c_th_max_width"><a>Şəkil<i class="fas fa-sort ml-1"></i></a></th>
 
-                        <th data-orderable="false" class="c_operations" style="width: 53px!important;"><a>Operations</a></th>
+
+                        <th data-orderable="false" class="c_operations" style="width: 53px!important;"><a>Əməliyyatlar</a></th>
 
                     </tr>
                     </thead>

@@ -9,15 +9,16 @@
         display: none!important;
     }
 
-   .c_row_update{
-       display: none;
-   }
+    .dt-buttons{
+        display: none;
+    }
 
 </style>
 <!--tabledeki fieldleri gizletmek ucun olan style bunu external css in icinde yazma yoxsa diger seyfelerdeki tablelerde korlanar-->
 
 
 <section>
+
     <div class="card card-cascade narrower z-depth-0 pb-4">
 
         <!--tablenin basliqi-->
@@ -31,7 +32,7 @@
                         class="fas fa-columns mt-0"></i></button>
             </div>
 
-            <a class="white-text mx-3">Mesajlar</a>
+            <a class="white-text mx-3">Bloq Kateqoriyası</a>
 
             <div style="visibility: hidden;">
                 <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2"><i
@@ -68,12 +69,13 @@
 
 
                         <th data-orderable="true" class="c_th_max_width"><a>id<i class="fas fa-sort ml-1"></i></a></th>
-                        <th data-orderable="true" class="c_th_max_width"><a>Ad<i class="fas fa-sort ml-1"></i></a></th>
-                        <th data-orderable="true" class="c_th_max_width"><a>Soyad<i class="fas fa-sort ml-1"></i></a></th>
-                        <th data-orderable="true" class="c_th_max_width"><a>Əlavə Məlumat<i class="fas fa-sort ml-1"></i></a></th>
+                        <th data-orderable="true" class="c_th_max_width"><a>Bloqun Adı Az<i class="fas fa-sort ml-1"></i></a></th>
+                        <th data-orderable="true" class="c_th_max_width"><a>Bloqun Adı En<i class="fas fa-sort ml-1"></i></a></th>
+                        <th data-orderable="true" class="c_th_max_width"><a>Bloqun Adı Ru<i class="fas fa-sort ml-1"></i></a></th>
+                        <th data-orderable="true" class="c_th_max_width"><a>Bloqun Şəkli<i class="fas fa-sort ml-1"></i></a></th>
 
 
-                        <th data-orderable="false" class="c_operations" style="width: 53px!important;"><a>Əməliyyatlar</a></th>
+                        <th data-orderable="false" class="c_operations" style="width: 53px!important;"><a>Operations</a></th>
 
 
                     </tr>
@@ -91,6 +93,11 @@
             <!-- Tablenin ozu -->
         </div>
     </div>
+
+
+
+
+
 </section>
 
 

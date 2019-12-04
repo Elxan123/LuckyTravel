@@ -147,14 +147,19 @@ class MY_Controller extends CI_Controller{
         foreach ($config["inputs_array"] as $key => $value){
 
 //          inputlarin arrayinin icinde gelen deyerin ilk 9 herfi "not_input" dursa demeli o input deyil manual deyer olaraq qebul edilir
-            $additional_id  = substr($value, 0, 9);
+            $additional_id  = substr($value, 0, 11);
             $additional_editor  = substr($value, 0,8);
             $additional_file  = substr($value, 0,6);
             $additional_required  = substr($value, 0,10);
+            $additional_md5  = substr($value, -5);
 
-//          eger inputun ilk 9 herfi "not_input" dursa onu postnan cagirmir sadece default deyer kimi goturur
-            if ($additional_id == "not_input" && strlen($value) > 9){
-                $post_data = substr($value, 9);
+//            eger inputun ilk 9 herfi "not_input" dursa onu postnan cagirmir sadece default deyer kimi goturur
+            if ($additional_id == "(not_input)" && strlen($value) > 11){
+                $post_data = substr($value, 11);
+            }
+            elseif ($additional_md5 == "(md5)"){
+                $password = substr($value, 0, strlen($value)-5);
+                $post_data = md5($this->input->post($password));
             }
             elseif ($additional_required == "(required)" && strlen($value) >= 10){
                 $important = substr($value, 10);

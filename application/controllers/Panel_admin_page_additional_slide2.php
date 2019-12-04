@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class Panel_admin_page_blog extends MY_Controller{
+class Panel_admin_page_additional_slide2 extends MY_Controller{
 
     private $view_folder = "";
     private $table_name= "";
@@ -25,13 +25,13 @@ class Panel_admin_page_blog extends MY_Controller{
         parent::__construct();
 
 //      adminin icindeki papkanin adi
-        $this->view_folder = "blog";
+        $this->view_folder = "additional_slide2";
 
 //      tablemizin adi
-        $this->table_name = "blog";
+        $this->table_name = "additional_slide2";
 
 //      sekilleri ve fayllari yukleyeceyimiz yer meselen: base_url("uploads/teachers/")
-        $this->upload_path = "uploads/blog/";
+        $this->upload_path = "uploads/additional_slide2/";
 
 //      eger sekil veya file varsa tablenin hansi fieldinnen adini goturub papkadan silsin
         $this->table_file_field_names = array(
@@ -44,42 +44,44 @@ class Panel_admin_page_blog extends MY_Controller{
         $this->field_names = $this->Core->list_fields($this->table_name);
 
         $this->label_name_and_input_name = array(
-            "Bloqunun Adı Az" => "(group1)name_az(required)",
-            "Bloqunun Adı En" => "(group1)name_en(required)",
-            "Bloqunun Adı Ru" => "(group1)name_ru(required)",
+            "Birinci Başlıqın Adı Az" => "(group1)title1_az(required)",
+            "Birinci Başlıqın Adı En" => "(group1)title1_en(required)",
+            "Birinci Başlıqın Adı Ru" => "(group1)title1_ru(required)",
 
-            "Bloq Haqqında Az" => "(group2)desc_az",
-            "Bloq Haqqında En" => "(group2)desc_en",
-            "Bloq Haqqında Ru" => "(group2)desc_ru",
+            "İkinci Başlıqın Adı Az" => "(group2)title2_az(required)",
+            "İkinci Başlıqın Adı En" => "(group2)title2_en(required)",
+            "İkinci Başlıqın Adı Ru" => "(group2)title2_ru(required)",
 
-            "Bloqunun Şəkli" => "img",
+            "Slaydın linki" => "link",
+
+            "Servisin Şəkli" => "img",
 
         );
 
         $this->input_name_type = array(
-            "name_az" => "text",
-            "name_en" => "text",
-            "name_ru" => "text",
+            "title1_az" => "text",
+            "title1_en" => "text",
+            "title1_ru" => "text",
 
-            "desc_az" => "editor",
-            "desc_en" => "editor",
-            "desc_ru" => "editor",
+            "title2_az" => "text",
+            "title2_en" => "text",
+            "title2_ru" => "text",
+
+            "link" => "text",
 
             "img" => "file",
         );
 
         $this->add_update_input_array = array(
+            "title1_az" => "title1_az",
+            "title1_en" => "title1_en",
+            "title1_ru" => "title1_ru",
 
-            "blog_category_id" => "blog_category_id",
+            "title2_az" => "title2_az",
+            "title2_en" => "title2_en",
+            "title2_ru" => "title2_ru",
 
-
-            "name_az" => "(required)name_az",
-            "name_en" => "(required)name_en",
-            "name_ru" => "(required)name_ru",
-
-            "desc_az" => "(editor)desc_az",
-            "desc_en" => "(editor)desc_en",
-            "desc_ru" => "(editor)desc_ru",
+            "link" => "link",
 
             "img" => "(file)img",
 
@@ -92,28 +94,28 @@ class Panel_admin_page_blog extends MY_Controller{
 
 
 //      tableye melumatlarin import edilmesi
-        $this->import_link                    = base_url("Panel_admin_page_blog/import/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
+        $this->import_link                    = base_url("Panel_admin_page_additional_slide2/import/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
 
 //      tabledeki melumatlarin update olunduqu link
-        $this->update_link                    = base_url("Panel_admin_page_blog/update/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
+        $this->update_link                    = base_url("Panel_admin_page_additional_slide2/update/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
 
 //      tabledeki melumatlarin add olunduqu link
-        $this->add_link                       = base_url("Panel_admin_page_blog/add/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
+        $this->add_link                       = base_url("Panel_admin_page_additional_slide2/add/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
 
 //      tabledeki melumatlarin delete olunduqu link
-        $this->delete_link                    = base_url("Panel_admin_page_blog/delete/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
+        $this->delete_link                    = base_url("Panel_admin_page_additional_slide2/delete/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
 
 //      ajaxnan melumatlarin modalin icine getirilmesi
-        $this->link_for_update_modal          = base_url("Panel_admin_page_blog/get_data_for_update/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
+        $this->link_for_update_modal          = base_url("Panel_admin_page_additional_slide2/get_data_for_update/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
 
 //      proseslerden her hansi biri ugurla basa catdiqda hansi linke atsin
-        $this->success_link                   = base_url("Panel_admin_page_blog/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
+        $this->success_link                   = base_url("Panel_admin_page_additional_slide2/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
 
 //      proseslerden her hansi biri ugurla basa catmadiqda hansi linke atsin
-        $this->error_link                     = base_url("Panel_admin_page_blog/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
+        $this->error_link                     = base_url("Panel_admin_page_additional_slide2/");//bunnarin sonuna slash qoymaq vacibdir yoxsa islemez
 
 //      data tablenin icine melumatlarin ajaxnan getirilmesi ucun lazim olan link
-        $this->get_data_link                  = base_url("Panel_admin_page_blog/get_data");
+        $this->get_data_link                  = base_url("Panel_admin_page_additional_slide2/get_data");
     }
 
     public function index()
@@ -121,9 +123,7 @@ class Panel_admin_page_blog extends MY_Controller{
 
         $config["label_name_and_input_name"] = $this->label_name_and_input_name;
         $config["input_name_type"] = $this->input_name_type;
-        $config["select_name_and_table_name"] = array(
-            "blog_category_id.Kateqoriyanın Adı" => "blog_category.name_az",
-        );
+        $config["select_name_and_table_name"] = array();
         $config["update_link"] = $this->update_link;
         $config["add_link"]    = $this->add_link;
         $data["create_modal"] = $this->create_view($config);
@@ -172,9 +172,7 @@ class Panel_admin_page_blog extends MY_Controller{
         $config["table_name"] = $this->table_name;
         $config["label_name_and_input_name"] = $this->label_name_and_input_name;
         $config["input_name_type"] = $this->input_name_type;
-        $config["select_name_and_table_name"] = array(
-            "blog_category_id.Kateqoriyanın Adı" => "blog_category.name_az",
-        );
+        $config["select_name_and_table_name"] = array();
 
         echo $this->update_view($config);
 

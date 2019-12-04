@@ -105,7 +105,7 @@
 
 
 
-                        <th data-orderable="false" class="c_operations" style="width: 53px!important;"><a>Operations</a></th>
+                        <th data-orderable="false" class="c_operations" style="width: 53px!important;"><a>Əməliyyatlar</a></th>
 
 
                     </tr>
