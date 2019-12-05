@@ -52,11 +52,13 @@ class Panel_admin_page_contact extends MY_Controller{
 
         $this->label_name_and_input_name = array(
 
+            "Adres Az" => "(group1)address_az",
+            "Adres En" => "(group1)address_en",
+            "Adres Ru" => "(group1)address_ru",
+            "Adres Iconu" => "address_img",
+
             "Telefon" => "phone",
             "Telefon Iconu" => "phone_img",
-
-            "Adres" => "address",
-            "Adres Iconu" => "address_img",
 
             "E-poçt" => "email",
             "E-poçt Iconu" => "email_img",
@@ -87,7 +89,9 @@ class Panel_admin_page_contact extends MY_Controller{
         $this->input_name_type = array(
 
             "phone" => "text",
-            "address" => "text",
+            "address_az" => "text",
+            "address_en" => "text",
+            "address_ru" => "text",
             "email" => "email",
             "linkedln" => "text",
             "facebook" => "text",
@@ -111,7 +115,9 @@ class Panel_admin_page_contact extends MY_Controller{
         $this->add_update_input_array = array(
 
             "phone" => "phone",
-            "address" => "address",
+            "address_az" => "address_az",
+            "address_en" => "address_en",
+            "address_ru" => "address_ru",
             "email" => "email",
             "linkedln" => "linkedln",
             "facebook" => "facebook",

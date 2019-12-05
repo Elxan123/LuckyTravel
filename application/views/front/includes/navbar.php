@@ -1,3 +1,7 @@
+
+<?php $lang = $this->session->userdata("dil") ?>
+
+
 <header class="color-1 hovered menu-3">
     <div class="container">
         <div class="row">
@@ -67,6 +71,24 @@
 
 
 
+                            <!--Tours-->
+                            <li <?php if ($this->uri->segment(2)=="tours") { ?>class="type-1 active" <?php } ?>><a href="<?php
+
+                                if ($this->session->userdata("dil") == "az"){
+                                    echo base_url('az/tours');
+                                }
+                                elseif ($this->session->userdata("dil") == "en"){
+                                    echo base_url('en/tours');
+                                }
+                                elseif ($this->session->userdata("dil") == "ru"){
+                                    echo base_url('ru/tours');
+                                }
+
+                                ?>"><?php echo $this->lang->line("turlar"); ?><span class="fa fa-angle-down"></span></a>
+
+                            </li>
+                            <!--Tours-->
+
 
                             <!--Services-->
                             <li <?php if ($this->uri->segment(2)=="services") { ?>class="type-1 active" <?php } ?>><a href="<?php
@@ -87,23 +109,38 @@
                             <!--Services-->
 
 
-                            <!--Tours-->
-                            <li <?php if ($this->uri->segment(2)=="tours") { ?>class="type-1 active" <?php } ?>><a href="<?php
-
-                                if ($this->session->userdata("dil") == "az"){
-                                    echo base_url('az/tours');
-                                }
-                                elseif ($this->session->userdata("dil") == "en"){
-                                    echo base_url('en/tours');
-                                }
-                                elseif ($this->session->userdata("dil") == "ru"){
-                                    echo base_url('ru/tours');
-                                }
-
-                                ?>"><?php echo $this->lang->line("turlar"); ?><span class="fa fa-angle-down"></span></a>
-
+                            <!--Teklifler-->
+                            <li <?php if ($this->uri->segment(2)=="offers") { ?>class="type-1 active" <?php } ?>>
+                                <a href="<?php echo base_url("$lang/offers")?>">
+                                    <?php echo $this->lang->line("teklifler"); ?>
+                                    <span class="fa fa-angle-down"></span>
+                                </a>
                             </li>
-                            <!--Tours-->
+                            <!--Teklifler-->
+
+
+
+                            <!--Blog-->
+                            <li <?php if ($this->uri->segment(2)=="blogs_category") { ?>class="type-1 active" <?php } ?>>
+                                <a href="<?php echo base_url("$lang/blogs_category")?>">
+                                    <?php echo $this->lang->line("blog"); ?>
+                                    <span class="fa fa-angle-down"></span>
+                                </a>
+                            </li>
+                            <!--Blog-->
+
+
+
+
+
+
+                            <!--FAQs-->
+                            <li <?php if ($this->uri->segment(2)=="faqs") { ?>class="type-1 active" <?php } ?>>
+                                <a href="<?php echo base_url("$lang/faqs")?>">
+                                    <?php echo "FAQs"; ?><span class="fa fa-angle-down"></span>
+                                </a>
+                            </li>
+                            <!--FAQs-->
 
 
 <!--

@@ -10,6 +10,7 @@
 <?php $this->load->view("front/includes/navbar"); ?>
 <!--Navigation bar-->
 
+<?php $lang = $this->session->userdata("dil") ?>
 
 
 <!-- MAP BLOCK -->
@@ -25,43 +26,46 @@
         <div class="row">
             <div class="col-xs-12 col-sm-8 col-sm-offset-2">
                 <div class="second-title">
-                    <h4 class="subtitle color-dr-blue-2 underline">contact info</h4>
-                    <h2>get in touch</h2>
+                    <h4 class="subtitle color-dr-blue-2 underline"><?php echo $this->lang->line("bizimle_elaqe")?></h4>
+                    <h2></h2>
                 </div>
             </div>
         </div>
+
         <div class="contact-row">
             <div class="row">
                 <div class="col-xs-12 col-sm-4">
                     <div class="contact-entry">
-                        <img class="contact-icon" src="<?php echo base_url("public/front/")?>img/loc_icon_2_dark.png" alt="">
-                        <div class="contact-label color-grey-3">Address:</div>
-                        <div class="contact-text color-dark-2">Azerbaijan, Baku</div>
+                        <img width="40px" height="40px" style="object-fit: inherit" class="contact-icon" src="<?php echo base_url("uploads/contact/$contact[address_img]")?>" alt="">
+                        <div class="contact-label color-grey-3"><?php echo $this->lang->line("adres")?>:</div>
+                        <div class="contact-text color-dark-2"><?php echo $contact["address_$lang"]?></div>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-4">
                     <div class="contact-entry">
-                        <img class="contact-icon" src="<?php echo base_url("public/front/")?>img/mail_icon_l_dark.png" alt="">
-                        <div class="contact-label color-grey-3">Email us:</div>
-                        <a class="contact-text color-dark-2 link-dr-blue-2" href="mailto:let’s_travel@world.com">lucky_travel@world.com</a>
+                        <img  width="40px" height="40px" style="object-fit: inherit"  class="contact-icon" src="<?php echo base_url("uploads/contact/$contact[email_img]")?>" alt="">
+                        <div class="contact-label color-grey-3">Email:</div>
+                        <a class="contact-text color-dark-2 link-dr-blue-2" href="mailto:let’s_travel@world.com"><?php echo $contact["email"]?></a>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-4">
                     <div class="contact-entry">
-                        <img class="contact-icon" src="<?php echo base_url("public/front/")?>img/phone_icon_3_dark.png" alt="">
-                        <div class="contact-label color-grey-3">Phone:</div>
-                        <a class="contact-text color-dark-2 link-dr-blue-2" href="tel:">+994-55-555-55-55</a>
+                        <img width="40px" height="40px" style="object-fit: inherit"  class="contact-icon" src="<?php echo base_url("uploads/contact/$contact[phone_img]")?>" alt="">
+                        <div class="contact-label color-grey-3"><?php echo $this->lang->line("telefon")?>:</div>
+                        <a class="contact-text color-dark-2 link-dr-blue-2" href="tel:"><?php echo $contact["phone"]?></a>
                     </div>
                 </div>
             </div>
         </div>
+
         <div class="share style-2 clearfix">
             <ul>
-                <li class="color-in"><a href="#"><i class="fa fa-linkedin"></i>linkedin</a></li>
-                <li class="color-fb"><a href="#"><i class="fa fa-facebook"></i>facebook</a></li>
-                <li class="color-tw"><a href="#"><i class="fa fa-twitter"></i>twitter</a></li>
-                <li class="color-gg"><a href="#"><i class="fa fa-google-plus"></i>google +</a></li>
-                <li class="color-pin"><a href="#"><i class="fa fa-pinterest"></i>pinterest</a></li>
+                <li class="color-in"><a href="<?php echo $contact["linkedln"]?>"><i class="fa fa-linkedin"></i>linkedin</a></li>
+                <li class="color-fb"><a href="<?php echo $contact["facebook"]?>"><i class="fa fa-facebook"></i>facebook</a></li>
+                <li class="color-tw"><a href="<?php echo $contact["twitter"]?>"><i class="fa fa-twitter"></i>twitter</a></li>
+                <li style="background-color: #cd4c67"><a href="<?php echo $contact["instagram"]?>"><i class="fa fa-instagram"></i>instagram</a></li>
+                <li style="background-color: #25d366" "><a href="<?php echo $contact["whatsapp"]?>"><i class="fa fa-whatsapp"></i>whatsapp</a></li>
+                <li class="color-pin"><a href="<?php echo $contact["youtube"]?>"><i class="fa fa-youtube"></i>youtube</a></li>
             </ul>
         </div>
     </div>
@@ -74,19 +78,15 @@
         <div class="row">
             <div class="col-xs-12 col-sm-8 col-sm-offset-2">
                 <div class="second-title">
-                    <h4 class="subtitle color-dr-blue-2 underline">contact form</h4>
-                    <h2>have a question?</h2>
+                    <h4 class="subtitle color-dr-blue-2 underline"><?php echo $this->lang->line("elaqe_formu")?></h4>
+                    <h2><?php echo $this->lang->line("sualiniz_var")?></h2>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
-                <div class="second-description text-center color-grey-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</div>
-            </div>
-        </div>
+
         <div class="row">
             <div class="col-xs-12">
-                <form class="contact-form js-contact-form" action="https://demo.nrgthemes.com/projects/travel/mail.php" method="POST" action="#">
+                <form class="contact-form js-contact-form" action="" method="POST" action="#">
                     <div class="row">
                         <div class="col-xs-12 col-sm-6">
                             <div class="input-style-1 type-2 color-2">

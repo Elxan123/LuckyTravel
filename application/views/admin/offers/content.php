@@ -31,6 +31,28 @@
         display: none!important;
     }
 
+    th:nth-child(9){
+        display: none!important;
+    }
+
+    td:nth-child(9){
+        display: none!important;
+    }
+
+    th:nth-child(10){
+        display: none!important;
+    }
+    td:nth-child(10){
+        display: none!important;
+    }
+
+    th:nth-child(11){
+        display: none!important;
+    }
+    td:nth-child(11){
+        display: none!important;
+    }
+
     .dt-buttons{
         display: none;
     }
@@ -97,6 +119,9 @@
                         <th data-orderable="true" class="c_th_max_width"><a>Təklifin Haqqında Az<i class="fas fa-sort ml-1"></i></a></th>
                         <th data-orderable="true" class="c_th_max_width"><a>Təklifin Haqqında En<i class="fas fa-sort ml-1"></i></a></th>
                         <th data-orderable="true" class="c_th_max_width"><a>Təklifin Haqqında Ru<i class="fas fa-sort ml-1"></i></a></th>
+                        <th data-orderable="true" class="c_th_max_width"><a>Təklifin Basliq Az<i class="fas fa-sort ml-1"></i></a></th>
+                        <th data-orderable="true" class="c_th_max_width"><a>Təklifin Basliq En<i class="fas fa-sort ml-1"></i></a></th>
+                        <th data-orderable="true" class="c_th_max_width"><a>Təklifin Basliq Ru<i class="fas fa-sort ml-1"></i></a></th>
                         <th data-orderable="true" class="c_th_max_width"><a>Təklifin Şəkli<i class="fas fa-sort ml-1"></i></a></th>
 
 

@@ -81,6 +81,19 @@
 
 
 
+    //  get data with where and result array with desc
+    public function get_select_where_result_desc($select, $where,$table_name)
+    {
+        return $this->db->select($select)->where($where)->order_by("id", "DESC")->get($table_name)->result_array();
+    }
+
+
+    //  get data with where in and result array with desc
+    public function get_where_in_result_desc($where_in,$table_name)
+    {
+        return $this->db->where_in('id', $where_in)->order_by("id", "DESC")->get($table_name)->result_array();
+    }
+
 
     //  insert db with data
     public function add($data, $table_name)
@@ -124,6 +137,19 @@
     public function get_counts($table_name)
     {
         return $this->db->count_all($table_name);
+    }
+
+
+    // count all table rows
+    public function get_counts_where($where, $table_name)
+    {
+        return $this->db->where($where)->from($table_name)->count_all_results();
+    }
+
+
+    public function get_where_result_desc_limit($limit, $count, $where, $table_name)
+    {
+        return $this->db->where($where)->order_by("id", "DESC")->limit($limit, $count)->get($table_name)->result_array();
     }
 
 //==============================================Core ucun lazim olan functionlar========================================

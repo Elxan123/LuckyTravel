@@ -23,9 +23,10 @@
 
      public function index()
      {
+        $data["about"] = $this->Core->get_where_row(array("id" => 1), "about");
+        $data["partners"] = $this->Core->get_desc("partners");
 
-
-         $this->load->view("$this->parent_folder/$this->sub_folder/whole_page");
+         $this->load->view("$this->parent_folder/$this->sub_folder/whole_page", $data);
      }
 
 

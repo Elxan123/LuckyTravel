@@ -113,3 +113,36 @@
 .c_find{
     color: #ff6600!important;
 }
+
+.c_tour_includes{
+    padding-left: 0!important;
+    margin-top: 10px;
+}
+
+.c_tour_includes_text{
+    color: #fff;
+    font-size: 12px;
+}
+
+.c_tour_includes_img{
+    vertical-align: middle;
+}
+
+.c_wheater{
+    position: absolute;
+    z-index: 999;
+    right: -30px;
+    margin-top: 68px!important;
+    cursor: pointer;
+    top: -80px;
+}
+
+.tooltip{
+    z-index: 9999999999999!important;
+}
+
+.c_service_title{
+    font-size: 15px;
+    color: black;
+    font-weight: 700!important;
+}

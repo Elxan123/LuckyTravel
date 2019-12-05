@@ -171,6 +171,74 @@
                     </li>
                     <!--Isdifadeciler ve mesajlar-->
 
+
+                    <!--Xidmetler-->
+                    <li>
+                        <a class="collapsible-header waves-effect arrow-r">
+                            <i class="fas fa-concierge-bell"></i>Xidmətlər<i class="fas fa-angle-down rotate-icon"></i>
+                        </a>
+                        <div class="collapsible-body">
+                            <ul>
+
+                                <!-- Xidmətlər haqqinda-->
+                                <li>
+                                    <a href="<?php echo base_url("Panel_admin_page_services_about")?>" class="collapsible-header waves-effect">
+                                        <i class="fas fa-concierge-bell"></i>
+                                        Xidmətlər Haqqında
+                                    </a>
+                                </li>
+
+                                <!-- Xidmətlət -->
+                                <li>
+                                    <a href="<?php echo base_url("Panel_admin_page_services")?>" class="collapsible-header waves-effect">
+                                        <i class="fas fa-concierge-bell"></i>
+                                        Xidmətlər
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </li>
+                    <!--Xidmetler-->
+
+
+
+
+
+
+                    <!--Teklifler-->
+                    <li>
+                        <a class="collapsible-header waves-effect arrow-r">
+                            <i class="fas fa-info-circle"></i>Təkliflər<i class="fas fa-angle-down rotate-icon"></i>
+                        </a>
+                        <div class="collapsible-body">
+                            <ul>
+
+                                <!-- Xidmətlər haqqinda-->
+                                <li>
+                                    <a href="<?php echo base_url("Panel_admin_page_offers_about")?>" class="collapsible-header waves-effect">
+                                        <i class="fas fa-info-circle"></i>
+                                        Təkliflər Haqqında
+                                    </a>
+                                </li>
+
+                                <!-- Təkliflər -->
+                                <li>
+                                    <a href="<?php echo base_url("Panel_admin_page_offers")?>" class="collapsible-header waves-effect">
+                                        <i class="fas fa-info-circle"></i>
+                                        Təkliflər
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </li>
+                    <!--Teklifler-->
+
+
+
+
+
                     <!-- Haqqımızda -->
                     <li>
                         <a href="<?php echo base_url("Panel_admin_page_about")?>" class="collapsible-header waves-effect">
@@ -180,29 +248,7 @@
                     </li>
 
 
-
-
-
-                    <!-- Xidmətlət -->
-                    <li>
-                        <a href="<?php echo base_url("Panel_admin_page_services")?>" class="collapsible-header waves-effect">
-                            <i class="fas fa-concierge-bell"></i>
-                            Xidmətlər
-                        </a>
-                    </li>
-
-
-                    <!-- Təkliflər -->
-                    <li>
-                        <a href="<?php echo base_url("Panel_admin_page_offers")?>" class="collapsible-header waves-effect">
-                            <i class="fas fa-info-circle"></i>
-                            Təkliflər
-                        </a>
-                    </li>
-
-
-
-                    <!-- Xidmətlət -->
+                    <!-- FAQs -->
                     <li>
                         <a href="<?php echo base_url("Panel_admin_page_faqs")?>" class="collapsible-header waves-effect">
                             <i class="fas fa-id-card"></i>

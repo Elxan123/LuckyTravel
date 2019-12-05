@@ -10,6 +10,7 @@
 <?php $this->load->view("front/includes/navbar"); ?>
 <!--Navigation bar-->
 
+<?php $lang = $this->session->userdata("dil") ?>
 
 <div class="inner-banner style-5">
     <img class="center-image" src="<?php echo base_url("public/front/")?>img/inner/bg_1.jpg" alt="">
@@ -36,204 +37,13 @@
         <div class="row">
             <div class="col-xs-12 col-sm-8 col-sm-offset-2">
                 <div class="second-title">
-                    <h4 class="subtitle color-dr-blue-2 underline">about us</h4>
-                    <h2>Rockstar Team</h2>
+                    <h4 class="subtitle color-dr-blue-2 underline"><?php echo $this->lang->line("haqqimizda")?></h4>
+                    <h2><?php echo $this->lang->line("bizkimik")?></h2>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-5">
-                <div class="simple-text">
-                    <h3>Who We Are?</h3>
-                    <p class="color-grey">Pellentesque ac turpis egestas, varius justo et, condimentum augue. Praesent aliquam, nisl feugiat vehicula condimentum, justo tellus scelerisque metus. Pellentesque ac turpis egestas, varius justo et, condimentum augue.</p>
-
-                    <p class="color-grey">Pellentesque ac turpis egestas, varius justo et, condimentum augue. Praesent aliquam, nisl feugiat vehicula condimentum, justo tellus scelerisque metus. Pellentesque varius justo et, condimentum augue.</p>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-4">
-                <div class="simple-text">
-                    <h3>What We Do?</h3>
-                    <div class="row">
-                        <div class="col-mob-12 col-xs-6">
-                            <ul class="color-grey dot-blue-2">
-                                <li>First Class Flights</li>
-                                <li>5 Star Accommodations</li>
-                                <li>Inclusive Packages</li>
-                                <li>Latest Model Vehicles</li>
-                                <li>Best Price Guarantee</li>
-                            </ul>
-                        </div>
-                        <div class="col-mob-12 col-xs-6">
-                            <ul class="color-grey dot-blue-2">
-                                <li>World Class Service</li>
-                                <li>Handpicked Hotels</li>
-                                <li>Accesibility managment</li>
-                                <li>10 Languages available</li>
-                                <li>+120 Premium city tours</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-mob-12 col-xs-6 col-sm-5 col-sm-offset-1 col-md-3 col-md-offset-0">
-                <img class="img-responsive img-full" src="<?php echo base_url("public/front/")?>img/inner/about.jpg" alt="">
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- TEAM -->
-<div class="main-wraper padd-90">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-                <div class="second-title">
-                    <h4 class="subtitle color-dr-blue-2 underline">our team</h4>
-                    <h2>MEET OUR TEAM</h2>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-4">
-                <div class="team-entry">
-                    <div class="image">
-                        <img class="team-img img-responsive" src="<?php echo base_url("public/front/")?>img/home_8/team_1.jpg" alt="">
-                        <div class="team-layer bg-dark-blue">
-                            <div class="team-share vertical-align">
-                                <a href="#" class="fa fa-facebook"></a>
-                                <a href="#" class="fa fa-twitter"></a>
-                                <a href="#" class="fa fa-skype"></a>
-                                <a href="#" class="fa fa-google-plus"></a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3 class="team-name color-dark-2">marry dols</h3>
-                    <h5 class="team-position color-dark-2-light">Manager of Tourism</h5>
-                    <p class="color-dark-2-light">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-4">
-                <div class="team-entry">
-                    <div class="image">
-                        <img class="team-img img-responsive" src="<?php echo base_url("public/front/")?>img/home_8/team_2.jpg" alt="">
-                        <div class="team-layer bg-dark-blue">
-                            <div class="team-share vertical-align">
-                                <a href="#" class="fa fa-facebook"></a>
-                                <a href="#" class="fa fa-twitter"></a>
-                                <a href="#" class="fa fa-skype"></a>
-                                <a href="#" class="fa fa-google-plus"></a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3 class="team-name color-dark-2">mark letto</h3>
-                    <h5 class="team-position color-dark-2-light">Manager of Tourism</h5>
-                    <p class="color-dark-2-light">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod ut aliquip ex.</p>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-4">
-                <div class="team-entry">
-                    <div class="image">
-                        <img class="team-img img-responsive" src="<?php echo base_url("public/front/")?>img/home_8/team_3.jpg" alt="">
-                        <div class="team-layer bg-dark-blue">
-                            <div class="team-share vertical-align">
-                                <a href="#" class="fa fa-facebook"></a>
-                                <a href="#" class="fa fa-twitter"></a>
-                                <a href="#" class="fa fa-skype"></a>
-                                <a href="#" class="fa fa-google-plus"></a>
-                            </div>
-                        </div>
-                    </div>
-                    <h3 class="team-name color-dark-2">inna kolt</h3>
-                    <h5 class="team-position color-dark-2-light">Manager of Tourism</h5>
-                    <p class="color-dark-2-light">Lorem ipsum dolor sit amet, consectetur adipiscing, sed do eiusmod et dolore magna.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<!-- ICON-BLOCK -->
-<div class="main-wraper bg-grey-2 padd-90">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-                <div class="second-title">
-                    <h4 class="subtitle color-dr-blue-2 underline">our services</h4>
-                    <h2>we are the best</h2>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="swiper-container" data-autoplay="0" data-loop="0" data-speed="1000" data-slides-per-view="responsive" data-mob-slides="1" data-xs-slides="2" data-sm-slides="2" data-md-slides="3" data-lg-slides="4" data-add-slides="4">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="icon-block style-2 bg-white">
-                            <img class="icon-img bg-dr-blue-2 border-grey-2" src="<?php echo base_url("public/front/")?>img/home_8/icon_1.png" alt="">
-                            <h5 class="icon-title color-dark-2">happy clients</h5>
-                            <div class="icon-text color-dark-2-light">Sed sit amet leo orci. Fusce tincidunt accumsan pretium. Donec fermentum, ex non placerat.</div>
-                            <a href="#" class="c-button small bg-dr-blue-2 hv-dr-blue-2-o"><span>view more</span></a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="icon-block style-2 bg-white">
-                            <img class="icon-img bg-dr-blue-2 border-grey-2" src="<?php echo base_url("public/front/")?>img/home_8/icon_2.png" alt="">
-                            <h5 class="icon-title color-dark-2">amazing tour</h5>
-                            <div class="icon-text color-dark-2-light">Sed sit amet leo orci. Fusce tincidunt accumsan pretium. Donec fermentum, ex non placerat.</div>
-                            <a href="#" class="c-button small bg-dr-blue-2 hv-dr-blue-2-o"><span>view more</span></a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="icon-block style-2 bg-white">
-                            <img class="icon-img bg-dr-blue-2 border-grey-2" src="<?php echo base_url("public/front/")?>img/home_8/icon_3.png" alt="">
-                            <h5 class="icon-title color-dark-2">support cases</h5>
-                            <div class="icon-text color-dark-2-light">Sed sit amet leo orci. Fusce tincidunt accumsan pretium. Donec fermentum, ex non placerat.</div>
-                            <a href="#" class="c-button small bg-dr-blue-2 hv-dr-blue-2-o"><span>view more</span></a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="icon-block style-2 bg-white">
-                            <img class="icon-img bg-dr-blue-2 border-grey-2" src="<?php echo base_url("public/front/")?>img/home_8/icon_4.png" alt="">
-                            <h5 class="icon-title color-dark-2">support cases</h5>
-                            <div class="icon-text color-dark-2-light">Sed sit amet leo orci. Fusce tincidunt accumsan pretium. Donec fermentum, ex non placerat.</div>
-                            <a href="#" class="c-button small bg-dr-blue-2 hv-dr-blue-2-o"><span>view more</span></a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="icon-block style-2 bg-white">
-                            <img class="icon-img bg-dr-blue-2 border-grey-2" src="<?php echo base_url("public/front/")?>img/home_8/icon_1.png" alt="">
-                            <h5 class="icon-title color-dark-2">happy clients</h5>
-                            <div class="icon-text color-dark-2-light">Sed sit amet leo orci. Fusce tincidunt accumsan pretium. Donec fermentum, ex non placerat.</div>
-                            <a href="#" class="c-button small bg-dr-blue-2 hv-dr-blue-2-o"><span>view more</span></a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="icon-block style-2 bg-white">
-                            <img class="icon-img bg-dr-blue-2 border-grey-2" src="<?php echo base_url("public/front/")?>img/home_8/icon_2.png" alt="">
-                            <h5 class="icon-title color-dark-2">amazing tour</h5>
-                            <div class="icon-text color-dark-2-light">Sed sit amet leo orci. Fusce tincidunt accumsan pretium. Donec fermentum, ex non placerat.</div>
-                            <a href="#" class="c-button small bg-dr-blue-2 hv-dr-blue-2-o"><span>view more</span></a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="icon-block style-2 bg-white">
-                            <img class="icon-img bg-dr-blue-2 border-grey-2" src="<?php echo base_url("public/front/")?>img/home_8/icon_3.png" alt="">
-                            <h5 class="icon-title color-dark-2">support cases</h5>
-                            <div class="icon-text color-dark-2-light">Sed sit amet leo orci. Fusce tincidunt accumsan pretium. Donec fermentum, ex non placerat.</div>
-                            <a href="#" class="c-button small bg-dr-blue-2 hv-dr-blue-2-o"><span>view more</span></a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="icon-block style-2 bg-white">
-                            <img class="icon-img bg-dr-blue-2 border-grey-2" src="<?php echo base_url("public/front/")?>img/home_8/icon_4.png" alt="">
-                            <h5 class="icon-title color-dark-2">support cases</h5>
-                            <div class="icon-text color-dark-2-light">Sed sit amet leo orci. Fusce tincidunt accumsan pretium. Donec fermentum, ex non placerat.</div>
-                            <a href="#" class="c-button small bg-dr-blue-2 hv-dr-blue-2-o"><span>view more</span></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="pagination poin-style-2"></div>
-            </div>
+            <?php echo $about["desc_$lang"]?>
         </div>
     </div>
 </div>
@@ -246,49 +56,20 @@
         <div class="row">
             <div class="col-xs-12 col-sm-8 col-sm-offset-2">
                 <div class="second-title">
-                    <h4 class="subtitle color-dr-blue-2 underline">our partners</h4>
-                    <h2>Our Investors Relations</h2>
+                    <h4 class="subtitle color-dr-blue-2 underline"><?php echo $this->lang->line("emekdaslarimiz")?></h4>
+                    <h2><?php echo $this->lang->line("emekdasliq_etdiyimiz_sirketler") ?></h2>
                 </div>
             </div>
         </div>
         <div class="investors-block">
             <div class="row no-margin">
-                <div class="col-mob-6 col-xs-4 col-sm-3 col-md-2 clear-mob-2 clear-xs-3 clear-sm-4 clear-md-6 no-padding">
-                    <a class="investor-logo" href="#"><img class="img-responsive" src="<?php echo base_url("public/front/")?>img/inner/investors_1.png" alt=""></a>
-                </div>
-                <div class="col-mob-6 col-xs-4 col-sm-3 col-md-2 clear-mob-2 clear-xs-3 clear-sm-4 clear-md-6 no-padding">
-                    <a class="investor-logo" href="#"><img class="img-responsive" src="<?php echo base_url("public/front/")?>img/inner/investors_2.png" alt=""></a>
-                </div>
-                <div class="col-mob-6 col-xs-4 col-sm-3 col-md-2 clear-mob-2 clear-xs-3 clear-sm-4 clear-md-6 no-padding">
-                    <a class="investor-logo" href="#"><img class="img-responsive" src="<?php echo base_url("public/front/")?>img/inner/investors_3.png" alt=""></a>
-                </div>
-                <div class="col-mob-6 col-xs-4 col-sm-3 col-md-2 clear-mob-2 clear-xs-3 clear-sm-4 clear-md-6 no-padding">
-                    <a class="investor-logo" href="#"><img class="img-responsive" src="<?php echo base_url("public/front/")?>img/inner/investors_4.png" alt=""></a>
-                </div>
-                <div class="col-mob-6 col-xs-4 col-sm-3 col-md-2 clear-mob-2 clear-xs-3 clear-sm-4 clear-md-6 no-padding">
-                    <a class="investor-logo" href="#"><img class="img-responsive" src="<?php echo base_url("public/front/")?>img/inner/investors_5.png" alt=""></a>
-                </div>
-                <div class="col-mob-6 col-xs-4 col-sm-3 col-md-2 clear-mob-2 clear-xs-3 clear-sm-4 clear-md-6 no-padding">
-                    <a class="investor-logo" href="#"><img class="img-responsive" src="<?php echo base_url("public/front/")?>img/inner/investors_6.png" alt=""></a>
-                </div>
-                <div class="col-mob-6 col-xs-4 col-sm-3 col-md-2 clear-mob-2 clear-xs-3 clear-sm-4 clear-md-6 no-padding">
-                    <a class="investor-logo" href="#"><img class="img-responsive" src="<?php echo base_url("public/front/")?>img/inner/investors_7.png" alt=""></a>
-                </div>
-                <div class="col-mob-6 col-xs-4 col-sm-3 col-md-2 clear-mob-2 clear-xs-3 clear-sm-4 clear-md-6 no-padding">
-                    <a class="investor-logo" href="#"><img class="img-responsive" src="<?php echo base_url("public/front/")?>img/inner/investors_8.png" alt=""></a>
-                </div>
-                <div class="col-mob-6 col-xs-4 col-sm-3 col-md-2 clear-mob-2 clear-xs-3 clear-sm-4 clear-md-6 no-padding">
-                    <a class="investor-logo" href="#"><img class="img-responsive" src="<?php echo base_url("public/front/")?>img/inner/investors_9.png" alt=""></a>
-                </div>
-                <div class="col-mob-6 col-xs-4 col-sm-3 col-md-2 clear-mob-2 clear-xs-3 clear-sm-4 clear-md-6 no-padding">
-                    <a class="investor-logo" href="#"><img class="img-responsive" src="<?php echo base_url("public/front/")?>img/inner/investors_10.png" alt=""></a>
-                </div>
-                <div class="col-mob-6 col-xs-4 col-sm-3 col-md-2 clear-mob-2 clear-xs-3 clear-sm-4 clear-md-6 no-padding">
-                    <a class="investor-logo" href="#"><img class="img-responsive" src="<?php echo base_url("public/front/")?>img/inner/investors_11.png" alt=""></a>
-                </div>
-                <div class="col-mob-6 col-xs-4 col-sm-3 col-md-2 clear-mob-2 clear-xs-3 clear-sm-4 clear-md-6 no-padding">
-                    <a class="investor-logo" href="#"><img class="img-responsive" src="<?php echo base_url("public/front/")?>img/inner/investors_12.png" alt=""></a>
-                </div>
+                
+                <?php foreach ($partners as $item) { ?>
+                    <div class="col-mob-6 col-xs-4 col-sm-3 col-md-2 clear-mob-2 clear-xs-3 clear-sm-4 clear-md-6 no-padding" data-toggle="tooltip" title="<?php echo $item["name_$lang"] ?>">
+                        <a class="investor-logo" href="<?php echo $item["link"]?>"><img class="img-responsive" src="<?php echo base_url("uploads/partners/$item[img]")?>" alt=""></a>
+                    </div>
+                <?php }?>
+                                
             </div>
         </div>
     </div>

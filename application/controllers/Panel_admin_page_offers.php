@@ -48,6 +48,10 @@ class Panel_admin_page_offers extends MY_Controller{
             "Təklifin Adı En" => "(group1)name_en(required)",
             "Təklifin Adı Ru" => "(group1)name_ru(required)",
 
+            "Təklifin Başlıqı Az" => "(group1)title_az(required)",
+            "Təklifin Başlıqı En" => "(group1)title_en(required)",
+            "Təklifin Başlıqı Ru" => "(group1)title_ru(required)",
+
             "Təklif Haqqında Az" => "(group2)desc_az",
             "Təklif Haqqında En" => "(group2)desc_en",
             "Təklif Haqqında Ru" => "(group2)desc_ru",
@@ -61,6 +65,10 @@ class Panel_admin_page_offers extends MY_Controller{
             "name_en" => "text",
             "name_ru" => "text",
 
+            "title_az" => "text",
+            "title_en" => "text",
+            "title_ru" => "text",
+
             "desc_az" => "editor",
             "desc_en" => "editor",
             "desc_ru" => "editor",
@@ -72,6 +80,10 @@ class Panel_admin_page_offers extends MY_Controller{
             "name_az" => "name_az",
             "name_en" => "name_en",
             "name_ru" => "name_ru",
+
+            "title_az" => "title_az",
+            "title_en" => "title_en",
+            "title_ru" => "title_ru",
 
             "desc_az" => "(editor)desc_az",
             "desc_en" => "(editor)desc_en",

@@ -19,6 +19,7 @@ $lang["temir"] = "Təmir və texniki xidmət";
 $lang["bizkimik"] = "Biz Kimik?";
 $lang["etrafli"] = "Ətraflı";
 $lang["emekdaslarimiz"] = "Əməkdaşlarımız";
+$lang["emekdasliq_etdiyimiz_sirketler"] = "Əməkdaşlıq Etdiyimiz Şirkətlər";
 
 
 $lang["turlar"] = "Turlar";
@@ -30,9 +31,26 @@ $lang["need_help"] = "Köməyə Ehtiyacınız var?";
 $lang["need_help_text"] = "Burda statik text olacaq";
 $lang["our_tours"] = "Turlarımız";
 $lang["tour"] = "Tur";
+$lang["details"] = "Tur haqqında";
+$lang["tour_code"] = "Turun kodu";
+$lang["price"] = "Turun Qiyməti";
+$lang["tour_date"] = "Turun Tarixi";
+$lang["click_times"] = "Baxış Sayı";
+$lang["tour_includes"] = "Tura Daxildir";
+$lang["show_on_map"] = "Xəritədə Göstər";
+$lang["servislerimiz"] = "Xidmətlərimiz";
+$lang["bizimle_elaqe"] = "Bizimlə Əlaqə";
+$lang["adres"] = "Ünvanımız";
+$lang["telefon"] = "Telefon Nömrəmiz";
+$lang["elaqe_formu"] = "Əlaqə Formu";
+$lang["sualiniz_var"] = "Sualınız var?";
+$lang["en_cox_verilen_sullar"] = "Ən Çox Verilən Suallar";
+$lang["teklifler"] = "Təkliflər";
+$lang["blog"] = "Bloq";
+
+
 
 //ola biler deye her ehtimal yaziram
-$lang["price"] = "Qiymət";
 $lang["asc"] = "Artan";
 $lang["desc"] = "Azalan";
 $lang["popularity"] = "Populyarlıq";

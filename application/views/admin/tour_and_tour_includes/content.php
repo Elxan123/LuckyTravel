@@ -13,17 +13,25 @@
         display: none!important;
     }
 
+    .dt-buttons{
+        display: none;
+    }
+
 </style>
 <!--tabledeki fieldleri gizletmek ucun olan style bunu external css in icinde yazma yoxsa diger seyfelerdeki tablelerde korlanar-->
 
 
 <section>
 
+    <a style="top: 5px" href="<?php echo base_url("Panel_admin_page_tours")?>" class="c_back btn btn-md btn-primary">
+        <i class="fas fa-reply"></i>
+        Geri Dön
+    </a>
+
     <div class="card card-cascade narrower z-depth-0 pb-4">
 
         <!--tablenin basliqi-->
-        <div
-            class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
+        <div style="margin-top: -0.25rem;" class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
 
             <div style="visibility: hidden;">
                 <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2"><i
@@ -93,10 +101,6 @@
             <!-- Tablenin ozu -->
         </div>
     </div>
-
-
-
-
 
 </section>
 

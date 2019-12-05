@@ -106,6 +106,16 @@
         display: none!important;
     }
 
+    th:nth-child(13){
+        display: none!important;
+    }
+
+    td:nth-child(13){
+        display: none!important;
+    }
+
+
+
     .c_row_delete{
         display: none;
     }
@@ -182,6 +192,8 @@
                         <th data-orderable="false" class="c_th_max_width"><a>id<i class="fas fa-sort ml-1"></i></a></th>
                         <th data-orderable="false" class="c_th_max_width"><a>Telefon nömrəsi</a></th>
                         <th data-orderable="false" class="c_th_max_width"><a>Address</a></th>
+                        <th data-orderable="false" class="c_th_max_width"><a>Address EN</a></th>
+                        <th data-orderable="false" class="c_th_max_width"><a>Address Ru</a></th>
                         <th data-orderable="false" class="c_th_max_width"><a>Email</a></th>
                         <th data-orderable="false" class="c_th_max_width"><a>Facebook</a></th>
                         <th data-orderable="false" class="c_th_max_width"><a>İnstagram</a></th>

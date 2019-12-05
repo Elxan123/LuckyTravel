@@ -31,6 +31,29 @@
         display: none!important;
     }
 
+
+    th:nth-child(9){
+        display: none!important;
+    }
+
+    td:nth-child(9){
+        display: none!important;
+    }
+
+    th:nth-child(10){
+        display: none!important;
+    }
+    td:nth-child(10){
+        display: none!important;
+    }
+
+    th:nth-child(11){
+        display: none!important;
+    }
+    td:nth-child(11){
+        display: none!important;
+    }
+
     .dt-buttons{
         display: none;
     }
@@ -98,6 +121,9 @@
                         <th data-orderable="true" class="c_th_max_width"><a>Servisin Haqqında Az<i class="fas fa-sort ml-1"></i></a></th>
                         <th data-orderable="true" class="c_th_max_width"><a>Servisin Haqqında En<i class="fas fa-sort ml-1"></i></a></th>
                         <th data-orderable="true" class="c_th_max_width"><a>Servisin Haqqında RU<i class="fas fa-sort ml-1"></i></a></th>
+                        <th data-orderable="true" class="c_th_max_width"><a>Servisin Başlıqı Az<i class="fas fa-sort ml-1"></i></a></th>
+                        <th data-orderable="true" class="c_th_max_width"><a>Servisin Başlıqı En<i class="fas fa-sort ml-1"></i></a></th>
+                        <th data-orderable="true" class="c_th_max_width"><a>Servisin Başlıqı RU<i class="fas fa-sort ml-1"></i></a></th>
                         <th data-orderable="true" class="c_th_max_width"><a>Servisin Şəkli<i class="fas fa-sort ml-1"></i></a></th>
 
 
