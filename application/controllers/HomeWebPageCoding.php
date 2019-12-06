@@ -18,14 +18,15 @@
          $this->lang->load($dil, $dil);
 
          $this->session->set_userdata("dil", $dil);
+         $this->load->model('Core');
 
      }
 
      public function index()
      {
-
-
-         $this->load->view("$this->parent_folder/$this->sub_folder/whole_page");
+         $data['mslides'] = $this->Core->get_desc('main_slide');
+         $data['tours'] = $this->Core->get_tours('tours');
+         $this->load->view("$this->parent_folder/$this->sub_folder/whole_page",$data);
      }
 
 

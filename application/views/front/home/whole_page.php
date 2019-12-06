@@ -15,10 +15,11 @@
     <div class="row no-margin">
         <div class="swiper-container main-slider-4" data-autoplay="0" data-loop="1" data-speed="800" data-center="0" data-slides-per-view="1">
             <div class="swiper-wrapper">
+                <?php foreach ($mslides as $mslide) { ?>
                 <div class="swiper-slide active" data-val="0">
                     <div class="hover-blue black-hover h_100">
                         <div class="clip">
-                            <div class="bg bg-bg-chrome act" style="background-image:url(<?php echo base_url("public/front/") ?>img/home_4/slide_1.jpg)"></div>
+                            <div class="bg bg-bg-chrome act" style="background-image:url(<?php echo base_url("uploads/main_slide/").$mslide['img'] ?>)"></div>
                         </div>
                         <div class="tour-layer delay-1"></div>
                         <div class="vertical-top">
@@ -31,150 +32,24 @@
                         <div class="vertical-align">
                             <div class="item-block style-4">
                                 <div class="vertical-align">
-                                    <h4>from<b>$960</b></h4>
-                                    <div class="rate">
-                                        <span class="fa fa-star color-yellow"></span>
-                                        <span class="fa fa-star color-yellow"></span>
-                                        <span class="fa fa-star color-yellow"></span>
-                                        <span class="fa fa-star color-yellow"></span>
-                                        <span class="fa fa-star color-yellow"></span>
-                                    </div>
-                                    <h3 class="hover-it">monte carlo</h3>
-                                    <div class="main-date">july <strong>19th</strong> to july <strong>26th</strong></div>
-                                    <p>Curabitur nunc erat, consequat in erat ut, congue bibendum nulla. Suspendisse id pharetra lacus, et hendrerit elementum.</p>
+<!--                                    <h4>from<b>$960</b></h4>-->
+<!--                                    <div class="rate">-->
+<!--                                        <span class="fa fa-star color-yellow"></span>-->
+<!--                                        <span class="fa fa-star color-yellow"></span>-->
+<!--                                        <span class="fa fa-star color-yellow"></span>-->
+<!--                                        <span class="fa fa-star color-yellow"></span>-->
+<!--                                        <span class="fa fa-star color-yellow"></span>-->
+<!--                                    </div>-->
+                                    <h3 class="hover-it"><?php echo $mslide["title1_".$this->uri->segment(1)] ?></h3>
+<!--                                    <div class="main-date">july <strong>19th</strong> to july <strong>26th</strong></div>-->
+                                    <p><?php echo $mslide["title2_".$this->uri->segment(1)] ?></p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="swiper-slide" data-val="1">
-                    <div class="hover-blue black-hover h_100">
-                        <div class="clip">
-                            <div class="bg bg-bg-chrome act" style="background-image:url(<?php echo base_url("public/front/") ?>img/home_4/slide_2.jpg)"></div>
-                        </div>
-                        <div class="tour-layer delay-1"></div>
-                        <div class="vertical-top">
-                            <div class="weth-icon style-2 bg-blue-light radius-3 fr">
-                                <img src="<?php echo base_url("public/front/") ?>img/weather_icon_small.png" alt="">
-                                <div class="color-white"><b>+30<sup>o</sup>C</b></div>
-                                <div class="weth-city color-white-light">monte carlo</div>
-                            </div>
-                        </div>
-                        <div class="vertical-align">
-                            <div class="item-block style-4">
-                                <div class="vertical-align">
-                                    <h4>from<b>$960</b></h4>
-                                    <div class="rate">
-                                        <span class="fa fa-star color-yellow"></span>
-                                        <span class="fa fa-star color-yellow"></span>
-                                        <span class="fa fa-star color-yellow"></span>
-                                        <span class="fa fa-star color-yellow"></span>
-                                        <span class="fa fa-star color-yellow"></span>
-                                    </div>
-                                    <h3 class="hover-it">monte carlo</h3>
-                                    <div class="main-date">july <strong>19th</strong> to july <strong>26th</strong></div>
-                                    <p>Curabitur nunc erat, consequat in erat ut, congue bibendum nulla. Suspendisse id pharetra lacus, et hendrerit elementum.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide" data-val="2">
-                    <div class="hover-blue black-hover h_100">
-                        <div class="clip">
-                            <div class="bg bg-bg-chrome act" style="background-image:url(<?php echo base_url("public/front/") ?>img/home_4/slide_3.jpg)"></div>
-                        </div>
-                        <div class="tour-layer delay-1"></div>
-                        <div class="vertical-top">
-                            <div class="weth-icon style-2 bg-blue-light radius-3 fr">
-                                <img src="<?php echo base_url("public/front/") ?>img/weather_icon_small.png" alt="">
-                                <div class="color-white"><b>+30<sup>o</sup>C</b></div>
-                                <div class="weth-city color-white-light">monte carlo</div>
-                            </div>
-                        </div>
-                        <div class="vertical-align">
-                            <div class="item-block style-4">
-                                <div class="vertical-align">
-                                    <h4>from<b>$960</b></h4>
-                                    <div class="rate">
-                                        <span class="fa fa-star color-yellow"></span>
-                                        <span class="fa fa-star color-yellow"></span>
-                                        <span class="fa fa-star color-yellow"></span>
-                                        <span class="fa fa-star color-yellow"></span>
-                                        <span class="fa fa-star color-yellow"></span>
-                                    </div>
-                                    <h3 class="hover-it">monte carlo</h3>
-                                    <div class="main-date">july <strong>19th</strong> to july <strong>26th</strong></div>
-                                    <p>Curabitur nunc erat, consequat in erat ut, congue bibendum nulla. Suspendisse id pharetra lacus, et hendrerit elementum.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide active" data-val="3">
-                    <div class="hover-blue black-hover h_100">
-                        <div class="clip">
-                            <div class="bg bg-bg-chrome act" style="background-image:url(<?php echo base_url("public/front/") ?>img/home_4/slide_4.jpg)"></div>
-                        </div>
-                        <div class="tour-layer delay-1"></div>
-                        <div class="vertical-top">
-                            <div class="weth-icon style-2 bg-blue-light radius-3 fr">
-                                <img src="<?php echo base_url("public/front/") ?>img/weather_icon_small.png" alt="">
-                                <div class="color-white"><b>+30<sup>o</sup>C</b></div>
-                                <div class="weth-city color-white-light">monte carlo</div>
-                            </div>
-                        </div>
-                        <div class="vertical-align">
-                            <div class="item-block style-4">
-                                <div class="vertical-align">
-                                    <h4>from<b>$960</b></h4>
-                                    <div class="rate">
-                                        <span class="fa fa-star color-yellow"></span>
-                                        <span class="fa fa-star color-yellow"></span>
-                                        <span class="fa fa-star color-yellow"></span>
-                                        <span class="fa fa-star color-yellow"></span>
-                                        <span class="fa fa-star color-yellow"></span>
-                                    </div>
-                                    <h3 class="hover-it">monte carlo</h3>
-                                    <div class="main-date">july <strong>19th</strong> to july <strong>26th</strong></div>
-                                    <p>Curabitur nunc erat, consequat in erat ut, congue bibendum nulla. Suspendisse id pharetra lacus, et hendrerit elementum.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide active" data-val="4">
-                    <div class="hover-blue black-hover h_100">
-                        <div class="clip">
-                            <div class="bg bg-bg-chrome act" style="background-image:url(<?php echo base_url("public/front/") ?>img/home_4/slide_5.jpg)"></div>
-                        </div>
-                        <div class="tour-layer delay-1"></div>
-                        <div class="vertical-top">
-                            <div class="weth-icon style-2 bg-blue-light radius-3 fr">
-                                <img src="<?php echo base_url("public/front/") ?>img/weather_icon_small.png" alt="">
-                                <div class="color-white"><b>+30<sup>o</sup>C</b></div>
-                                <div class="weth-city color-white-light">monte carlo</div>
-                            </div>
-                        </div>
-                        <div class="vertical-align">
-                            <div class="item-block style-4">
-                                <div class="vertical-align">
-                                    <h4>from<b>$960</b></h4>
-                                    <div class="rate">
-                                        <span class="fa fa-star color-yellow"></span>
-                                        <span class="fa fa-star color-yellow"></span>
-                                        <span class="fa fa-star color-yellow"></span>
-                                        <span class="fa fa-star color-yellow"></span>
-                                        <span class="fa fa-star color-yellow"></span>
-                                    </div>
-                                    <h3 class="hover-it">monte carlo</h3>
-                                    <div class="main-date">july <strong>19th</strong> to july <strong>26th</strong></div>
-                                    <p>Curabitur nunc erat, consequat in erat ut, congue bibendum nulla. Suspendisse id pharetra lacus, et hendrerit elementum.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php } ?>
+
             </div>
             <div class="pagination poin-style-1"></div>
         </div>
@@ -238,123 +113,21 @@
         <div class="row">
             <div class="swiper-container" data-autoplay="0" data-loop="0" data-speed="1000" data-slides-per-view="responsive" data-mob-slides="1" data-xs-slides="2" data-sm-slides="4" data-md-slides="5" data-lg-slides="6" data-add-slides="6">
                 <div class="swiper-wrapper">
+                    <?php foreach ($tours as $tour) { ?>
                     <div class="swiper-slide">
                         <div class="tour-item">
                             <div class="radius-top">
-                                <img src="<?php echo base_url("public/front/") ?>img/home_4/tour_1.jpg" alt="">
+                                <img src="<?php echo base_url("uploads/tours/").$tour['img'] ?>" alt="">
                                 <div class="tour-weather"><img src="<?php echo base_url("public/front/") ?>img/weather_icon_small_blue.png" alt="">+30<span class="sup">o</span>C</div>
                             </div>
                             <div class="tour-desc bg-white">
-                                <h4><a class="tour-title color-dark-2 link-blue" href="#">mauritius</a></h4>
-                                <div class="tour-text color-grey-3">Cursus libero purus</div>
-                                <div class="tour-price">from <span class="color-blue">$860</span></div>
+                                <h4><a class="tour-title color-dark-2 link-blue" href="#"><?php echo $tour['name_'.$this->uri->segment(1)] ?></a></h4>
+                                <div class="tour-text color-grey-3"><?php echo $tour['desc_'.$this->uri->segment(1)] ?></div>
+                                <div class="tour-price">from <span class="color-blue"><?php echo $tour['tour_price'] ?></span></div>
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide">
-                        <div class="tour-item">
-                            <div class="radius-top">
-                                <img src="<?php echo base_url("public/front/") ?>img/home_4/tour_2.jpg" alt="">
-                                <div class="tour-weather"><img src="<?php echo base_url("public/front/") ?>img/weather_icon_small_blue.png" alt="">+25<span class="sup">o</span>C</div>
-                            </div>
-                            <div class="tour-desc bg-white">
-                                <h4><a class="tour-title color-dark-2 link-blue" href="#">maldives</a></h4>
-                                <div class="tour-text color-grey-3">Lorem ipsum dolor</div>
-                                <div class="tour-price">from <span class="color-blue">$860</span></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="tour-item">
-                            <div class="radius-top">
-                                <img src="<?php echo base_url("public/front/") ?>img/home_4/tour_3.jpg" alt="">
-                                <div class="tour-weather"><img src="<?php echo base_url("public/front/") ?>img/weather_icon_rain_blue.png" alt="">+18<span class="sup">o</span>C</div>
-                            </div>
-                            <div class="tour-desc bg-white">
-                                <h4><a class="tour-title color-dark-2 link-blue" href="#">thailand</a></h4>
-                                <div class="tour-text color-grey-3">Consectetur adipiscing</div>
-                                <div class="tour-price">from <span class="color-blue">$660</span></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="tour-item">
-                            <div class="radius-top">
-                                <img src="<?php echo base_url("public/front/") ?>img/home_4/tour_4.jpg" alt="">
-                                <div class="tour-weather"><img src="<?php echo base_url("public/front/") ?>img/weather_icon_small_blue.png" alt="">+34<span class="sup">o</span>C</div>
-                            </div>
-                            <div class="tour-desc bg-white">
-                                <h4><a class="tour-title color-dark-2 link-blue" href="#">santorini</a></h4>
-                                <div class="tour-text color-grey-3">Sed do eiusmod</div>
-                                <div class="tour-price">from <span class="color-blue">$599</span></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="tour-item">
-                            <div class="radius-top">
-                                <img src="<?php echo base_url("public/front/") ?>img/home_4/tour_5.jpg" alt="">
-                                <div class="tour-weather"><img src="<?php echo base_url("public/front/") ?>img/weather_icon_small_blue.png" alt="">+30<span class="sup">o</span>C</div>
-                            </div>
-                            <div class="tour-desc bg-white">
-                                <h4><a class="tour-title color-dark-2 link-blue" href="#">corsica</a></h4>
-                                <div class="tour-text color-grey-3">Ut enim ad minim</div>
-                                <div class="tour-price">from <span class="color-blue">$725</span></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="tour-item">
-                            <div class="radius-top">
-                                <img src="<?php echo base_url("public/front/") ?>img/home_4/tour_6.jpg" alt="">
-                                <div class="tour-weather"><img src="<?php echo base_url("public/front/") ?>img/weather_icon_rain_blue.png" alt="">+22<span class="sup">o</span>C</div>
-                            </div>
-                            <div class="tour-desc bg-white">
-                                <h4><a class="tour-title color-dark-2 link-blue" href="#">mauritius</a></h4>
-                                <div class="tour-text color-grey-3">Excepteur sint occaecat</div>
-                                <div class="tour-price">from <span class="color-blue">$860</span></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="tour-item">
-                            <div class="radius-top">
-                                <img src="<?php echo base_url("public/front/") ?>img/home_4/tour_1.jpg" alt="">
-                                <div class="tour-weather"><img src="<?php echo base_url("public/front/") ?>img/weather_icon_small_blue.png" alt="">+30<span class="sup">o</span>C</div>
-                            </div>
-                            <div class="tour-desc bg-white">
-                                <h4><a class="tour-title color-dark-2 link-blue" href="#">mauritius</a></h4>
-                                <div class="tour-text color-grey-3">Cursus libero purus</div>
-                                <div class="tour-price">from <span class="color-blue">$860</span></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="tour-item">
-                            <div class="radius-top">
-                                <img src="<?php echo base_url("public/front/") ?>img/home_4/tour_2.jpg" alt="">
-                                <div class="tour-weather"><img src="<?php echo base_url("public/front/") ?>img/weather_icon_small_blue.png" alt="">+25<span class="sup">o</span>C</div>
-                            </div>
-                            <div class="tour-desc bg-white">
-                                <h4><a class="tour-title color-dark-2 link-blue" href="#">maldives</a></h4>
-                                <div class="tour-text color-grey-3">Lorem ipsum dolor</div>
-                                <div class="tour-price">from <span class="color-blue">$860</span></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="tour-item">
-                            <div class="radius-top">
-                                <img src="<?php echo base_url("public/front/") ?>img/home_4/tour_3.jpg" alt="">
-                                <div class="tour-weather"><img src="<?php echo base_url("public/front/") ?>img/weather_icon_rain_blue.png" alt="">+18<span class="sup">o</span>C</div>
-                            </div>
-                            <div class="tour-desc bg-white">
-                                <h4><a class="tour-title color-dark-2 link-blue" href="#">thailand</a></h4>
-                                <div class="tour-text color-grey-3">Consectetur adipiscing</div>
-                                <div class="tour-price">from <span class="color-blue">$660</span></div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php } ?>
                 </div>
                 <div class="pagination poin-style-2"></div>
             </div>

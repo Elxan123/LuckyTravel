@@ -192,6 +192,17 @@
         $this->db->or_like("desc_$lang", $search_value);
         return $this->db->limit($limit, $count)->get($table_name)->result_array();
     }
+//    public function get_tours($table_name)
+//    {
+//        $this->db->select('tours.*,tour_gallery.*');
+//        $this->db->from('tours');
+//        $this->db->join('tour_gallery','tours.id = tour_gallery.tour_id','left');
+//        return $this->db->get()->result_array();
+//    }
+    public function get_tours($table_name)
+    {
+        return $this->db->order_by("click_times", "DESC")->limit(9)->get($table_name)->result_array();
+    }
 
 //==============================================BU sayt ucun lazim olan elave funksiyalar========================================
 
