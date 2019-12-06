@@ -1811,7 +1811,7 @@ nav li.type-4 .dropmenu .fa-chevron-right { display: none; }
 
 .weth-icon.style-2 sup { font-size: 15px; }
 
-.weth-icon.style-2 .weth-city { font-size: 10px; line-height: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+.weth-icon.style-2 .weth-city { font-size: 10px; line-height: 13px; font-weight: 700; letter-spacing: 0.5px; }
 
 .tour-block.tour-block-s-1 { min-height: 100%; margin-bottom: 0px; }
 

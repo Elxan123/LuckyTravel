@@ -18,11 +18,16 @@
          $this->lang->load($dil, $dil);
 
          $this->session->set_userdata("dil", $dil);
+         $this->load->model('Core');
 
      }
 
      public function index()
      {
+
+         $data['mslides'] = $this->Core->get_desc('main_slide');
+         $data['tours'] = $this->Core->get_tours('tours');
+
         //bunnar butun controllerde ve metodlarda olmalidi
          $data["last_offers"] = $this->Core->get_desc_limit("offers", 3);
          $data["last_services"] = $this->Core->get_desc_limit("services", 3);
