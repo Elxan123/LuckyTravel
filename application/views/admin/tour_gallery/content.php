@@ -17,11 +17,24 @@
         display: none;
     }
 
+    .dt-buttons{
+        display: none;
+    }
+
+    #datatable_filter{
+        display: none;
+    }
+
 </style>
 <!--tabledeki fieldleri gizletmek ucun olan style bunu external css in icinde yazma yoxsa diger seyfelerdeki tablelerde korlanar-->
 
 
 <section>
+
+    <a style="top: 5px; right: 22px" href="<?php echo base_url("Panel_admin_page_tours")?>" class="c_back btn btn-md btn-primary">
+        <i class="fas fa-reply"></i>
+        Geri Dön
+    </a>
 
 
     <div class="card card-cascade narrower z-depth-0 pb-4">
@@ -40,6 +53,7 @@
 
 
         <div class="px-4">
+
             <!-- Tablenin ozu -->
             <div class="table-responsive">
                 <!--Table-->
@@ -82,10 +96,6 @@
             <!-- Tablenin ozu -->
         </div>
     </div>
-
-
-
-
 
 </section>
 

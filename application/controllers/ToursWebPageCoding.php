@@ -23,9 +23,16 @@
 
      }
 
-
      public function index()
      {
+
+
+         //bunnar butun controllerde ve metodlarda olmalidi
+         $data["last_offers"] = $this->Core->get_desc_limit("offers", 3);
+         $data["last_services"] = $this->Core->get_desc_limit("services", 3);
+         $data["contact"] = $this->Core->get_where_row(array("id"=>1), "contact");
+         //bunnar butun controllerde ve metodlarda olmalidi
+
          $this->session->unset_userdata("search_value");
          $this->session->unset_userdata("date_value");
          $this->session->unset_userdata("order_popularity");
@@ -34,10 +41,11 @@
          $this->session->unset_userdata("max_price");
 
          $data["total_tours"] = $this->Core->get_counts($this->table_name);
+         $data["highest_price"] = $this->Core->get_highest_price("tours");
+         $data["lowest_price"] = $this->Core->get_lowest_price("tours");
 
          $this->load->view("$this->parent_folder/$this->sub_folder/whole_page", $data);
      }
-
 
      public function load_data()
      {
@@ -234,19 +242,39 @@
          $this->load->view("$this->parent_folder/$this->sub_folder/refresh_page/tours", $data);
      }
 
-
      public function single($lang, $id)
      {
 
-//         turun ve qalereyasinin caqirilmasi eger tr yoxdusa ana seyfeye atacaq
+//         tura daxildir hissesinin cagirilmasi ucun id lerin secilmesi
+         $array = array();
+         $tour_includes_id = $this->Core->get_select_where_result_desc(array("tour_includes_id"),array("tour_id" => $id), "tour_and_tour_includes");
+         for ($i = 0; $i < count($tour_includes_id); $i++){
+             $array[$i] = $tour_includes_id[$i]["tour_includes_id"];
+         }
+
+
+//         turun ve qalereyasinin caqirilmasi eger tur yoxdusa ana seyfeye atacaq
          $data["tour"] = $this->Core->get_where_row(array("id" => $id), $this->table_name);
          $data["tour_gallery"] = $this->Core->get_where_result_desc(array("tour_id" => $id), "tour_gallery");
+         if (!empty($tour_includes_id)){
+            $data["tour_includes"] = $this->Core->get_where_in_result_desc($array, "tour_includes");
+         }else{
+             $data["tour_includes"] = array();
+         }
+
+
          if (empty($data["tour"])){
              redirect(base_url());
          }else{
 //             turun klick sayi bir vahid artir
-             $data["tour"]["click_times"]++;
-             $this->Core->update(array("id" => $id), $this->table_name, array("click_times" => $data["tour"]["click_times"]));
+             $ip = getUserIpAddr();
+
+             if ($id . $ip != $this->session->userdata("id_$id$ip")){
+                 $data["tour"]["click_times"]++;
+                 $this->Core->update(array("id" => $id), $this->table_name, array("click_times" => $data["tour"]["click_times"]));
+                 $this->session->set_userdata("id_$id$ip", $id . $ip);
+             }
+
          }
 
 //         en cox kliklenen 4 tur cagirilir

@@ -7,6 +7,11 @@ class MY_Controller extends CI_Controller{
     public function __construct()
     {
         parent::__construct();
+
+        if (empty($this->session->userdata("user"))){
+            redirect(base_url("Panel_admin_page_secure_login_page"));
+        }
+
     }
 
 
@@ -30,10 +35,20 @@ class MY_Controller extends CI_Controller{
             $additional_editor  = substr($value, 0,8);
             $additional_file  = substr($value, 0,6);
             $additional_required  = substr($value, 0,10);
+            $additional_md5  = substr($value, -5);
+
 
 //          eger inputun ilk 9 herfi "not_input" dursa onu postnan cagirmir sadece default deyer kimi goturur
             if ($additional_id == "(not_input)" && strlen($value) > 11){
                 $post_data = substr($value, 11);
+            }
+            elseif ($additional_md5 == "(md5)"){
+                $password = substr($value, 0, strlen($value)-5);
+                $post_data = md5($this->input->post($password));
+            }
+            elseif ($additional_required == "(required)" && strlen($value) >= 10){
+                $important = substr($value, 10);
+                $post_data = $this->input->post($important);
             }
             elseif ($additional_editor == "(editor)" && strlen($value) > 8){
                 $editor = substr($value, 8);
@@ -78,7 +93,7 @@ class MY_Controller extends CI_Controller{
 
 
 //          eger post data bosdursa cond 0 olsun
-            if (empty($post_data) && $additional_required == "(required)"){
+            if (empty($post_data) && $additional_required == "(required)" && strlen($value) >= 10){
                 $cond = 0;
             }
 
@@ -88,13 +103,16 @@ class MY_Controller extends CI_Controller{
         }
 
 
+
 //      eyer cond 1 dise succes linke success alerti ile birlikde redirect edir
         if ($cond == 1){
 
 //          core ucun modelde yazilmis xususi insert metodu
-            $this->Core->add($data, $config["table_name"]);
+            $id = $this->Core->add($data, $config["table_name"]);
 
             $this->session->set_flashdata("success", "Məlumat Əlavə Edildi!");
+            $this->session->set_userdata("id", $id);
+
             redirect($config["success_link"]);
 
 //      eyer cond 0 dise error linke error alerti ile birlikde redirect edir
@@ -129,14 +147,23 @@ class MY_Controller extends CI_Controller{
         foreach ($config["inputs_array"] as $key => $value){
 
 //          inputlarin arrayinin icinde gelen deyerin ilk 9 herfi "not_input" dursa demeli o input deyil manual deyer olaraq qebul edilir
-            $additional_id  = substr($value, 0, 9);
+            $additional_id  = substr($value, 0, 11);
             $additional_editor  = substr($value, 0,8);
             $additional_file  = substr($value, 0,6);
             $additional_required  = substr($value, 0,10);
+            $additional_md5  = substr($value, -5);
 
-//          eger inputun ilk 9 herfi "not_input" dursa onu postnan cagirmir sadece default deyer kimi goturur
-            if ($additional_id == "not_input" && strlen($value) > 9){
-                $post_data = substr($value, 9);
+//            eger inputun ilk 9 herfi "not_input" dursa onu postnan cagirmir sadece default deyer kimi goturur
+            if ($additional_id == "(not_input)" && strlen($value) > 11){
+                $post_data = substr($value, 11);
+            }
+            elseif ($additional_md5 == "(md5)"){
+                $password = substr($value, 0, strlen($value)-5);
+                $post_data = md5($this->input->post($password));
+            }
+            elseif ($additional_required == "(required)" && strlen($value) >= 10){
+                $important = substr($value, 10);
+                $post_data = $this->input->post($important);
             }
             elseif ($additional_editor == "(editor)" && strlen($value) > 8){
                 $editor = substr($value, 8);
@@ -182,7 +209,7 @@ class MY_Controller extends CI_Controller{
 
 
 //          eger post data bosdursa cond 0 olsun
-            if (empty($post_data)  && $additional_required == "(required)"){
+            if (empty($post_data) && $additional_required == "(required)" && strlen($value) >= 10){
                 $cond = 0;
             }
 
@@ -1068,19 +1095,23 @@ class MY_Controller extends CI_Controller{
             $table_data = $this->Core->get_desc($splitted_string_array[0]);
             $table_data_row = $this->Core->get_where_row(array("id" => $data[$splitted_string_array2[0]]),$splitted_string_array[0]);
 
-            $html .= '<label for="">'. $splitted_string_array2[1] .'</label>
+            if (!empty($table_data) && !empty($table_data_row)){
+                $html .= '<label for="">'. $splitted_string_array2[1] .'</label>
                         <select name="'. $splitted_string_array2[0] .'" class="mdb-select'. $count .' md-form">';
 
-            $html .= '<option value="'. $table_data_row["id"] .'">'. $table_data_row["name_az"] .'</option>';
+                $html .= '<option value="'. $table_data_row["id"] .'">'. $table_data_row["name_az"] .'</option>';
 
-            foreach ($table_data as $item){
+                foreach ($table_data as $item){
 
-                if ($data[$splitted_string_array2[0]] != $item["id"]){
-                    $html .= '<option value="'. $item["id"] .'">'. $item[$splitted_string_array[1]] .'</option>';
+                    if ($data[$splitted_string_array2[0]] != $item["id"]){
+                        $html .= '<option value="'. $item["id"] .'">'. $item[$splitted_string_array[1]] .'</option>';
+                    }
                 }
+
+                $html .= '</select> <script>$(\'.mdb-select'. $count .'\').materialSelect();</script>';
+
             }
 
-            $html .= '</select> <script>$(\'.mdb-select'. $count .'\').materialSelect();</script>';
 
             $count++;
         }
@@ -1478,7 +1509,7 @@ class MY_Controller extends CI_Controller{
 
         }
 
-
+        $html .= "<br>";
 
         foreach ($config["select_name_and_table_name"] as $key => $value) {
             $splitted_string_array = explode(".",$value);
@@ -1488,14 +1519,16 @@ class MY_Controller extends CI_Controller{
             $table_data = $this->Core->get_desc($splitted_string_array[0]);
 
 
-            $html .= '<label for="">'. $splitted_string_array2[1] .'</label>
+            if (!empty($table_data)){
+                $html .= '<label for="">'. $splitted_string_array2[1] .'</label>
                         <select name="'. $splitted_string_array2[0] .'" class="mdb-select md-form">';
 
 
-            foreach ($table_data as $item){
-                $html .= '<option value="'. $item["id"] .'">'. $item[$splitted_string_array[1]] .'</option>';
+                foreach ($table_data as $item){
+                    $html .= '<option value="'. $item["id"] .'">'. $item[$splitted_string_array[1]] .'</option>';
+                }
+                $html .= '</select><br>';
             }
-            $html .= '</select><br><br>';
 
 
         }
@@ -1556,6 +1589,321 @@ class MY_Controller extends CI_Controller{
 
 
    Viewdaki alertlerin gorsenmesi ucun lazim olan kodlar sadece kopyalayib viewdeki php faylinin icine atin */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//======================================== Sadece bu proyekt ucun turlara lazim olan functionlar ===================================================
+
+    public function tours_insert_db($config){
+
+
+//      post metoduynan qebul edilen deyerler bu arrayin icine toplanir ve data olaraq db ya insert olur
+        $data = array();
+
+//      eyer cond 1 dise proses ugurla basa catib eger 0 qaytarirsa demeli prosesde xeta var ve geri seyfeye aler sessionla birlikde qayidir
+        $cond = 1;
+
+//      type text ve password olan inputlarin namelerinin arraylari fore eache salinaraq data arrayina doldurulur(xususi filterler metodlardan kecerek)
+        foreach ($config["inputs_array"] as $key => $value){
+
+//          inputlarin arrayinin icinde gelen deyerin ilk 9 herfi "not_input" dursa demeli o input deyil manual deyer olaraq qebul edilir
+            $additional_id  = substr($value, 0, 11);
+            $additional_editor  = substr($value, 0,8);
+            $additional_file  = substr($value, 0,6);
+            $additional_required  = substr($value, 0,10);
+
+
+//          eger inputun ilk 9 herfi "not_input" dursa onu postnan cagirmir sadece default deyer kimi goturur
+            if ($additional_id == "(not_input)" && strlen($value) > 11){
+                $post_data = substr($value, 11);
+            }
+            elseif ($additional_required == "(required)" && strlen($value) >= 10){
+                $important = substr($value, 10);
+                $post_data = $this->input->post($important);
+            }
+            elseif ($additional_editor == "(editor)" && strlen($value) > 8){
+                $editor = substr($value, 8);
+                $editor .= "_create";
+                $post_data = $this->input->post($editor);
+            }
+            elseif(!empty($config['upload_path']) && $additional_file == "(file)" && strlen($value) > 6){
+
+                $config_upload['upload_path'] = $config["upload_path"];
+                $config_upload['allowed_types'] = 'jpg|jpeg|png|gif|pdf|doc|docx|txt';
+                $config_upload['file_name'] = $_FILES[substr($value, 6)]['name'];
+                $this->load->library('upload',$config_upload);
+                $this->upload->initialize($config_upload);
+
+                $is_upload = $this->upload->do_upload(substr($value, 6));
+                if ($is_upload){
+                    $post_data = $this->upload->data('file_name');
+
+                    if (substr($post_data, -3) == "jpg" || substr($post_data, -3) == "png" || substr($post_data, -4) == "jpeg" || substr($post_data, -3) == "gif"){
+                        $config_img['image_library'] = 'gd2';
+                        $config_img['source_image'] = $config["upload_path"] . $post_data;
+                        $config_img['create_thumb'] = false;
+                        $config_img['maintain_ratio'] = false;
+                        $config_img['width']     = 800;
+                        $config_img['height']   = 600;
+                        $config_img['new_image'] = $config["upload_path"] . $post_data;
+
+                        $this->load->library('image_lib', $config_img);
+                        $this->image_lib->resize();
+                    }
+
+
+
+                }else{
+                    $post_data = "default.png";
+                }
+
+            }else{
+                $post_data = strip_tags($this->input->post($value));
+            }
+
+
+
+//          eger post data bosdursa cond 0 olsun
+            if (empty($post_data) && $additional_required == "(required)" && strlen($value) >= 10){
+                $cond = 0;
+            }
+
+//          modele gonderilecek data nin doldurulmasi
+            $data[$key] = $post_data;
+
+        }
+
+
+
+//      eyer cond 1 dise succes linke success alerti ile birlikde redirect edir
+        if ($cond == 1){
+
+//          core ucun modelde yazilmis xususi insert metodu
+
+            $time = $this->input->post("date");
+            $link = $this->input->post("link");
+
+
+            if (!empty($time)){
+                $timestamp = strtotime($time);
+            }
+
+            if (!empty(trim($link))){
+                $explode = explode('/',$link);
+                $explode2 = explode('@',$explode[6]);
+                $lang_and_long = explode(',',$explode2[1]);
+
+                $json = file_get_contents("https://api.darksky.net/forecast/1f20fee5f95972b70d6beb9cc1859423/". $lang_and_long[0] .",". $lang_and_long[1] .",". $timestamp ."?exclude=currently,flags&lang=az");
+
+                $data["map_long"] = $lang_and_long[0];
+                $data["map_lat"] = $lang_and_long[1];
+
+            }
+
+
+            //decode JSON to array
+
+            if (!empty($json)){
+
+                $data_wheather = json_decode($json,true);
+
+
+                $summary = $data_wheather["hourly"]["summary"];
+                $temperature = intval(($data_wheather["hourly"]["data"][0]["temperature"]-32)*5/9);
+
+                $data["summary"] = $summary;
+                $data["temperature"] = $temperature;
+                $data["link"] = $link;
+
+            }
+
+
+            if (!empty($data["services_id"])){
+
+                $row_counts = $this->db->from($config["table_name"])->count_all_results();
+                $data["tour_code"] = "#" . ($data["services_id"] * 10000 + $row_counts);
+
+            }elseif (!empty($data["offers_id"])){
+
+                $row_counts = $this->db->from($config["table_name"])->count_all_results();
+                $data["tour_code"] = "#" . ($data["offers_id"] * 10000 + $row_counts);
+
+            }else{
+                $row_counts = $this->db->from($config["table_name"])->count_all_results();
+                $data["tour_code"] = "#00000$row_counts";
+            }
+
+
+
+
+            $id = $this->Core->add($data, $config["table_name"]);
+
+            $this->session->set_flashdata("success", "Məlumat Əlavə Edildi!");
+            $this->session->set_userdata("id", $id);
+
+            redirect($config["success_link"]);
+
+//      eyer cond 0 dise error linke error alerti ile birlikde redirect edir
+        }else{
+            $this->session->set_flashdata("alert", "Boşluq Buraxmayın!");
+            redirect($config["error_link"]);
+        }
+
+    }
+
+
+    public function tours_update_db($config){
+
+        $row = $this->Core->get_where_row($config["where"] , $config["table_name"]);
+
+//      post metoduynan qebul edilen deyerler bu arrayin icine toplanir ve data olaraq db ya insert olur
+        $data = array();
+
+//      eyer cond 1 dise proses ugurla basa catib eger 0 qaytarirsa demeli prosesde xeta var ve geri seyfeye aler sessionla birlikde qayidir
+        $cond = 1;
+
+//      type text ve password olan inputlarin namelerinin arraylari fore eache salinaraq data arrayina doldurulur(xususi filterler metodlardan kecerek)
+        foreach ($config["inputs_array"] as $key => $value){
+
+//          inputlarin arrayinin icinde gelen deyerin ilk 9 herfi "not_input" dursa demeli o input deyil manual deyer olaraq qebul edilir
+            $additional_id  = substr($value, 0, 9);
+            $additional_editor  = substr($value, 0,8);
+            $additional_file  = substr($value, 0,6);
+            $additional_required  = substr($value, 0,10);
+
+//          eger inputun ilk 9 herfi "not_input" dursa onu postnan cagirmir sadece default deyer kimi goturur
+            if ($additional_id == "not_input" && strlen($value) > 9){
+                $post_data = substr($value, 9);
+            }
+            elseif ($additional_required == "(required)" && strlen($value) >= 10){
+                $important = substr($value, 10);
+                $post_data = $this->input->post($important);
+            }
+            elseif ($additional_editor == "(editor)" && strlen($value) > 8){
+                $editor = substr($value, 8);
+                $editor .= "_editor";
+                $post_data = $this->input->post($editor);
+            }
+            elseif(!empty($config['upload_path']) && $additional_file == "(file)" && strlen($value) > 6){
+
+                $config_upload['upload_path'] = $config["upload_path"];
+                $config_upload['allowed_types'] = 'jpg|jpeg|png|gif|pdf|doc|docx|txt';
+                $config_upload['file_name'] = $_FILES[substr($value, 6)]['name'];
+                $this->load->library('upload',$config_upload);
+                $this->upload->initialize($config_upload);
+
+                $is_upload = $this->upload->do_upload(substr($value, 6));
+                if ($is_upload){
+                    $post_data = $this->upload->data('file_name');
+
+                    if (substr($post_data, -3) == "jpg" || substr($post_data, -3) == "png" || substr($post_data, -4) == "jpeg" || substr($post_data, -3) == "gif"){
+                        $config_img['image_library'] = 'gd2';
+                        $config_img['source_image'] = $config["upload_path"] . $post_data;
+                        $config_img['create_thumb'] = false;
+                        $config_img['maintain_ratio'] = false;
+                        $config_img['width']     = 800;
+                        $config_img['height']   = 600;
+                        $config_img['new_image'] = $config["upload_path"] . $post_data;
+
+                        $this->load->library('image_lib', $config_img);
+                        $this->image_lib->resize();
+                    }
+
+                    if (!empty($row[$key]) && $row[$key] != "default.png" && $row[$key] != "doc.png")
+                        unlink($config["upload_path"] . $row[$key]);
+
+                }else{
+                    $post_data = $row[$key];
+                }
+
+            }else{
+                $post_data = strip_tags($this->input->post($value));
+            }
+
+
+
+//          eger post data bosdursa cond 0 olsun
+            if (empty($post_data) && $additional_required == "(required)" && strlen($value) >= 10){
+                $cond = 0;
+            }
+
+//          modele gonderilecek data nin doldurulmasi
+            $data[$key] = $post_data;
+
+        }
+
+
+
+
+//      eyer cond 1 dise succes linke success alerti ile birlikde redirect edir
+        if ($cond == 1){
+
+//          core ucun modelde yazilmis xususi insert metodu
+
+
+            $time = $this->input->post("date");
+            $link = $this->input->post("link");
+
+            if (!empty($time)){
+                $timestamp = strtotime($time);
+            }
+
+            if (!empty(trim($link))){
+                $explode = explode('/',$link);
+                $explode2 = explode('@',$explode[6]);
+                $lang_and_long = explode(',',$explode2[1]);
+
+                $json = file_get_contents("https://api.darksky.net/forecast/1f20fee5f95972b70d6beb9cc1859423/". $lang_and_long[0] .",". $lang_and_long[1] .",". $timestamp ."?exclude=currently,flags&lang=az");
+            }
+
+
+            //decode JSON to array
+
+            if (!empty($json)){
+
+                $data_wheather = json_decode($json,true);
+
+
+                $summary = $data_wheather["hourly"]["summary"];
+                $temperature = intval(($data_wheather["hourly"]["data"][0]["temperature"]-32)*5/9);
+
+                $data["summary"] = $summary;
+                $data["temperature"] = $temperature;
+                $data["link"] = $link;
+
+            }
+
+            $this->Core->update($config["where"], $config["table_name"] , $data);
+
+            $this->session->set_flashdata("success", "Məlumat yenilendi!");
+            redirect($config["success_link"]);
+
+//      eyer cond 0 dise error linke error alerti ile birlikde redirect edir
+        }else{
+            $this->session->set_flashdata("alert", "Boşluq Buraxmayın!");
+            redirect($config["error_link"]);
+        }
+
+
+    }
+
+//**************************************** Sadece bu proyekt ucun turlara lazim olan functionlar ****************************************************
+
+
 
 
 }

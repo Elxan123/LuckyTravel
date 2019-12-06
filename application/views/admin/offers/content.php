@@ -31,6 +31,32 @@
         display: none!important;
     }
 
+    th:nth-child(9){
+        display: none!important;
+    }
+
+    td:nth-child(9){
+        display: none!important;
+    }
+
+    th:nth-child(10){
+        display: none!important;
+    }
+    td:nth-child(10){
+        display: none!important;
+    }
+
+    th:nth-child(11){
+        display: none!important;
+    }
+    td:nth-child(11){
+        display: none!important;
+    }
+
+    .dt-buttons{
+        display: none;
+    }
+
 </style>
 <!--tabledeki fieldleri gizletmek ucun olan style bunu external css in icinde yazma yoxsa diger seyfelerdeki tablelerde korlanar-->
 
@@ -50,7 +76,7 @@
                         class="fas fa-columns mt-0"></i></button>
             </div>
 
-            <a class="white-text mx-3">Table name</a>
+            <a class="white-text mx-3">Təkliflər</a>
 
             <div style="visibility: hidden;">
                 <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2"><i
@@ -86,9 +112,18 @@
                         </th>
 
 
-                        <?php foreach ($field_names as $item) {?>
-                            <th data-orderable="true" class="c_th_max_width"><a><?php echo $item?><i class="fas fa-sort ml-1"></i></a></th>
-                        <?php }?>
+                        <th data-orderable="true" class="c_th_max_width"><a>id<i class="fas fa-sort ml-1"></i></a></th>
+                        <th data-orderable="true" class="c_th_max_width"><a>Təklifin Adı Az<i class="fas fa-sort ml-1"></i></a></th>
+                        <th data-orderable="true" class="c_th_max_width"><a>Təklifin Adı En<i class="fas fa-sort ml-1"></i></a></th>
+                        <th data-orderable="true" class="c_th_max_width"><a>Təklifin Adı Ru<i class="fas fa-sort ml-1"></i></a></th>
+                        <th data-orderable="true" class="c_th_max_width"><a>Təklifin Haqqında Az<i class="fas fa-sort ml-1"></i></a></th>
+                        <th data-orderable="true" class="c_th_max_width"><a>Təklifin Haqqında En<i class="fas fa-sort ml-1"></i></a></th>
+                        <th data-orderable="true" class="c_th_max_width"><a>Təklifin Haqqında Ru<i class="fas fa-sort ml-1"></i></a></th>
+                        <th data-orderable="true" class="c_th_max_width"><a>Təklifin Basliq Az<i class="fas fa-sort ml-1"></i></a></th>
+                        <th data-orderable="true" class="c_th_max_width"><a>Təklifin Basliq En<i class="fas fa-sort ml-1"></i></a></th>
+                        <th data-orderable="true" class="c_th_max_width"><a>Təklifin Basliq Ru<i class="fas fa-sort ml-1"></i></a></th>
+                        <th data-orderable="true" class="c_th_max_width"><a>Təklifin Şəkli<i class="fas fa-sort ml-1"></i></a></th>
+
 
                         <th data-orderable="false" class="c_operations" style="width: 53px!important;"><a>Operations</a></th>
 

@@ -30,10 +30,20 @@ class Panel_admin_page_contact extends MY_Controller{
         $this->table_name = "contact";
 
 //      sekilleri ve fayllari yukleyeceyimiz yer meselen: base_url("uploads/teachers/")
-        $this->upload_path = "";
+        $this->upload_path = "uploads/contact/";
 
 //      eger sekil veya file varsa tablenin hansi fieldinnen adini goturub papkadan silsin
-        $this->table_file_field_names = array("");
+        $this->table_file_field_names = array(
+            "phone_img",
+            "address_img",
+            "email_img",
+            "linkedln_img",
+            "facebook_img",
+            "instagram_img",
+            "youtube_img",
+            "twitter_img",
+            "whatsapp_img",
+        );
 
 //==============================================================================================
 
@@ -42,40 +52,89 @@ class Panel_admin_page_contact extends MY_Controller{
 
         $this->label_name_and_input_name = array(
 
+            "Adres Az" => "(group1)address_az",
+            "Adres En" => "(group1)address_en",
+            "Adres Ru" => "(group1)address_ru",
+            "Adres Iconu" => "address_img",
+
             "Telefon" => "phone",
-            "Adres" => "address",
+            "Telefon Iconu" => "phone_img",
+
             "E-poçt" => "email",
+            "E-poçt Iconu" => "email_img",
+
+            "Linkedln" => "linkedln",
+            "Linkedln Iconu" => "linkedln_img",
+
             "Facebook" => "facebook",
+            "Facebook Iconu" => "facebook_img",
+
             "Instagram" => "instagram",
+            "Instagram Iconu" => "instagram_img",
+
             "Youtube" => "youtube",
+            "Youtube Iconu" => "youtube_img",
+
             "Twitter" => "twitter",
+            "Twitter Iconu" => "twitter_img",
+
             "Whatsapp" => "whatsapp",
+            "Whatsapp Iconu" => "whatsapp_img",
+
+
+
 
         );
 
         $this->input_name_type = array(
 
             "phone" => "text",
-            "address" => "text",
+            "address_az" => "text",
+            "address_en" => "text",
+            "address_ru" => "text",
             "email" => "email",
+            "linkedln" => "text",
             "facebook" => "text",
             "instagram" => "text",
             "youtube" => "text",
             "twitter" => "text",
             "whatsapp" => "text",
 
+            "phone_img" => "file",
+            "address_img" => "file",
+            "email_img" => "file",
+            "linkedln_img" => "file",
+            "facebook_img" => "file",
+            "instagram_img" => "file",
+            "youtube_img" => "file",
+            "twitter_img" => "file",
+            "whatsapp_img" => "file",
+
         );
 
         $this->add_update_input_array = array(
 
             "phone" => "phone",
-            "address" => "address",
+            "address_az" => "address_az",
+            "address_en" => "address_en",
+            "address_ru" => "address_ru",
             "email" => "email",
+            "linkedln" => "linkedln",
             "facebook" => "facebook",
             "instagram" => "instagram",
             "youtube" => "youtube",
             "twitter" => "twitter",
             "whatsapp" => "whatsapp",
+
+            "phone_img" => "(file)phone_img",
+            "address_img" => "(file)address_img",
+            "email_img" => "(file)email_img",
+            "linkedln_img" => "(file)linkedln_img",
+            "facebook_img" => "(file)facebook_img",
+            "instagram_img" => "(file)instagram_img",
+            "youtube_img" => "(file)youtube_img",
+            "twitter_img" => "(file)twitter_img",
+            "whatsapp_img" => "(file)whatsapp_img",
 
         );
 

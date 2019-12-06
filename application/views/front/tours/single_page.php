@@ -43,6 +43,7 @@
 
 
 
+
 <!-- DETAIL WRAPPER -->
 <div class="detail-wrapper">
     <div class="container">
@@ -75,6 +76,14 @@
                     <div class="detail-top slider-wth-thumbs style-2">
 
                         <div class="swiper-container thumbnails-preview" data-autoplay="0" data-loop="1" data-speed="500" data-center="0" data-slides-per-view="1">
+
+                            <div class="c_wheater weth-icon style-2 bg-blue-light radius-3 fr" data-toggle="tooltip" title="<?php echo $tour["summary"]?>" class="color-white" data-placement="bottom">
+                                <img src="img/weather_icon_small.png" alt="">
+                                <div class="color-white">
+                                    <b>+<?php echo $tour["temperature"]?><sup>o</sup>C</b>
+                                </div>
+                            </div>
+
                             <div class="swiper-wrapper">
 
 
@@ -83,10 +92,12 @@
                                 </div>
 
 
+
                                 <?php $count = 1;
                                       foreach ($tour_gallery as $item){ ?>
 
                                           <div class="swiper-slide" data-val="<?php echo $count?>">
+
                                               <img style="height: 421px!important;" class="img-responsive img-full" src="<?php echo base_url("uploads/tour_gallery/$item[file]")?>" alt="">
                                           </div>
 
@@ -128,19 +139,7 @@
                     <!--Tour Detail-->
                     <div class="detail-content-block">
 
-                        <?php
-
-                            if ($this->session->userdata("dil") == "az"){
-                                echo $tour["desc_az"];
-                            }
-                            elseif ($this->session->userdata("dil") == "en"){
-                                echo $tour["desc_en"];
-                            }
-                            elseif ($this->session->userdata("dil") == "ru"){
-                                echo $tour["desc_ru"];
-                            }
-
-                        ?>
+                        <?php echo $tour["desc_$lang"]; ?>
 
                     </div>
                     <!--Tour Detail-->
@@ -151,7 +150,49 @@
 
             <!--Popular Tours and need help-->
             <div class="col-xs-12 col-md-4">
+
                 <div class="right-sidebar">
+
+                    <!--Course Detail-->
+                    <div class="detail-block bg-dr-blue">
+                        <h4 class="color-white"><?php echo $this->lang->line("details")?></h4>
+                        <div class="details-desc">
+
+                            <p class="color-grey-9"><?php echo $this->lang->line("tour_code")?>: <span class="color-white"><?php echo $tour["tour_code"]?></span></p>
+                            <p class="color-grey-9">
+                                <?php echo $this->lang->line("price")?>: 
+                                <span class="color-white"><?php echo $tour["tour_price"]?>$</span>
+                            </p>
+                            <p class="color-grey-9"><?php echo $this->lang->line("tour_date")?>: <span class="color-white"><?php echo $tour["date"]?> - <?php echo $tour["end_date"]?></span></p>
+                            <p class="color-grey-9"><?php echo $this->lang->line("click_times")?>: <span class="color-white"><?php echo $tour["click_times"]?></span></p>
+
+                            <div class="container-fluid">
+
+                                <div class="row">
+                                    <?php if (!empty($tour_includes)){ ?>
+                                        <p style="margin-bottom: 8px" class="color-grey-9"><?php echo $this->lang->line("tour_includes")?>:</p>
+                                    <?php }?>
+
+                                    <?php foreach ($tour_includes as $item){?>
+
+                                        <div class="col-md-6 c_tour_includes">
+                                            <img class="c_tour_includes_img" width="25px" height="25px" src="<?php echo base_url("uploads/tours_includes/$item[img]") ?>" alt="">
+                                            <span class="c_tour_includes_text"><?php echo $item["name_$lang"]?></span>
+                                        </div>
+
+                                    <?php }?>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="details-btn">
+                            <a href="#" class="c-button b-40 bg-tr-1 hv-white" data-toggle="modal" data-target="#myModal"><span><?php echo $this->lang->line("show_on_map")?></span></a>
+<!--                            <a href="#" class="c-button b-40 bg-white hv-transparent"><span>book now</span></a>-->
+                        </div>
+                    </div>
+                    <!--Course Detail-->
+
 
                     <!--Popular tours-->
                     <div class="popular-tours bg-grey-2">
@@ -197,7 +238,6 @@
 
                     </div>
                     <!--Popular tours-->
-
 
 
                     <!--Need Help?-->
@@ -254,6 +294,45 @@
         </div>
     </div>
 </div>
+
+
+
+<!-- The Modal -->
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">
+                    <?php echo $tour["name_$lang"]?>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </h4>
+            </div>
+
+
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div style="height: 500px" id="map"></div>
+            </div>
+
+            <script>
+                var map;
+                function initMap() {
+                    map = new google.maps.Map(document.getElementById('map'), {
+                        center: {lat: -34.397, lng: 150.644},
+                        zoom: 8
+                    });
+                }
+            </script>
+
+        </div>
+    </div>
+</div>
+
+
+
 
 <!--Footer-->
 <?php $this->load->view("front/includes/footer"); ?>

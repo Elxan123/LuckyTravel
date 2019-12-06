@@ -44,14 +44,15 @@ class Panel_admin_page_tours extends MY_Controller{
             "Tur Haqqında En" => "(group2)desc_en",
             "Tur Haqqında Ru" => "(group2)desc_ru",
 
-            "Turun Kodu" => "tour_code",
+
+            "Turun Başlama Tarixi" => "date",
+            "Turun Bitmə Tarixi" => "end_date",
 
 
-            "Turun Tarixi" => "date",
+            "Turun Yeri(Google mapdan linki götürüb buraya yapıştırın)" => "link",
 
             "Turun Qiyməti" => "tour_price",
 
-            "Turun Yerləşdirilmə Tarixi" => "upload_date",
 
             "Turun Şəkli" => "img",
 
@@ -63,17 +64,17 @@ class Panel_admin_page_tours extends MY_Controller{
             "name_en" => "text",
             "name_ru" => "text",
 
+            "link" => "text",
+
             "desc_az" => "editor",
             "desc_en" => "editor",
             "desc_ru" => "editor",
 
-            "tour_code" => "text",
-
             "img" => "file",
 
             "date" => "date",
+            "end_date" => "date",
 
-            "upload_date" => "date",
 
             "tour_price" => "number",
         );
@@ -92,14 +93,11 @@ class Panel_admin_page_tours extends MY_Controller{
             "desc_en" => "(editor)desc_en",
             "desc_ru" => "(editor)desc_ru",
 
-            "tour_code" => "tour_code",
-
-
             "img" => "(file)img",
 
             "date" => "date",
+            "end_date" => "end_date",
 
-            "upload_date" => "upload_date",
 
             "tour_price" => "tour_price",
         );
@@ -156,7 +154,8 @@ class Panel_admin_page_tours extends MY_Controller{
     {
 
         $config["additional_links"] = array(
-            "<i class=\"fas fa-images\"></i>" => "panel_admin_page_tour_gallery/index/"
+            "<i class=\"fas fa-images\"></i>" => "panel_admin_page_tour_gallery/index/",
+            "<i class=\"fas fa-eye\"></i>" => "Panel_admin_page_tours_tour_includes/index/",
         );
         $config["table_name"] = $this->table_name;
         $config["upload_path"] = $this->upload_path;
@@ -176,7 +175,19 @@ class Panel_admin_page_tours extends MY_Controller{
         $config["table_name"] = $this->table_name;
         $config["upload_path"] = $this->upload_path;
 
-        $this->insert_db($config);
+        $this->tours_insert_db($config);
+
+//        $this->insert_db($config);
+
+
+//        $json = file_get_contents("https://api.darksky.net/forecast/1f20fee5f95972b70d6beb9cc1859423/40.7634319,46.9988245?exclude=currently,flags");
+//
+//        //decode JSON to array
+//        $data = json_decode($json,true);
+//
+//        print_r("<pre>");
+//        print_r($data);
+
 
     }
 
@@ -212,7 +223,7 @@ class Panel_admin_page_tours extends MY_Controller{
         $config["table_name"]       = $this->table_name;
         $config["upload_path"]      = $this->upload_path;
 
-        $this->update_db($config);
+        $this->tours_update_db($config);
 
     }
 

@@ -22,6 +22,18 @@
         display: none;
     }
 
+    .c_row_create{
+        display: none;
+    }
+
+    .dt-buttons{
+        display: none;
+    }
+
+    #datatable_filter{
+        display: none;
+    }
+
 
 
 </style>
@@ -43,7 +55,7 @@
                         class="fas fa-columns mt-0"></i></button>
             </div>
 
-            <a class="white-text mx-3">Table name</a>
+            <a class="white-text mx-3">Haqqımızda bölməsi</a>
 
             <div style="visibility: hidden;">
                 <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2"><i
@@ -79,11 +91,12 @@
 
                         </th>
 
-                        <?php foreach ($field_names as $item) {?>
-                            <th data-orderable="true" class="c_th_max_width"><a><?php echo $item?><i class="fas fa-sort ml-1"></i></a></th>
-                        <?php }?>
+                            <th data-orderable="false" class="c_th_max_width"><a>id</a></th>
+                            <th data-orderable="false" class="c_th_max_width"><a>Haqqımızda AZ</a></th>
+                            <th data-orderable="false" class="c_th_max_width"><a>Haqqımızda En</a></th>
+                            <th data-orderable="false" class="c_th_max_width"><a>Haqqımızda Ru</a></th>
 
-                        <th data-orderable="false" class="c_operations" style="width: 53px!important;"><a>Operations</a></th>
+                        <th data-orderable="false" class="c_operations" style="width: 53px!important;"><a>Əməliyyatlar</a></th>
 
                     </tr>
                     </thead>
