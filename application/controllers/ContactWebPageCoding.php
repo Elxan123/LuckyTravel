@@ -24,6 +24,12 @@
      public function index()
      {
 
+         //bunnar butun controllerde ve metodlarda olmalidi
+         $data["last_offers"] = $this->Core->get_desc_limit("offers", 3);
+         $data["last_services"] = $this->Core->get_desc_limit("services", 3);
+         $data["contact"] = $this->Core->get_where_row(array("id"=>1), "contact");
+         //bunnar butun controllerde ve metodlarda olmalidi
+
          $data["contact"] = $this->Core->get_where_row(array("id" => 1), "contact");
 
 
@@ -32,6 +38,7 @@
 
      public function send_message()
      {
+
 
          $name=$this->input->post("user");
          $mail=$this->input->post("mail");

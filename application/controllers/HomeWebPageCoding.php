@@ -23,9 +23,13 @@
 
      public function index()
      {
+        //bunnar butun controllerde ve metodlarda olmalidi
+         $data["last_offers"] = $this->Core->get_desc_limit("offers", 3);
+         $data["last_services"] = $this->Core->get_desc_limit("services", 3);
+         $data["contact"] = $this->Core->get_where_row(array("id"=>1), "contact");
+         //bunnar butun controllerde ve metodlarda olmalidi
 
-
-         $this->load->view("$this->parent_folder/$this->sub_folder/whole_page");
+         $this->load->view("$this->parent_folder/$this->sub_folder/whole_page",$data);
      }
 
 

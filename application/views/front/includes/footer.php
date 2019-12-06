@@ -1,72 +1,83 @@
+<?php $lang = $this->session->userdata("dil")?>
+
 <footer class="bg-dark type-2">
     <div class="container">
         <div class="row">
+
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <div class="footer-block">
-                    <img src="<?php echo base_url("public/front/") ?>img/theme-1/loqo_png.png" alt="" class="logo-footer" style="    width: 200px; height: 220px;" >
-                    <div class="footer-share">
-                        <br>
-                        <a href="#"><span class="fa fa-facebook"></span></a>
-                        <a href="#"><span class="fa fa-twitter"></span></a>
-                        <a href="#"><span class="fa fa-instagram"></span></a>
-                        <a href="#"><span class="fa fa-google-plus"></span></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-sm-6 no-padding">
-                <div class="footer-block">
-                    <h6>Offers</h6>
-                    <div class="f_news clearfix">
-                        <a class="f_news-img black-hover" href="#">
-                            <img class="img-responsive" src="<?php echo base_url("public/front/") ?>img/home_6/news_1.jpg" alt="">
-                            <div class="tour-layer delay-1"></div>
-                        </a>
-                        <div class="f_news-content">
-                            <a class="f_news-tilte color-white link-red" href="#">amazing place</a>
-                            <span class="date-f">Mar 18, 2015</span>
-                            <a href="#" class="r-more">read more</a>
+                    <img src="<?php echo base_url("public/front/") ?>img/theme-1/loqo_png.png" alt="" class="logo-footer" style="
+                      display: block;
+                      margin-left: auto;
+                      margin-right: auto;
+                      float:none!important;
+                      width: 200px;
+                      height: 220px;" >
+
+                    <center>
+                        <div class="footer-share">
+                            <a style="float:none;" href="<?php echo $contact["facebook"]?>"><span class="fa fa-facebook"></span></a>
+                            <a style="float:none;" href="<?php echo $contact["twitter"]?>"><span class="fa fa-twitter"></span></a>
+                            <a style="float:none;" href="<?php echo $contact["instagram"]?>"><span class="fa fa-instagram"></span></a>
+                            <a style="float:none;" href="<?php echo $contact["linkedln"]?>"><span class="fa fa-linkedin"></span></a>
                         </div>
-                    </div>
-                    <div class="f_news clearfix">
-                        <a class="f_news-img black-hover" href="#">
-                            <img class="img-responsive" src="<?php echo base_url("public/front/") ?>img/home_6/news_2.jpg" alt="">
-                            <div class="tour-layer delay-1"></div>
-                        </a>
-                        <div class="f_news-content">
-                            <a class="f_news-tilte color-white link-red" href="#">amazing place</a>
-                            <span class="date-f">Mar 18, 2015</span>
-                            <a href="#" class="r-more">read more</a>
-                        </div>
-                    </div>
-                    <div class="f_news clearfix">
-                        <a class="f_news-img black-hover" href="#">
-                            <img class="img-responsive" src="<?php echo base_url("public/front/") ?>img/home_6/news_1.jpg" alt="">
-                            <div class="tour-layer delay-1"></div>
-                        </a>
-                        <div class="f_news-content">
-                            <a class="f_news-tilte color-white link-red" href="#">amazing place</a>
-                            <span class="date-f">Mar 18, 2015</span>
-                            <a href="#" class="r-more">read more</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <div class="footer-block">
+                    </center>
 
                 </div>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+
+            <div class="col-lg-3 col-md-3 col-sm-6 col-sm-6 no-padding" >
                 <div class="footer-block">
-                    <h6>Contact Info</h6>
+                    <h6><?php echo $this->lang->line("teklifler")?></h6>
+
+                    <?php foreach ($last_offers as $item) { ?>
+                        <div class="f_news clearfix">
+                            <a class="f_news-img black-hover" href="<?php echo base_url("$lang/offer/$item[id]")?>">
+                                <img class="img-responsive" src="<?php echo base_url("uploads/offers/$item[img]")?>" alt="">
+                                <div class="tour-layer delay-1"></div>
+                            </a>
+                            <div class="f_news-content">
+                                <a class="f_news-tilte color-white link-red" href="#"><?php echo $item["name_$lang"]?></a>
+                                <a href="#" class="r-more"><?php echo $this->lang->line("etrafli")?></a>
+                            </div>
+                        </div>
+                    <?php }?>
+
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-3 col-sm-6 col-sm-6 no-padding" >
+                <div class="footer-block">
+                    <h6><?php echo $this->lang->line("servisler")?></h6>
+
+                    <?php foreach ($last_services as $item) { ?>
+                        <div class="f_news clearfix">
+                            <a class="f_news-img black-hover" href="<?php echo base_url("$lang/service/$item[id]")?>">
+                                <img class="img-responsive" src="<?php echo base_url("uploads/services/$item[img]")?>" alt="">
+                                <div class="tour-layer delay-1"></div>
+                            </a>
+                            <div class="f_news-content">
+                                <a class="f_news-tilte color-white link-red" href="#"><?php echo $item["name_$lang"]?></a>
+                                <a href="#" class="r-more"><?php echo $this->lang->line("etrafli")?></a>
+                            </div>
+                        </div>
+                    <?php }?>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+
+                <div class="footer-block">
+                    <h6><?php echo $this->lang->line("elaqe")?></h6>
                     <div class="contact-info">
-                        <div class="contact-line color-grey-3"><i class="fa fa-map-marker"></i><span>Azerbaijan, Baku</span></div>
-                        <div class="contact-line color-grey-3"><i class="fa fa-phone"></i><a href="tel:93123456789">+93 123 456 789</a></div>
-                        <div class="contact-line color-grey-3"><i class="fa fa-envelope-o"></i><a href="mailto:">lucky_travel@mail.com</a></div>
-                        <div class="contact-line color-grey-3"><i class="fa fa-globe"></i><a href="#">lucky_travel@world.com</a></div>
+                        <div class="contact-line color-grey-3"><i class="fa fa-map-marker"></i><span><?php echo $contact["address_$lang"];?></span></div>
+                        <div class="contact-line color-grey-3"><i class="fa fa-phone"></i><a href="tel:93123456789"><?php echo $contact["phone"]?></a></div>
+                        <div class="contact-line color-grey-3"><i class="fa fa-envelope-o"></i><a href="mailto:"><?php echo $contact["email"]?></a></div>
+                        <div class="contact-line color-grey-3"><i class="fa fa-whatsapp"></i><a href="#"><?php echo $contact["whatsapp"]?></a></div>
 
                     </div>
                 </div>
+
             </div>
         </div>
     </div>

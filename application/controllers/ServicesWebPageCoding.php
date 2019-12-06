@@ -25,6 +25,12 @@
 
      public function index()
      {
+         //bunnar butun controllerde ve metodlarda olmalidi
+         $data["last_offers"] = $this->Core->get_desc_limit("offers", 3);
+         $data["last_services"] = $this->Core->get_desc_limit("services", 3);
+         $data["contact"] = $this->Core->get_where_row(array("id"=>1), "contact");
+         //bunnar butun controllerde ve metodlarda olmalidi
+
          $data["services"] = $this->Core->get_desc($this->table_name);
          $data["services_about"] = $this->Core->get_where_row(array("id" => 1), "services_about");
 
@@ -33,6 +39,12 @@
 
      public function single($lang, $id)
      {
+         //bunnar butun controllerde ve metodlarda olmalidi
+         $data["last_offers"] = $this->Core->get_desc_limit("offers", 3);
+         $data["last_services"] = $this->Core->get_desc_limit("services", 3);
+         $data["contact"] = $this->Core->get_where_row(array("id"=>1), "contact");
+         //bunnar butun controllerde ve metodlarda olmalidi
+
          $data["service"] = $this->Core->get_where_row(array("id" => $id), $this->table_name);
 
          $this->load->view("$this->parent_folder/$this->sub_folder/single_page", $data);

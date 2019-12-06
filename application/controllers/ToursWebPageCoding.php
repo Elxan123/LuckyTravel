@@ -25,6 +25,14 @@
 
      public function index()
      {
+
+
+         //bunnar butun controllerde ve metodlarda olmalidi
+         $data["last_offers"] = $this->Core->get_desc_limit("offers", 3);
+         $data["last_services"] = $this->Core->get_desc_limit("services", 3);
+         $data["contact"] = $this->Core->get_where_row(array("id"=>1), "contact");
+         //bunnar butun controllerde ve metodlarda olmalidi
+
          $this->session->unset_userdata("search_value");
          $this->session->unset_userdata("date_value");
          $this->session->unset_userdata("order_popularity");
@@ -33,6 +41,8 @@
          $this->session->unset_userdata("max_price");
 
          $data["total_tours"] = $this->Core->get_counts($this->table_name);
+         $data["highest_price"] = $this->Core->get_highest_price("tours");
+         $data["lowest_price"] = $this->Core->get_lowest_price("tours");
 
          $this->load->view("$this->parent_folder/$this->sub_folder/whole_page", $data);
      }

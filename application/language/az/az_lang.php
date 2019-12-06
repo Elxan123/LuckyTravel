@@ -47,6 +47,8 @@ $lang["sualiniz_var"] = "Sualınız var?";
 $lang["en_cox_verilen_sullar"] = "Ən Çox Verilən Suallar";
 $lang["teklifler"] = "Təkliflər";
 $lang["blog"] = "Bloq";
+$lang["tour_start_date"] = "Turun başlama tarixi";
+$lang["tour_end_date"] = "Turun bitmə tarixi";
 
 
 
@@ -56,7 +58,7 @@ $lang["desc"] = "Azalan";
 $lang["popularity"] = "Populyarlıq";
 $lang["view"] = "Görünüş";
 $lang["search"] = "Axtarış";
-$lang["write_tour_name"] = "Turun adını daxil edin";
+$lang["write_tour_name"] = "Turun adı";
 $lang["write_tour_date"] = "Tarixi Seçin";
 $lang["go_search"] = "Axtar";
 $lang["price_range"] = "Qİymət aralığı";

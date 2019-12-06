@@ -45,9 +45,17 @@
                             <div class="form-block clearfix">
                                 <div class="input-style-1 b-50 color-3">
                                     <img src="<?php echo base_url("public/front/")?>img/calendar_icon_grey.png" alt="">
-                                    <input  type="text" placeholder="<?php echo $this->lang->line("write_tour_date") ?>" class="datepicker c_date_value">
+                                    <input  type="text" placeholder="<?php echo $this->lang->line("tour_start_date") ?>" class="datepicker c_date_value">
                                 </div>
                             </div>
+
+<!--                            <div class="form-block clearfix">-->
+<!--                                <div class="input-style-1 b-50 color-3">-->
+<!--                                    <img src="--><?php //echo base_url("public/front/")?><!--img/calendar_icon_grey.png" alt="">-->
+<!--                                    <input  type="text" placeholder="--><?php //echo $this->lang->line("tour_end_date") ?><!--" class="datepicker c_date_end_value">-->
+<!--                                </div>-->
+<!--                            </div>-->
+
                         </div>
                         <input data-url="<?php echo base_url("$lang/load_data")?>" type="submit" class="c_search_submit c-button b-40 bg-blue-2 hv-blue-2-o" value="<?php echo $this->lang->line("go_search") ?>">
                     </div>
@@ -57,10 +65,10 @@
 <!--                    price range-->
                     <div class="sidebar-block c_refresh_price_range">
                         <h4 class="sidebar-title color-dark-2"><?php echo $this->lang->line("price_range") ?></h4>
-                        <div class="slider-range color-1 clearfix c_price_range_values" data-counter="" data-position="start" data-from="0" data-to="1000" data-min="0" data-max="1000">
+                        <div class="slider-range color-1 clearfix c_price_range_values" data-counter="" data-position="start" data-from="<?php echo $lowest_price["tour_price"]?>" data-to="<?php echo $highest_price["tour_price"]?>" data-min="<?php echo $lowest_price["tour_price"]?>" data-max="<?php echo $highest_price["tour_price"]?>">
                             <div class="range"></div>
-                            <input type="text" class="amount-start" readonly value="$0">
-                            <input type="text" class="amount-end" readonly value="$1500">
+                            <input type="text" class="amount-start" readonly value="$<?php echo $lowest_price["tour_price"]?>">
+                            <input type="text" class="amount-end" readonly value="$<?php echo $highest_price["tour_price"]?>">
                         </div>
                         <input type="submit" data-url="<?php echo base_url("$lang/load_data")?>" class="c_price_range c-button b-40 bg-blue-2 hv-blue-2-o" value="<?php echo $this->lang->line("go_search") ?>">
                     </div>

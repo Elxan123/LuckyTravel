@@ -21,7 +21,7 @@
                 <div class="col-xs-12 col-md-8 col-md-offset-2">
                     <ul class="banner-breadcrumb color-white clearfix">
                         <li><a class="link-blue-2" href="<?php echo base_url("$lang/home")?>"><?php echo $this->lang->line("ana_sehife")?></a> /</li>
-                        <li><a class="link-blue-2" href="<?php echo base_url("$lang/services")?>"><?php echo $this->lang->line("servisler")?></a> /</li>
+                        <li><a class="link-blue-2" href="<?php echo base_url("$lang/blogs_category")?>"><?php echo $this->lang->line("blog")?></a> /</li>
                         <li><span></span></li>
                     </ul>
                     <h2 class="color-white"><?php echo $this->lang->line("blog")?></h2>

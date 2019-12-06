@@ -221,6 +221,15 @@
         return $this->db->limit($limit, $count)->get($table_name)->result_array();
     }
 
+    public function get_highest_price($table_name)
+    {
+        return $this->db->order_by('tour_price','desc')->limit(1)->get('tours')->row_array('id');
+    }
+
+    public function get_lowest_price($table_name)
+    {
+        return $this->db->order_by('tour_price','ASC')->limit(1)->get('tours')->row_array('id');
+    }
 //==============================================BU sayt ucun lazim olan elave funksiyalar========================================
 
 

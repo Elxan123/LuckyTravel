@@ -25,6 +25,12 @@
 
      public function index()
      {
+         //bunnar butun controllerde ve metodlarda olmalidi
+         $data["last_offers"] = $this->Core->get_desc_limit("offers", 3);
+         $data["last_services"] = $this->Core->get_desc_limit("services", 3);
+         $data["contact"] = $this->Core->get_where_row(array("id"=>1), "contact");
+         //bunnar butun controllerde ve metodlarda olmalidi
+
          $data["blog_category"] = $this->Core->get_desc("blog_category");
 
          $this->load->view("$this->parent_folder/blogs_category/whole_page", $data);
@@ -33,6 +39,11 @@
      public function blogs($lang, $id)
      {
 
+         //bunnar butun controllerde ve metodlarda olmalidi
+         $data["last_offers"] = $this->Core->get_desc_limit("offers", 3);
+         $data["last_services"] = $this->Core->get_desc_limit("services", 3);
+         $data["contact"] = $this->Core->get_where_row(array("id"=>1), "contact");
+         //bunnar butun controllerde ve metodlarda olmalidi
          $where = array(
              "blog_category_id" => $id,
          );
@@ -92,6 +103,12 @@
 
      public function single_page($lang, $id)
      {
+         //bunnar butun controllerde ve metodlarda olmalidi
+         $data["last_offers"] = $this->Core->get_desc_limit("offers", 3);
+         $data["last_services"] = $this->Core->get_desc_limit("services", 3);
+         $data["contact"] = $this->Core->get_where_row(array("id"=>1), "contact");
+         //bunnar butun controllerde ve metodlarda olmalidi
+
          $data["blog"] = $this->Core->get_where_row(array("id" => $id), "blog");
 
          $this->load->view("$this->parent_folder/blog/single_page", $data);
